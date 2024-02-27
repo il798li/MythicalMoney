@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class JSONUtility {
     public static enum Files {
         Blacklisted,
-        Deletables,
+        Deletables, //srgurhsbu
         Profiles,
         Settings
     };
