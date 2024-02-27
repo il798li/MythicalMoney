@@ -20,7 +20,7 @@ public class Main {
         try {
             jda = JDABuilder.createDefault( token ()).build();
         } catch (LoginException loginException) {
-            System.out.println ("Could not login using token: " + token ());
+            System.out.println ("Could not login using token: \"" + token () + "\"");
         }
     }
 
