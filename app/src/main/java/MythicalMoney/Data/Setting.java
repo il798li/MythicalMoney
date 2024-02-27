@@ -1,4 +1,4 @@
-package MythicalMoney.DataHandlers;
+package MythicalMoney.Data;
 
 public class Setting {
     public long id;
