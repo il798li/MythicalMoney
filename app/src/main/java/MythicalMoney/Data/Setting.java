@@ -8,6 +8,8 @@ import org.json.JSONObject;
 import MythicalMoney.Main;
 import MythicalMoney.Utility.JSONUtility;
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.requests.restaction.MessageAction;
 
 public class Setting {
     public String guildID;
@@ -44,5 +46,23 @@ public class Setting {
             Setting setting = new Setting (guildID, compact, prefix);
             settings.add (setting);
         }
+    }
+
+    public static Setting find (String guildID) {
+        for (Setting setting : settings) {
+            if (setting.guildID.equals (guildID)) {
+                return setting;
+            }
+        }
+        Setting setting = new Setting (Main.jda.getGuildById (guildID));
+        return find (setting.guildID);
+    }
+
+    public static Setting find (Guild guild) {
+        return find (guild.getId ());
+    }
+
+    public static Setting find (Message message) {
+        return find (message.getGuild ());
     }
 }
