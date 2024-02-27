@@ -25,6 +25,11 @@ public class Main {
     }
 
     public static String token () {
-        return FileUtility.readFile ("app\\src\\main\\java\\MythicalMoney\\Token.txt");
+        String token = FileUtility.readFile ("app\\src\\main\\java\\MythicalMoney\\Token.txt");
+        if (token.contains ("\n")) {
+            String [] lines = token.split ("\n");
+            token = lines [0];
+        }
+        return token;
     }
 }
