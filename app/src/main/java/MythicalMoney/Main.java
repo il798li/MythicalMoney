@@ -5,6 +5,7 @@ package MythicalMoney;
 
 import javax.security.auth.login.LoginException;
 
+import MythicalMoney.Classes.Item;
 import MythicalMoney.Utility.FileUtility;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -16,20 +17,30 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        System.out.println ("\"" + token () + "\"");
+        Item.setup ();
         try {
+            System.out.println ("\tTrying to login...")
             jda = JDABuilder.createDefault( token ()).build();
+            System.out.println ("\tFinished logging in!");
         } catch (LoginException loginException) {
             System.out.println ("Could not login using token: \"" + token () + "\"");
         }
     }
 
     public static String token () {
-        String token = FileUtility.readFile ("app\\src\\main\\java\\MythicalMoney\\Token.txt");
+        String token = FileUtility.readFile ("Token.txt");
         if (token.contains ("\n")) {
             String [] lines = token.split ("\n");
             token = lines [0];
         }
         return token;
     }
+
+    /*public static void debug (String debug) {
+        System.out.println ("\tDebug: \"" + debug + "\"");
+    }
+    
+    public static void debug (int debug) {
+        debug ("" + debug);
+    }*/
 }
