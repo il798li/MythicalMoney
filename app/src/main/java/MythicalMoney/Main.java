@@ -3,13 +3,8 @@
  */
 package MythicalMoney;
 
-import javax.security.auth.login.LoginException;
-
-import MythicalMoney.Classes.Item;
-import MythicalMoney.Listeners.ReadyListener;
 import MythicalMoney.Utility.FileUtility;
 import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.JDABuilder;
 
 public class Main {
     public static JDA jda;

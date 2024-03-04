@@ -1,10 +1,6 @@
 package MythicalMoney.Classes;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import MythicalMoney.Utility.BasicUtility;
-
-import MythicalMoney.Main;
 
 public class Item {
     public static ArrayList <Item> items = new ArrayList <Item> ();

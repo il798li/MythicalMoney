@@ -9,7 +9,6 @@ import MythicalMoney.Main;
 import MythicalMoney.Utility.JSONUtility;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
-import net.dv8tion.jda.api.requests.restaction.MessageAction;
 
 public class Setting {
     public String guildID;
