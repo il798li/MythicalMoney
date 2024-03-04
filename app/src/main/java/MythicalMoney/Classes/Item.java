@@ -1,6 +1,8 @@
 package MythicalMoney.Classes;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import MythicalMoney.Utility.StringUtility;
 
 import MythicalMoney.Main;
 
@@ -22,13 +24,13 @@ public class Item {
     }
 
     public Item (String name, int price) {
-        String single = title (name);
+        String single = StringUtility.title (name);
         String plural = single + "s";
         this.initialize (name, single, plural, price);
     }
 
     public Item (String name, String plural, int price) {
-        String single = title (name);
+        String single = StringUtility.title (name);
         this.initialize (name, single, plural, price);
     }
 
@@ -36,25 +38,21 @@ public class Item {
         this.initialize (name, single, plural, price);
     }
 
-    public static String title (String text) {
-        final String letters = "abcdefghijklmnopqrstuvwxyz";
-        text = "1" + text.toLowerCase ();
-        boolean convert = false;
-        for (int index = 0; index < text.length () - 1; index++) {
-            String character = text.substring (index, index + 1);
-            if (letters.contains (character) == false) {
-                convert = true;
-            } else if (convert) {
-                text = text.substring (0, index) + character.toUpperCase () + text.substring (index + 1);
-                convert = false;
-            }
-        }
-        return text.substring (1);
-    }
-
     public static void setup () {
         Item gold = new Item ("gold", "Gold", "Gold", 1000);
-        Main.debug (gold.toString ());
+        Item sapphire = new Item ("sapphire", 5000);
+        Item emerald = new Item ("emerald", 1000);
+        Item ruby = new Item ("ruby", "Rubies", 25000);
+
+        Item bone = new Item ("bone", 1000);
+        Item mist = new Item ("mist", "Mist", 5000);
+        Item fang = new Item ("fang", 10000);
+        Item flamer = new Item ("flamer", 25000);
+
+        Item acacia = new Item ("acacia", "Acacia Wood", "Acacia Wood", 1000);
+        Item birch = new Item ("birch", "Birch Wood", "Birch Wood", 5000);
+        Item oak = new Item ("oak", "Oak Wood", "Oak Wood", 10000);
+        Item spruce = new Item ("spruce", "Spruce Wood", "Spruce Wood", 25000);
     }
 
     public String toString () {
@@ -64,5 +62,14 @@ public class Item {
         string += "Plural: \"" + this.plural + "\"\n";
         string += "Price: " + this.price;
         return string;
+    }
+
+    public static Item find (String name) {
+        for (Item item : items.subList (0, items.size ())) {
+            if (item.name.toLowerCase ().contains (name)) {
+                return item;
+            }
+        }
+        return null;
     }
 }

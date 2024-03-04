@@ -6,6 +6,7 @@ package MythicalMoney;
 import javax.security.auth.login.LoginException;
 
 import MythicalMoney.Classes.Item;
+import MythicalMoney.Listeners.ReadyListener;
 import MythicalMoney.Utility.FileUtility;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -17,14 +18,17 @@ public class Main {
     }
 
     public static void main(String[] args) {
+        debug ("Starting...");
         Item.setup ();
         try {
-            System.out.println ("\tTrying to login...")
+            debug ("Trying to login...");
             jda = JDABuilder.createDefault( token ()).build();
             System.out.println ("\tFinished logging in!");
         } catch (LoginException loginException) {
             System.out.println ("Could not login using token: \"" + token () + "\"");
         }
+
+        jda.addEventListener (new ReadyListener ());
     }
 
     public static String token () {
@@ -36,11 +40,11 @@ public class Main {
         return token;
     }
 
-    /*public static void debug (String debug) {
+    public static void debug (String debug) {
         System.out.println ("\tDebug: \"" + debug + "\"");
     }
     
     public static void debug (int debug) {
         debug ("" + debug);
-    }*/
+    }
 }

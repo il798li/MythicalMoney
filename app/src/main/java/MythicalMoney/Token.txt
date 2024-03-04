@@ -1,1 +1,1 @@
-When forking, paste your token here. Add nothing else. Just Ctrl/Cmd + V, then exit the file. Any additional stuff must be added on a new line, as everything on the first line will be assumed as the token.
+NzU4MDU4MzcwMjcxMDE5MDU5.GU14Hc.1LzThprMpxwRc6joVPGcyYPPPt9HkgtjWfPKFg
