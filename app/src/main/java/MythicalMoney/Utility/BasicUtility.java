@@ -1,6 +1,6 @@
 package MythicalMoney.Utility;
 
-public class StringUtility {
+public class BasicUtility {
     public static String title (String text) {
         final String letters = "abcdefghijklmnopqrstuvwxyz";
         text = "1" + text.toLowerCase ();

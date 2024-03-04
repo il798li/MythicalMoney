@@ -19,7 +19,7 @@ public class Main {
 
     public static void main(String[] args) {
         debug ("Starting...");
-        Item.setup ();
+        /*
         try {
             debug ("Trying to login...");
             jda = JDABuilder.createDefault( token ()).build();
@@ -29,6 +29,7 @@ public class Main {
         }
 
         jda.addEventListener (new ReadyListener ());
+        */
     }
 
     public static String token () {
