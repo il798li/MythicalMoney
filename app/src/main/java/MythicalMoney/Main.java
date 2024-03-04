@@ -44,6 +44,7 @@ public class Main {
 
     public static void debug (final String debug) {
         System.out.println ("\tDebug: \"" + debug + "\"");
+        final String test = "test success";
     }
     
     public static void debug (final int debug) {
