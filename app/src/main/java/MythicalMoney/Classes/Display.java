@@ -1,6 +1,6 @@
 package MythicalMoney.Classes;
 
-import MythicalMoney.Utility.BasicUtility;
+import MythicalMoney.Utility.BasicUtility; //
 
 public class Display {
     public String plural;
