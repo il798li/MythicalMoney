@@ -2,18 +2,14 @@ package MythicalMoney.Utility;
 
 import org.json.JSONObject;
 
-public class JSONUtility {
-    public static enum Files {
-        Blacklisted,
-        Deletables,
-        Profiles,
-        Settings
-    };
+import MythicalMoney.Enums.JSONFiles;
 
-    public static JSONObject load (Files fileNameTemplate) {
-        String fileName = "JSON\\" + fileNameTemplate.toString () + ".json";
-        String jsonData = FileUtility.readFile (fileName);
-        JSONObject jsonObject = new JSONObject (jsonData);
+public class JSONUtility {
+
+    public static JSONObject load (JSONFiles fileNameTemplate) {
+        final String fileName = "JSON\\" + fileNameTemplate.toString () + ".json";
+        final String jsonData = FileUtility.readFile (fileName);
+        final JSONObject jsonObject = new JSONObject (jsonData);
         return jsonObject;
     }
 }

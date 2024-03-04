@@ -41,7 +41,5 @@ public class Item {
             return;
         }
         setup = true;
-
-        new Item (new DisplayPlus ("Bone"), 250, new Obtainable (new Display ("Zombie"), ToolType.Weapon));
     }
 }

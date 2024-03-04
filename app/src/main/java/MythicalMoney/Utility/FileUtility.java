@@ -7,14 +7,14 @@ import java.util.Scanner;
 public class FileUtility {
     public static String readFile (String path) {
         path = "app\\src\\main\\java\\MythicalMoney\\" + path;
-        File file;
+        final File file;
         try {
             file = new File (path);
         } catch (NullPointerException nullPointerException) {
             return "";
         }
 
-        Scanner scanner;
+        final Scanner scanner;
         try {
             scanner = new Scanner (file);
         } catch (FileNotFoundException fileNotFoundException) {
