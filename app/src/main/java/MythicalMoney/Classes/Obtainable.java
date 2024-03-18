@@ -6,10 +6,10 @@ public class Obtainable {
     public Display display;
     public Tool tool;
 
-    public static final Obtainable copperOre = new Obtainable (new Display ("Copper Ore"), Tool.Pickaxe);     // 1,000
-    public static final Obtainable titaniumOre = new Obtainable (new Display ("Titanium Ore"), Tool.Pickaxe); // 5,000
-    public static final Obtainable goldOre = new Obtainable (new Display ("Gold Ore"), Tool.Pickaxe);         //10,000
-    public static final Obtainable diamondOre = new Obtainable (new Display ("Diamond Ore"), Tool.Pickaxe);   //25,000
+    public static final Obtainable copper = new Obtainable (new Display ("Copper Ore"), Tool.Pickaxe);     // 1,000
+    public static final Obtainable titanium = new Obtainable (new Display ("Titanium Ore"), Tool.Pickaxe); // 5,000
+    public static final Obtainable gold = new Obtainable (new Display ("Gold Ore"), Tool.Pickaxe);         //10,000
+    public static final Obtainable diamond = new Obtainable (new Display ("Diamond Ore"), Tool.Pickaxe);   //25,000
 
     public static final Obtainable zombie = new Obtainable (new Display ("Zombie"), Tool.Weapon);
     public static final Obtainable ghost = new Obtainable (new Display ("Ghost"), Tool.Weapon);
