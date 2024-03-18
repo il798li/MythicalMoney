@@ -20,6 +20,9 @@ public class Item {
 	public static final Item fang = new Item (new DisplayPlus ("Fang"), 10000, Obtainable.vampire);
 	public static final Item flamer = new Item (new DisplayPlus ("Flamer"), 25000, Obtainable.dragon);
 
+	public static final Item cherry = new Item (new DisplayPlus ("Cherry Wood", "Cherry Wood", "cherry"), 1000, Obtainable.cherry);
+	//public static final Item 
+
     public Item (final DisplayPlus display, final int price, final Obtainable obtainable) {
         this.display = display;
         this.price = price;
