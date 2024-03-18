@@ -33,8 +33,8 @@ public class Setting {
         return Main.jda.getGuildById (this.guildID);
     }
 
-    public static void load () {
-        JSONObject settingsJSON = JSONUtility.load (JSONUtility.Files.Settings);
+    public static void setup () {
+        JSONObject settingsJSON = JSONUtility.loadSettings ();
         Iterator <String> keys = settingsJSON.keys ();
 
         while (keys.hasNext ()) {
@@ -65,3 +65,4 @@ public class Setting {
         return find (message.getGuild ());
     }
 }
+

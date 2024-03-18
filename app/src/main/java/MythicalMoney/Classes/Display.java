@@ -1,14 +1,14 @@
 package MythicalMoney.Classes;
 
-import MythicalMoney.Utility.BasicUtility; //
+import MythicalMoney.Utility.BasicUtility;
 
 public class Display {
     public String plural;
     public String single;
 
     public Display (final String single, final String plural) {
-        this.single = BasicUtility.title (single);
-        this.plural = BasicUtility.title (plural);
+        this.single = single;
+        this.plural = plural;
     }
 
     public Display (final String single) {
@@ -25,3 +25,4 @@ public class Display {
         return "A single " + single + " or multiple " + plural;
     }
 }
+

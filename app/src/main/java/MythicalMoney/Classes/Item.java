@@ -40,6 +40,10 @@ public class Item {
         if (setup) {
             return;
         }
+
+        //new Item (new DisplayPlus (), 1000,)
+
         setup = true;
     }
 }
+

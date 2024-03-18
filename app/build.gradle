@@ -28,7 +28,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'Main'
+    mainClass = 'MythicalMoney.Main'
 }
 
 tasks.named('test') {
