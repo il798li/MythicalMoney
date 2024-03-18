@@ -10,6 +10,8 @@ public class Item {
     public Obtainable obtainable;
     public static boolean setup = false;
 
+	public static final Item copper = new Item (new DisplayPlus ("Copper", "Copper", "copper"), 1000, Obtainable.copperOre);
+
     public Item (final DisplayPlus display, final int price, final Obtainable obtainable) {
         this.display = display;
         this.price = price;
