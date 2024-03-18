@@ -15,6 +15,9 @@ public class Item {
 	public static final Item gold = new Item (new DisplayPlus ("Gold", "Gold", "gold"), 10000, Obtainable.gold);
 	public static final Item diamond = new Item (new DisplayPlus ("Diamond", "Diamond", "diamond"), 25000, Obtainable.diamond);
 
+	public static final Item bone = new Item (new DisplayPlus ("Bone"), 1000, Obtainable.zombie);
+	public static final Item mist = new Item (new DisplayPlus ("Mist", "Mist", "mist"), 5000, Obtainable.ghost);
+
     public Item (final DisplayPlus display, final int price, final Obtainable obtainable) {
         this.display = display;
         this.price = price;
