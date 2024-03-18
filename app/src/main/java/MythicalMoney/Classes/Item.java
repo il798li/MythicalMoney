@@ -11,8 +11,9 @@ public class Item {
     public static boolean setup = false;
 
 	public static final Item copper = new Item (new DisplayPlus ("Copper", "Copper", "copper"), 1000, Obtainable.copperOre);
-
-	public static final Item gold = new Item (new DisplayPlus ("Gold", "Gold", "gold"), 5000, Obtainable.goldOre);
+	public static final Item titanium = new Item (new DisplayPlus ("Titanium", "Titanium", "titanium"), 5000, Obtainable.titaniumOre);
+	public static final Item gold = new Item (new DisplayPlus ("Gold", "Gold", "gold"), 10000, Obtainable.goldOre);
+	public static final Item diamond = new Item (new DisplayPlus ("Diamond", "Diamond", "diamond"), 25000, Obtainable.diamondOre)
 
     public Item (final DisplayPlus display, final int price, final Obtainable obtainable) {
         this.display = display;
