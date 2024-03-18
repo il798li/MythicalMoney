@@ -21,7 +21,9 @@ public class Item {
 	public static final Item flamer = new Item (new DisplayPlus ("Flamer"), 25000, Obtainable.dragon);
 
 	public static final Item cherry = new Item (new DisplayPlus ("Cherry Wood", "Cherry Wood", "cherry"), 1000, Obtainable.cherry);
-	//public static final Item 
+	public static final Item maple = new Item (new DisplayPlus ("Maple Wood", "Maple Wood", "maple"), 5000, Obtainable.maple);
+	public static final Item oak = new Item (new DisplayPlus ("Oak Wood", "Oak Wood", "oak"), 10000, Obtainable.oak);
+	public static final Item sandal = new Item (new DisplayPlus ("Sandal Wood", "Sandal Wood", "sandal"), 25000, Obtainable.sandal);
 
     public Item (final DisplayPlus display, final int price, final Obtainable obtainable) {
         this.display = display;
