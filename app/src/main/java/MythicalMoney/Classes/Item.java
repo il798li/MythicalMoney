@@ -17,6 +17,8 @@ public class Item {
 
 	public static final Item bone = new Item (new DisplayPlus ("Bone"), 1000, Obtainable.zombie);
 	public static final Item mist = new Item (new DisplayPlus ("Mist", "Mist", "mist"), 5000, Obtainable.ghost);
+	public static final Item fang = new Item (new DisplayPlus ("Fang"), 10000, Obtainable.vampire);
+	public static final Item flamer = new Item (new DisplayPlus ("Flamer"), 25000, Obtainable.dragon);
 
     public Item (final DisplayPlus display, final int price, final Obtainable obtainable) {
         this.display = display;
