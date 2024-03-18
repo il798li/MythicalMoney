@@ -12,7 +12,7 @@ import net.dv8tion.jda.api.JDABuilder;
 
 public class Main {
     public String getGreeting() {
-        return "Hello World!\n\tFrom: Main.getGreeting()";
+        return "Hello World!\n\t- Main.getGreeting()";
     }
 
     public static JDA jda;
