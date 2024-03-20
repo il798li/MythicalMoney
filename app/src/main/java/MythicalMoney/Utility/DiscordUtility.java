@@ -8,9 +8,20 @@ import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
 public class DiscordUtility {
-    public static void embed (SlashCommandInteractionEvent slashCommandInteractionEvent) {
+    public static void embed (SlashCommandInteractionEvent slashCommandInteractionEvent, String [] names, String [] values) {
         EmbedBuilder embedBuilder = new EmbedBuilder ();
-        embedBuilder.setTitle ("Mythical Money");
+        final Setting setting = Setting.find (slashCommandInteractionEvent.getGuild ();
+		if (!setting.compact) {
+			embedBuilder.setTitle ("Mythical Money");
+		}
+		String description = description (slashCommandInteractionEvent);
+		for (int index = 0; index < names.length && index < values.length; index += 1) {
+			description += "\n\n**";
+			description += names [index];
+			description += "**\n";
+			description += values [index];
+		}
+		embedBuilder.setDescription (description);
     }
 
     public static String description (SlashCommandInteractionEvent slashCommandInteractionEvent) {
