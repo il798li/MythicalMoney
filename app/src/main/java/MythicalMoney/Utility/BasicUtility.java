@@ -20,7 +20,7 @@ public class BasicUtility {
     public static String indent (String string, int indent) {
         String indentString = "";
         for (indent = indent; indent > 0; indent--) {
-            indentString += "\t";
+            indentString += "> ";
         }
         string = indentString + string;
         string = string.replace ("\n", "\n" + indentString);
