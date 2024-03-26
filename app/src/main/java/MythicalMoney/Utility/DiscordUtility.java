@@ -23,6 +23,7 @@ public class DiscordUtility {
 			description += "**\n";
 			description += values [index];
 		}
+        description += "\n" + embedEnding (slashCommandInteractionEvent);
 		embedBuilder.setDescription (description);
     }
 
