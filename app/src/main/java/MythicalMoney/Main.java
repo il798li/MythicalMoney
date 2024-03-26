@@ -8,7 +8,9 @@ import javax.security.auth.login.LoginException;
 
 import MythicalMoney.Data.Inventory;
 import MythicalMoney.Listeners.ReadyListener;
+import MythicalMoney.Utility.DiscordUtility;
 import MythicalMoney.Utility.FileUtility;
+import MythicalMoney.Utility.DiscordUtility.TimestampFormat;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 
@@ -34,7 +36,7 @@ public class Main {
             exception.printStackTrace ();
         }
 
-        jda.addEventListener( new ReadyListener ());
+        jda.addEventListener (new ReadyListener ());
     }
 
     public static String token () {
@@ -60,6 +62,10 @@ public class Main {
     }
     
     public static void debug (final int debug) {
+        debug ("" + debug);
+    }
+
+    public static void debug (final long debug) {
         debug ("" + debug);
     }
 }
