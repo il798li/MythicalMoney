@@ -2,6 +2,8 @@ package MythicalMoney.Classes;
 
 import java.util.ArrayList;
 
+import MythicalMoney.Utility.BasicUtility;
+
 public class Obtainable {
     public Display display;
     public Tool tool;
@@ -66,7 +68,10 @@ public class Obtainable {
     public String toString () {
         String string = "Tool: ";
         string += this.tool.toString ();
-        string += this.display.toString ().replace ("\n", "\n\t");
+        {
+            string += "\nDisplay:\n";
+            string += BasicUtility.indent (this.display.toString ());
+        }
         return string;
     }
 }
