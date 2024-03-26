@@ -6,11 +6,8 @@ package MythicalMoney;
 import javax.security.auth.login.LoginException;
 
 
-import MythicalMoney.Data.Inventory;
 import MythicalMoney.Listeners.ReadyListener;
-import MythicalMoney.Utility.DiscordUtility;
 import MythicalMoney.Utility.FileUtility;
-import MythicalMoney.Utility.DiscordUtility.TimestampFormat;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 
