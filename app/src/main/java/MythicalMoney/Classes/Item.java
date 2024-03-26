@@ -83,8 +83,8 @@ public class Item {
             string += this.price;
         }
         {
-            string += "\nObtainable:";
-            string += this.obtainable.toString ().replace ("\n", "\n\t");
+            string += "\nObtainable:\n";
+            string += BasicUtility.indent (this.obtainable.toString ());
         }
         return string;
     }
