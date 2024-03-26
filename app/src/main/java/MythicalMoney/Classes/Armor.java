@@ -5,11 +5,21 @@ public class Armor {
 	public int defense;
 	public DisplayPlus display;
 
+	
+
 	public ArrayList <Armor> armors = new ArrayList <Armor> ();
 
 	public Armor (int health, int defense, DisplayPlus display) {
 		this.health = health;
 		this.defense = defense;
+		this.display = display;
+
+		armors.add (this);
+	}
+
+	public Armor (int health, DisplayPlus display) {
+		this.health = health;
+		this.defense = 0;
 		this.display = display;
 
 		armors.add (this);
