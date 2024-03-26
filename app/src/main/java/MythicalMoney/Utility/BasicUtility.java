@@ -20,7 +20,7 @@ public class BasicUtility {
     public static String indent (String string, int indent) {
         String indentString = "";
         for (indent = indent; indent > 0; indent--) {
-            indentString += "> ";
+            indentString += "    ";
         }
         string = indentString + string;
         string = string.replace ("\n", "\n" + indentString);
@@ -29,5 +29,13 @@ public class BasicUtility {
 
     public static String indent (String string) {
         return indent (string, 1);
+    }
+
+    public static String multiplyString (final String string, int multiplier) {
+        String multipliedString = "";
+        for (; multiplier > 0; multiplier--) {
+            multipliedString += string;
+        }
+        return multipliedString;
     }
 }
