@@ -2,6 +2,8 @@ package MythicalMoney.Classes;
 
 import java.util.ArrayList;
 
+import MythicalMoney.Utility.BasicUtility;
+
 public class Item {
     public static ArrayList <Item> items = new ArrayList <Item> ();
 
@@ -75,7 +77,7 @@ public class Item {
 
     public String toString () {
         String string = "Display:\n";
-        string += this.display.toString().replace ("\n", "\n\t");
+        string += BasicUtility.indent (this.display.toString ());
         {
             string += "\nPrice: ";
             string += this.price;
