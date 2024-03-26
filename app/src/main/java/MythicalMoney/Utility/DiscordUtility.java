@@ -107,4 +107,16 @@ public class DiscordUtility {
         }
         return "";
     }
+
+    public static String timestamp (TimestampFormat timestampFormat) {
+        String timestamp = "<t:";
+        timestamp += timestamp ();
+        String timestampSuffix = ":" + timestampSuffix (timestampFormat);
+        if (timestampSuffix.length () == 1) {
+            timestampSuffix = "";
+        }
+        timestamp += timestampSuffix;
+        timestamp += ">";
+        return timestamp;
+    }
 }
