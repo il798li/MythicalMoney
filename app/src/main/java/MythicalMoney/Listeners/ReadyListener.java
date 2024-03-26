@@ -2,12 +2,10 @@ package MythicalMoney.Listeners;
 
 import MythicalMoney.Main;
 import MythicalMoney.Classes.Item;
-import MythicalMoney.Utility.DiscordUtility;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
-import net.dv8tion.jda.api.requests.restaction.CommandCreateAction;
 
 public class ReadyListener extends ListenerAdapter {
 
