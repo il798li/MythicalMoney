@@ -46,13 +46,17 @@ public class Obtainable {
     }
 
     public static Obtainable [] toList () {
-        final int size = obtainables.size ();
-        Obtainable [] obtainableList = new Obtainable [size];
-        for (int index = 0; index < size; index++) {
-            obtainableList [index] = obtainables.get (index);
-        }
-        return obtainableList;
+        return toList (obtainables);
     }
+
+	public static Obtainable [] toList (final ArrayList <Obtainable> obtainableArrayList) {
+		Obtainable obtainableList = new Obtainable [obtainableArrayList.size ()];
+		for (int index = 0; index < obtainableList.length; index++) {
+			obtainableList [index] = obtainableArrayList.get (index);
+		}
+		return obtainableList ();
+	}
+	
 
     public static Obtainable find (String name) {
         name = name.toLowerCase ();
@@ -74,4 +78,8 @@ public class Obtainable {
         }
         return string;
     }
+
+	public Obtainable [] get (Tool tool) {
+		Obtainable [] obtainables = toList ();
+		for (Obtainable o
 }
