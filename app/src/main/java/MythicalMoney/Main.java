@@ -20,7 +20,7 @@ public class Main {
     public static JDA jda;
 
     public static void main(String[] args) {
-        debug ("New Program has started...\nHi!");
+        debug ("New Program has started.");
         final String token = token ();
         try {
             debug ("Trying to login...");
