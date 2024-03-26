@@ -1,5 +1,6 @@
 {
     "java.configuration.updateBuildConfiguration": "automatic",
     "java.debug.settings.onBuildFailureProceed": true,
-    "vscord.enabled": true
+    "vscord.enabled": true,
+    "java.dependency.packagePresentation": "hierarchical"
 }

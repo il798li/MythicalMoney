@@ -1,4 +1,8 @@
-package Data.Inventory;
+package MythicalMoney.Data;
+
+import org.json.JSONObject;
+
+import MythicalMoney.Classes.Item;
 
 public class Inventory {
 	public int [] items;
@@ -6,7 +10,7 @@ public class Inventory {
 	
 	public Inventory () {
 		this.items = new int [totalItems];
-		for (int index = 0; index < items.size; index += 1) {
+		for (int index = 0; index < items.length; index += 1) {
 			this.items [index] = 0;
 		}
 	}

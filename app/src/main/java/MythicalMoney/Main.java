@@ -5,6 +5,8 @@ package MythicalMoney;
 
 import javax.security.auth.login.LoginException;
 
+
+import MythicalMoney.Data.Inventory;
 import MythicalMoney.Listeners.ReadyListener;
 import MythicalMoney.Utility.FileUtility;
 import net.dv8tion.jda.api.JDA;
@@ -12,13 +14,16 @@ import net.dv8tion.jda.api.JDABuilder;
 
 public class Main {
     public String getGreeting() {
-        return "Hello World!\n\t- Main.getGreeting()";
+        return "Hello World!\n\t- Main.getGreeting";
     }
 
     public static JDA jda;
 
     public static void main(String[] args) {
         debug ("New Program has started...");
+        
+        debug (Inventory.totalItems);
+
         final String token = token ();
         try {
             debug ("Trying to login...");
