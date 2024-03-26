@@ -16,7 +16,7 @@ public class DiscordUtility {
 		if (setting.compact == false) {
 			embedBuilder.setTitle ("Mythical Money");
 		}
-		String description = description (slashCommandInteractionEvent);
+		String description = embedDescription (slashCommandInteractionEvent);
 		for (int index = 0; index < names.length && index < values.length; index += 1) {
 			description += "\n\n**";
 			description += names [index];
@@ -26,7 +26,7 @@ public class DiscordUtility {
 		embedBuilder.setDescription (description);
     }
 
-    public static String description (SlashCommandInteractionEvent slashCommandInteractionEvent) {
+    public static String embedDescription (SlashCommandInteractionEvent slashCommandInteractionEvent) {
         Guild guild = slashCommandInteractionEvent.getGuild ();
         if (guild == null) {
             return "_ _";
@@ -56,6 +56,23 @@ public class DiscordUtility {
         }
         description += "**.";
         return description;
+    }
+
+    public static String embedEnding (SlashCommandInteractionEvent slashCommandInteractionEvent) {
+        final Guild guild = slashCommandInteractionEvent.getGuild ();
+        final Setting setting = Setting.find (guild);
+        if (setting.compact) {
+            return "";
+        }
+
+        String ending = "\nThis embed was sent on ";
+        ending += timestamp (TimestampFormat.relative);
+        ending += " at ";
+        ending += timestamp (TimestampFormat.accurateTime);
+        ending += " on ";
+        ending += timestamp (TimestampFormat.accurateDate);
+        ending += ".";
+        return ending;
     }
 
     public static String cancelMarkdown (final String string) {
@@ -119,4 +136,6 @@ public class DiscordUtility {
         timestamp += ">";
         return timestamp;
     }
+
+
 }
