@@ -10,7 +10,7 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 public class DiscordUtility {
     public static void embed (SlashCommandInteractionEvent slashCommandInteractionEvent, String [] names, String [] values) {
         EmbedBuilder embedBuilder = new EmbedBuilder ();
-        final Setting setting = Setting.find (slashCommandInteractionEvent.getGuild ();
+        final Setting setting = Setting.find (slashCommandInteractionEvent.getGuild ());
 		if (!setting.compact) {
 			embedBuilder.setTitle ("Mythical Money");
 		}

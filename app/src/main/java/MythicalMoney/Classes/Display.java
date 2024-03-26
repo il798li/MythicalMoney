@@ -22,7 +22,12 @@ public class Display {
     }
 
     public String toString () {
-        return "A single " + single + " or multiple " + plural;
+        String string = "Single: ";
+        string += single;
+        string += "\nPlural: ";
+        string += plural;
+        
+        return string;
     }
 }
 

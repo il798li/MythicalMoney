@@ -14,16 +14,13 @@ import net.dv8tion.jda.api.JDABuilder;
 
 public class Main {
     public String getGreeting() {
-        return "Hello World!\n\t- Main.getGreeting";
+        return "\nHello World!\n\t- Main.getGreeting";
     }
 
     public static JDA jda;
 
     public static void main(String[] args) {
-        debug ("New Program has started...");
-        
-        debug (Inventory.totalItems);
-
+        debug ("New Program has started...\nHi!");
         final String token = token ();
         try {
             debug ("Trying to login...");
@@ -49,7 +46,17 @@ public class Main {
     }
 
     public static void debug (final String debug) {
-        System.out.println ("\tDebug: " + debug);
+        final String startingString = "\tDebug: ";
+
+        String formattedDebug = startingString;
+        for (int index = 0; index < debug.length (); index++) {
+            String character = debug.charAt (index) + "";
+            if (character.equals ("\n")) {
+                character += startingString;
+            }
+            formattedDebug += character;
+        }
+        System.out.println (formattedDebug);
     }
     
     public static void debug (final int debug) {

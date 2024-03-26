@@ -1,6 +1,7 @@
 package MythicalMoney.Listeners;
 
 import MythicalMoney.Main;
+import MythicalMoney.Classes.Item;
 import MythicalMoney.Utility.DiscordUtility;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
@@ -16,6 +17,7 @@ public class ReadyListener extends ListenerAdapter {
         final JDA jda = readyEvent.getJDA ();
         final String name = jda.getSelfUser ().getName ();
         Main.debug ("Successfully signed in as " + name + "!");
+        Main.debug (Item.toList() [1].toString ());
 
         mmGuild = jda.getGuildById (834113328459677747L);        
     }

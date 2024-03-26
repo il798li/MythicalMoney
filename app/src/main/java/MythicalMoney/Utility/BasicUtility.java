@@ -16,4 +16,18 @@ public class BasicUtility {
         }
         return text.substring (1);
     }
+
+    public static String indent (String string, int indent) {
+        String indentString = "";
+        for (indent = indent; indent > 0; indent--) {
+            indentString += "\t";
+        }
+        string = indentString + string;
+        string = string.replace ("\n", "\n" + indentString);
+        return string;
+    }
+
+    public static String indent (String string) {
+        return indent (string, 1);
+    }
 }

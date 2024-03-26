@@ -28,4 +28,10 @@ public class DisplayPlus extends Display {
         super (display);
         this.name = super.single.toLowerCase ();
     }
+
+    public String toString () {
+        String string = super.toString ();
+        string += "\nName: " + this.name;
+        return string;
+    }
 }

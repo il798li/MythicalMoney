@@ -6,6 +6,8 @@ public class Obtainable {
     public Display display;
     public Tool tool;
 
+    public static ArrayList <Obtainable> obtainables = new ArrayList <Obtainable> ();
+
     public static final Obtainable copper = new Obtainable (new Display ("Copper Ore"), Tool.Pickaxe);     // 1,000
     public static final Obtainable titanium = new Obtainable (new Display ("Titanium Ore"), Tool.Pickaxe); // 5,000
     public static final Obtainable gold = new Obtainable (new Display ("Gold Ore"), Tool.Pickaxe);         //10,000
@@ -21,7 +23,6 @@ public class Obtainable {
     public static final Obtainable oak = new Obtainable (new Display ("Oak Tree"), Tool.Axe);
     public static final Obtainable sandal = new Obtainable(new Display ("Sandalwood Tree"), Tool.Axe);
 
-    public static ArrayList <Obtainable> obtainables = new ArrayList <Obtainable> ();
 
     public static enum Tool {
         Weapon,
@@ -60,5 +61,12 @@ public class Obtainable {
             }
         }
         return null;
+    }
+
+    public String toString () {
+        String string = "Tool: ";
+        string += this.tool.toString ();
+        string += this.display.toString ().replace ("\n", "\n\t");
+        return string;
     }
 }

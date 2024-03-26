@@ -51,14 +51,40 @@ public class Item {
         return null;
     }
 
+    public static int indexOf (final String name) {
+        final Item [] items = toList ();
+        for (int index = 0; index < items.length; index++) {
+            Item item = items [index];
+            if (item.display.name.equals (name)) {
+                return index;
+            }
+        }
+        return -1;
+    }
+
+    public static int indexOf (final Item item) {
+        return indexOf (item.display.name);
+    }
+
     public static void setup () {
         if (setup) {
             return;
         }
-
-        //new Item (new DisplayPlus (), 1000,)
-
         setup = true;
+    }
+
+    public String toString () {
+        String string = "Display:\n";
+        string += this.display.toString().replace ("\n", "\n\t");
+        {
+            string += "\nPrice: ";
+            string += this.price;
+        }
+        {
+            string += "\nObtainable:";
+            string += this.obtainable.toString ().replace ("\n", "\n\t");
+        }
+        return string;
     }
 }
 
