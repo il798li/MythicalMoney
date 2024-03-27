@@ -5,11 +5,16 @@ public class Armor {
 	public int defense;
 	public DisplayPlus display;
 
-	
-
 	public ArrayList <Armor> armors = new ArrayList <Armor> ();
 
-	public Armor (int health, int defense, DisplayPlus display) {
+
+	public static enum ArmorType {
+		Helmet,
+		Chestplate,
+		Leggings
+		Boots
+	}
+	public Armor (int health, int defense, DisplayPlus display, Armor armor) {
 		this.health = health;
 		this.defense = defense;
 		this.display = display;
