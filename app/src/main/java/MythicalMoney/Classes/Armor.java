@@ -1,17 +1,18 @@
 package MythicalMoney.Classes;
 
+import java.util.ArrayList;
+
 public class Armor {
 	public int health;
 	public int defense;
 	public DisplayPlus display;
 
-	public ArrayList <Armor> armors = new ArrayList <Armor> ();
-
+	public static ArrayList <Armor> armors = new ArrayList <Armor> ();
 
 	public static enum ArmorType {
 		Helmet,
 		Chestplate,
-		Leggings
+		Leggings,
 		Boots
 	}
 	public Armor (int health, int defense, DisplayPlus display, Armor armor) {
@@ -34,7 +35,7 @@ public class Armor {
 		final int size = armors.size ();
 		for (int index = 0; index < size; index++) {
 			final Armor armor = armors.get (index);
-			if (armor.display.name.equals (name) {
+			if (armor.display.name.equals (name)) {
 				return index;
 			}
 		}
