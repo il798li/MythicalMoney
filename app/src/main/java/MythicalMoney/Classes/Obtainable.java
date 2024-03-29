@@ -50,11 +50,11 @@ public class Obtainable {
     }
 
 	public static Obtainable [] toList (final ArrayList <Obtainable> obtainableArrayList) {
-		Obtainable obtainableList = new Obtainable [obtainableArrayList.size ()];
+		Obtainable [] obtainableList = new Obtainable [obtainableArrayList.size ()];
 		for (int index = 0; index < obtainableList.length; index++) {
 			obtainableList [index] = obtainableArrayList.get (index);
 		}
-		return obtainableList ();
+		return obtainableList;
 	}
 	
 
@@ -81,5 +81,8 @@ public class Obtainable {
 
 	public Obtainable [] get (Tool tool) {
 		Obtainable [] obtainables = toList ();
-		for (Obtainable o
+        ArrayList <Obtainable> toolObtainables = new ArrayList <Obtainable> ();
+		for (Obtainable obtainable : obtainables) {
+
+        }
 }

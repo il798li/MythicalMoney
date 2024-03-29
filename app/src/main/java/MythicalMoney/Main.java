@@ -5,7 +5,6 @@ package MythicalMoney;
 
 import javax.security.auth.login.LoginException;
 
-
 import MythicalMoney.Listeners.ReadyListener;
 import MythicalMoney.Utility.FileUtility;
 import net.dv8tion.jda.api.JDA;
