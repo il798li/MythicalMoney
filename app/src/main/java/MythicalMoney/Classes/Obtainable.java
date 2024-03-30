@@ -79,10 +79,13 @@ public class Obtainable {
         return string;
     }
 
-	public Obtainable [] get (Tool tool) {
-		Obtainable [] obtainables = toList ();
+	public static Obtainable [] get (Tool tool) {
         ArrayList <Obtainable> toolObtainables = new ArrayList <Obtainable> ();
 		for (Obtainable obtainable : obtainables) {
-
+            if (obtainable.tool == tool) {
+                toolObtainables.add (obtainable);
+            }
         }
+        return toList (obtainables);
+    }
 }
