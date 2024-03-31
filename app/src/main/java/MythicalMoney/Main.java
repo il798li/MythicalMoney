@@ -5,7 +5,9 @@ package MythicalMoney;
 
 import javax.security.auth.login.LoginException;
 
-import MythicalMoney.Listeners.ReadyListener;
+import MythicalMoney.Data.Setting;
+import MythicalMoney.Listeners.Ready;
+import MythicalMoney.Listeners.SlashCommand;
 import MythicalMoney.Utility.FileUtility;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -32,7 +34,12 @@ public class Main {
             exception.printStackTrace ();
         }
 
-        jda.addEventListener (new ReadyListener ());
+        {
+            Setting.setup ();
+        }
+
+        jda.addEventListener (new Ready ());
+        jda.addEventListener (new SlashCommand ());
     }
 
     public static String token () {
