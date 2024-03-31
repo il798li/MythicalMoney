@@ -4,21 +4,23 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import MythicalMoney.Main;
+
 public class FileUtility {
     public static String readFile (String path) {
         path = "app\\src\\main\\java\\MythicalMoney\\" + path;
-        final File file;
+        File file;
         try {
             file = new File (path);
         } catch (NullPointerException nullPointerException) {
+            Main.debug ("Exception: NullPointerException");
             return "";
         }
-
-        final Scanner scanner;
+        Scanner scanner;
         try {
             scanner = new Scanner (file);
         } catch (FileNotFoundException fileNotFoundException) {
-            return "";
+            return "Exception: FileNotFoundException";
         }
 
         String content = "";
