@@ -2,6 +2,8 @@ package MythicalMoney.Utility;
 
 import org.json.JSONObject;
 
+import MythicalMoney.Main;
+
 public class JSONUtility {
 
     private static JSONObject load (String fileNameTemplate) {
@@ -10,7 +12,6 @@ public class JSONUtility {
         final JSONObject jsonObject = new JSONObject (jsonData);
         return jsonObject;
     }
-
     public static JSONObject loadBlacklisted () {
         return load ("Blacklisted");
     }
@@ -24,6 +25,6 @@ public class JSONUtility {
     }
 
     public static JSONObject loadSettings () {
-        return load ("Settngs");
+        return load ("Settings");
     }
 }

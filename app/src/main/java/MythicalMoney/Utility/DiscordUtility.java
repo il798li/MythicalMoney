@@ -1,16 +1,30 @@
 package MythicalMoney.Utility;
 
 import MythicalMoney.Main;
+import MythicalMoney.Classes.Display;
 import MythicalMoney.Data.Setting;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageChannel;
+import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+import net.dv8tion.jda.api.interactions.InteractionHook;
+import net.dv8tion.jda.api.interactions.components.ActionRow;
+import net.dv8tion.jda.api.interactions.components.buttons.Button;
+import net.dv8tion.jda.api.requests.restaction.interactions.ReplyCallbackAction;
+
 import java.time.Instant;
 
+import java.awt.Color;
+
 public class DiscordUtility {
-    public static void embed (SlashCommandInteractionEvent slashCommandInteractionEvent, String [] names, String [] values) {
+
+    public static final Color blurple = new Color (114, 137, 218);
+
+    public static MessageEmbed embed (SlashCommandInteractionEvent slashCommandInteractionEvent, String [] names, String [] values) {
         EmbedBuilder embedBuilder = new EmbedBuilder ();
         final Setting setting = Setting.find (slashCommandInteractionEvent.getGuild ());
 		if (setting.compact == false) {
@@ -22,13 +36,17 @@ public class DiscordUtility {
 			description += names [index];
 			description += "**\n";
 			description += values [index];
-		}
+        }
         description += "\n" + embedEnding (slashCommandInteractionEvent);
 		embedBuilder.setDescription (description);
+        embedBuilder.setColor (blurple);
+        MessageEmbed embed = embedBuilder.build ();
+        return embed;
     }
 
     public static String embedDescription (SlashCommandInteractionEvent slashCommandInteractionEvent) {
         Guild guild = slashCommandInteractionEvent.getGuild ();
+        Main.debug ("" + Setting.find (slashCommandInteractionEvent.getGuild ()).toString ());
         if (guild == null) {
             return "_ _";
         }
@@ -66,7 +84,7 @@ public class DiscordUtility {
             return "";
         }
 
-        String ending = "\nThis embed was sent on ";
+        String ending = "\nThis embed was sent ";
         ending += timestamp (TimestampFormat.relative);
         ending += " at ";
         ending += timestamp (TimestampFormat.accurateTime);
@@ -92,7 +110,6 @@ public class DiscordUtility {
     public static long timestamp () {
         Instant now = Instant.now ();
         long timestamp = now.toEpochMilli () / 1000;
-        Main.debug (timestamp);
         return timestamp;
     }
 
@@ -138,5 +155,25 @@ public class DiscordUtility {
         return timestamp;
     }
 
-
+    public static void deletable (SlashCommandInteractionEvent slashCommandInteractionEvent, Display [] displays, boolean deletable) {
+        MessageBuilder messageBuilder = new MessageBuilder ();
+        {
+            String [] names = new String [displays.length];
+            String [] values = new String [displays.length];
+            for (int index = 0; index < displays.length; index++) {
+                names [index] = displays [0].single;
+                values [index] = displays [0].plural;
+            }
+            MessageEmbed embed = embed(slashCommandInteractionEvent, names, values);
+            messageBuilder.setEmbeds (embed);
+        }
+        {
+            Display display = new Display ("Delete", "delete");
+            Button delete = display.button ();
+            ActionRow actionRow = ActionRow.of (delete);
+            messageBuilder.setActionRows(actionRow);
+        }
+        InteractionHook interactionHook = slashCommandInteractionEvent.getHook ();
+        interactionHook.sendMessage (messageBuilder.build ()).queue ();
+    }
 }

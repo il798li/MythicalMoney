@@ -27,4 +27,15 @@ public class Property {
         }
         return propertyList;
     }
+
+    public static Property [] get (final Tool tool) {
+        ArrayList <Property> toolProperties = new ArrayList <Property> ();
+        for (Property property : properties) {
+            if (property.tool == tool) {
+                toolProperties.add (property);
+            }
+        }
+        final Property [] toolPropertiesList = toList (toolProperties);
+        return toolPropertiesList;
+    }
 }
