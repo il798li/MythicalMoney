@@ -21,12 +21,16 @@ public class Setting {
         this.guildID = guildID;
         this.compact = compact;
         this.prefix = prefix;
+
+        settings.add (this);
     }
 
     public Setting (Guild guild) {
         this.guildID = guild.getId ();
         this.compact = true;
         this.prefix = "mm";
+
+        settings.add (this);
     }
 
     public Guild guild () {
@@ -42,8 +46,7 @@ public class Setting {
             JSONObject guildSettingsJSON = settingsJSON.getJSONObject (guildID);
             boolean compact = guildSettingsJSON.getBoolean ("compact");
             String prefix = guildSettingsJSON.getString ("prefix");
-            Setting setting = new Setting (guildID, compact, prefix);
-            settings.add (setting);
+            new Setting (guildID, compact, prefix).toString ();
         }
     }
 
@@ -53,6 +56,7 @@ public class Setting {
                 return setting;
             }
         }
+        Main.debug ("Setting for " + guildID + " was not found.");
         Setting setting = new Setting (Main.jda.getGuildById (guildID));
         return find (setting.guildID);
     }
@@ -63,6 +67,33 @@ public class Setting {
 
     public static Setting find (Message message) {
         return find (message.getGuild ());
+    }
+
+    public String toString () {
+        String string = "";
+        {
+            final String guildID = this.guildID;
+            string += "Guild ID: ";
+            string += guildID;
+        }
+        string += "\n";
+        {
+            final boolean compact = this.compact;
+            string += "Compact: ";
+            if (compact) {
+                string += "true";
+            } else {
+                string += "false";
+            }
+        }
+        string += "\n";
+        {
+            final String prefix = this.prefix;
+            string += "Prefix: \"";
+            string += prefix;
+            string += "\"";
+        }
+        return string;
     }
 }
 
