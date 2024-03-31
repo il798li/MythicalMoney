@@ -19,7 +19,7 @@ public class BasicUtility {
 
     public static String indent (String string, int indent) {
         String indentString = "";
-        for (indent = indent; indent > 0; indent--) {
+        for (; indent > 0; indent--) {
             indentString += "    ";
         }
         string = indentString + string;
@@ -37,5 +37,12 @@ public class BasicUtility {
             multipliedString += string;
         }
         return multipliedString;
+    }
+
+    public static int smaller (final int number1, final int number2) {
+        if (number1 < number2) {
+            return number1;
+        }
+        return number2;
     }
 }
