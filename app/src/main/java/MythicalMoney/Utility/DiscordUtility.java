@@ -46,7 +46,6 @@ public class DiscordUtility {
 
     public static String embedDescription (SlashCommandInteractionEvent slashCommandInteractionEvent) {
         Guild guild = slashCommandInteractionEvent.getGuild ();
-        Main.debug ("" + Setting.find (slashCommandInteractionEvent.getGuild ()).toString ());
         if (guild == null) {
             return "_ _";
         }

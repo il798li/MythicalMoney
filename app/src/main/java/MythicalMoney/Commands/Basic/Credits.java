@@ -8,6 +8,7 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.build.SubcommandData;
+import net.dv8tion.jda.api.requests.RestAction;
 
 public class Credits {
     public static SubcommandData subcommandData;
@@ -20,6 +21,8 @@ public class Credits {
     public static void execute (SlashCommandInteractionEvent slashCommandInteractionEvent) {
         JDA jda = slashCommandInteractionEvent.getJDA ();
 
+        Main.debug (slashCommandInteractionEvent.getCommandString());
+
         final Display [] displays = {
             new Display ("Inspiration", "My creation was inspired by @" + name (475315771086602241L, jda) + " and @" + name (697535361315766322L, jda) + "."),
             new Display ("Branding", "My name, Mythical Money, was inspired by @" + name (694226805439070269L, jda) + ".")
@@ -29,9 +32,11 @@ public class Credits {
     }
 
     public static String name (final long id, JDA jda) {
-        final User user = jda.getUserById ("" + id);
+        RestAction <User> userRestAction = jda.retrieveUserById (id);
+        userRestAction.complete ();
+        User user = jda.getUserById (id);
         if (user == null) {
-            Main.debug (id + "is invalid.");
+            Main.debug (id + " is a null user.");
             return "UKNOWN_NAME";
         }
         final String name = user.getName ();

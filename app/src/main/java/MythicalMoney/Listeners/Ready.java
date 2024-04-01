@@ -1,7 +1,6 @@
 package MythicalMoney.Listeners;
 
 import MythicalMoney.Main;
-import MythicalMoney.Classes.Item;
 import MythicalMoney.Commands.Basic.Credits;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
@@ -10,6 +9,7 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
+import net.dv8tion.jda.api.utils.MemberCachePolicy;
 
 public class Ready extends ListenerAdapter {
 
@@ -17,14 +17,19 @@ public class Ready extends ListenerAdapter {
     public static SlashCommandData mmBaseCommand;
 
     public void onReady (ReadyEvent readyEvent) {
-        final JDA jda = readyEvent.getJDA ();
+        JDA jda = readyEvent.getJDA ();
+
+        MemberCachePolicy memberCachePolicy = MemberCachePolicy.ALL;
+
         final String name = jda.getSelfUser ().getName ();
         mmBaseCommand = mmBaseCommand ();
         Main.debug ("Successfully signed in as " + name + "!");
 
         mmGuild = jda.getGuildById (834113328459677747L);
         
-        new Credits ();
+        {
+            new Credits ();
+        }
 
         mmGuild.upsertCommand(mmBaseCommand);
 

@@ -46,7 +46,7 @@ public class Setting {
             JSONObject guildSettingsJSON = settingsJSON.getJSONObject (guildID);
             boolean compact = guildSettingsJSON.getBoolean ("compact");
             String prefix = guildSettingsJSON.getString ("prefix");
-            new Setting (guildID, compact, prefix).toString ();
+            new Setting (guildID, compact, prefix);
         }
     }
 
@@ -56,7 +56,6 @@ public class Setting {
                 return setting;
             }
         }
-        Main.debug ("Setting for " + guildID + " was not found.");
         Setting setting = new Setting (Main.jda.getGuildById (guildID));
         return find (setting.guildID);
     }

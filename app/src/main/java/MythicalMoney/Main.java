@@ -20,7 +20,7 @@ public class Main {
     public static JDA jda;
 
     public static void main(String[] args) {
-        debug ("New Program has started.");
+        debug ("Mythical Money is loading...");
         final String token = token ();
         try {
             debug ("Trying to login...");
@@ -51,7 +51,7 @@ public class Main {
     }
 
     public static void debug (final String debug) {
-        final String startingString = "\tDebug: ";
+        final String startingString = "\t[Debug] ";
 
         String formattedDebug = startingString;
         for (int index = 0; index < debug.length (); index++) {
