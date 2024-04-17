@@ -190,12 +190,12 @@ public class DiscordUtility {
 
         final Guild guild = slashCommandInteractionEvent.getGuild();
         if (guild == null) {
-            return user.getName ();
+            return "@" + user.getName ();
         }
 
         Member member = guild.getMemberById (userID);
         if (member == null) {
-            return user.getName ();
+            return "@" + user.getName ();
         }
 
         return user.getAsMention ();
