@@ -4,8 +4,10 @@ import MythicalMoney.Main;
 import MythicalMoney.Classes.Display;
 import MythicalMoney.Data.Setting;
 import net.dv8tion.jda.api.EmbedBuilder;
+import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.entities.Guild;
+import net.dv8tion.jda.api.entities.Member;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.entities.MessageEmbed;
@@ -160,13 +162,13 @@ public class DiscordUtility {
             String [] names = new String [displays.length];
             String [] values = new String [displays.length];
             for (int index = 0; index < displays.length; index++) {
-                names [index] = displays [0].single;
-                values [index] = displays [0].plural;
+                names [index] = displays [index].single;
+                values [index] = displays [index].plural;
             }
             MessageEmbed embed = embed(slashCommandInteractionEvent, names, values);
             messageBuilder.setEmbeds (embed);
         }
-        {
+        if (deletable) {
             Display display = new Display ("Delete", "delete");
             Button delete = display.button ();
             ActionRow actionRow = ActionRow.of (delete);
@@ -175,4 +177,37 @@ public class DiscordUtility {
         InteractionHook interactionHook = slashCommandInteractionEvent.getHook ();
         interactionHook.sendMessage (messageBuilder.build ()).queue ();
     }
+
+    public static String display (final long userID, SlashCommandInteractionEvent slashCommandInteractionEvent) {
+        JDA jda = slashCommandInteractionEvent.getJDA();
+
+        User user = jda.getUserById (userID);
+
+        if (user == null) {
+            Main.debug (userID + " is a null user.");
+            return "UNKNOWN_NAME";
+        }
+
+        final Guild guild = slashCommandInteractionEvent.getGuild();
+        if (guild == null) {
+            return user.getName ();
+        }
+
+        Member member = guild.getMemberById (userID);
+        if (member == null) {
+            return user.getName ();
+        }
+
+        return user.getAsMention ();
+    }
+
+    /*public static String name (final long id, JDA jda) {
+        User user = jda.getUserById (id);
+        if (user == null) {
+            Main.debug (id + " is a null user.");
+            return "UKNOWN_NAME";
+        }
+        final String name = user.getName ();
+        return name;
+    } */
 }
