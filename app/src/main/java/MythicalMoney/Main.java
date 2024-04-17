@@ -3,6 +3,8 @@
  */
 package MythicalMoney;
 
+import java.util.EnumSet;
+
 import javax.security.auth.login.LoginException;
 
 import MythicalMoney.Data.Setting;
@@ -11,6 +13,7 @@ import MythicalMoney.Listeners.SlashCommand;
 import MythicalMoney.Utility.FileUtility;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.requests.GatewayIntent;
 
 public class Main {
     public String getGreeting() {
@@ -21,11 +24,17 @@ public class Main {
 
     public static void main(String[] args) {
         debug ("Mythical Money is loading...");
-        final String token = token ();
+        
+        String token = "UNKNOWN_TOKEN";
+
         try {
             debug ("Trying to login...");
-            jda = JDABuilder.createDefault( token).build ();
-            debug ("Finished logging in!");
+
+            token = token ();
+            final EnumSet <GatewayIntent> intents = GatewayIntent.getIntents (GatewayIntent.ALL_INTENTS);
+
+            JDABuilder jdaBuilder = JDABuilder.create (token, intents);
+            jda = jdaBuilder.build ();
         } catch (LoginException loginException) {
             debug ("Could not login using this token: \"" + token + "\"");
             return;
@@ -33,6 +42,8 @@ public class Main {
             debug ("An unknown error occured.");
             exception.printStackTrace ();
         }
+
+        debug ("Finished logging in!");
 
         {
             Setting.setup ();
