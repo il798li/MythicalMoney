@@ -200,14 +200,4 @@ public class DiscordUtility {
 
         return user.getAsMention ();
     }
-
-    /*public static String name (final long id, JDA jda) {
-        User user = jda.getUserById (id);
-        if (user == null) {
-            Main.debug (id + " is a null user.");
-            return "UKNOWN_NAME";
-        }
-        final String name = user.getName ();
-        return name;
-    } */
 }
