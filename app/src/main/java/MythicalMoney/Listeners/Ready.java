@@ -9,7 +9,6 @@ import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
-import net.dv8tion.jda.api.utils.MemberCachePolicy;
 
 public class Ready extends ListenerAdapter {
 
@@ -19,27 +18,19 @@ public class Ready extends ListenerAdapter {
     public void onReady (ReadyEvent readyEvent) {
         JDA jda = readyEvent.getJDA ();
 
-        MemberCachePolicy memberCachePolicy = MemberCachePolicy.ALL;
-
         final String name = jda.getSelfUser ().getName ();
-        mmBaseCommand = mmBaseCommand ();
         Main.debug ("Successfully signed in as " + name + "!");
 
         mmGuild = jda.getGuildById (834113328459677747L);
         
         {
-            new Credits ();
+            new Credits (jda);
         }
 
-        mmGuild.upsertCommand(mmBaseCommand);
+        mmGuild.upsertCommand (Credits.slashCommandData);
 
         CommandListUpdateAction commandListUpdateAction = mmGuild.updateCommands();
-        commandListUpdateAction.addCommands (mmBaseCommand);
+        commandListUpdateAction.addCommands (Credits.slashCommandData);
         commandListUpdateAction.queue ();
-    }
-
-    public static SlashCommandData mmBaseCommand () {
-        SlashCommandData slashCommandData = Commands.slash("mm", "Mythical Money");
-        return slashCommandData;
     }
 }
