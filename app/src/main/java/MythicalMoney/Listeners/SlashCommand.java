@@ -10,7 +10,7 @@ public class SlashCommand extends ListenerAdapter {
     public void onSlashCommandInteraction(SlashCommandInteractionEvent slashCommandInteractionEvent) {
         ReplyCallbackAction replyCallbackAction = slashCommandInteractionEvent.deferReply();
         replyCallbackAction.queue ();
-        final String name = slashCommandInteractionEvent.getSubcommandName();
+        final String name = slashCommandInteractionEvent.getName();
         switch (name) {
             case "credits":
                 Credits.execute (slashCommandInteractionEvent);
