@@ -29,7 +29,6 @@ public class Main {
 
         try {
             debug ("Trying to login...");
-
             token = token ();
             final EnumSet <GatewayIntent> intents = GatewayIntent.getIntents (GatewayIntent.ALL_INTENTS);
 
@@ -48,15 +47,23 @@ public class Main {
         {
             Setting.setup ();
         }
-
-        jda.addEventListener (new Ready ());
-        jda.addEventListener (new SlashCommand ());
+        {
+            {
+                Ready ready = new Ready();
+                jda.addEventListener(ready);
+            }
+            {
+                SlashCommand slashCommand = new SlashCommand ();
+                jda.addEventListener (slashCommand);
+            }
+        }
     }
 
     public static String token () {
         final String token = FileUtility.readFile ("Token.txt");
         if (token.contains ("\n")) {
-            return token.substring (0, token.indexOf ("\n"));
+            final int index = token.indexOf ("\n");
+            return token.substring (0, index);
         }
         return token;
     }
@@ -65,9 +72,11 @@ public class Main {
         final String startingString = "\t[Debug] ";
 
         String formattedDebug = startingString;
-        for (int index = 0; index < debug.length (); index++) {
+        final int length = debug.length ();
+        for (int index = 0; index < length; index++) {
             String character = debug.charAt (index) + "";
-            if (character.equals ("\n")) {
+            boolean newLine = character.equals ("\n");
+            if (newLine) {
                 character += startingString;
             }
             formattedDebug += character;
