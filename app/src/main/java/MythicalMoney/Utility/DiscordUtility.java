@@ -16,8 +16,7 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
-import net.dv8tion.jda.api.requests.restaction.interactions.ReplyCallbackAction;
-
+import net.dv8tion.jda.api.requests.restaction.WebhookMessageAction;
 import java.time.Instant;
 
 import java.awt.Color;
@@ -100,7 +99,8 @@ public class DiscordUtility {
         final String symbols = "`-=~!@#$%^&*()_+[]\\{}|:;'\",./<>?";
         final char [] originalString = string.toCharArray ();
         for (char character : originalString) {
-            if (symbols.contains ("" + character)) {
+            boolean isSymbol = symbols.contains ("" + character);
+            if (isSymbol) {
                 newString += "\\";
             }
             newString += character;
@@ -110,7 +110,8 @@ public class DiscordUtility {
 
     public static long timestamp () {
         Instant now = Instant.now ();
-        long timestamp = now.toEpochMilli () / 1000;
+        final long timestampMilli = now.toEpochMilli ();
+        final long timestamp = timestampMilli / 1000;
         return timestamp;
     }
 
@@ -172,32 +173,47 @@ public class DiscordUtility {
             Display display = new Display ("Delete", "delete");
             Button delete = display.button ();
             ActionRow actionRow = ActionRow.of (delete);
-            messageBuilder.setActionRows(actionRow);
+            messageBuilder.setActionRows (actionRow);
         }
         InteractionHook interactionHook = slashCommandInteractionEvent.getHook ();
-        interactionHook.sendMessage (messageBuilder.build ()).queue ();
+        Message message = messageBuilder.build ();
+        WebhookMessageAction <Message> messageAction = interactionHook.sendMessage (message);
+        messageAction.queue ();
     }
 
     public static String display (final long userID, SlashCommandInteractionEvent slashCommandInteractionEvent) {
-        JDA jda = slashCommandInteractionEvent.getJDA();
+        JDA jda = slashCommandInteractionEvent.getJDA ();
+        Guild guild = slashCommandInteractionEvent.getGuild();
+        final String display = display (userID, jda, guild);
+        return display; 
+    }
 
+    public static String display (final long userID, JDA jda, Guild guild) {
         User user = jda.getUserById (userID);
-
         if (user == null) {
             Main.debug (userID + " is a null user.");
             return "UNKNOWN_NAME";
         }
 
-        final Guild guild = slashCommandInteractionEvent.getGuild();
         if (guild == null) {
-            return "@" + user.getName ();
+            final String name = "@" + user.getName ();
+            final String link = "discord.com/users/" + userID;
+            final String hyperlink = hyperlink (name, link);
+            return hyperlink;
         }
 
         Member member = guild.getMemberById (userID);
         if (member == null) {
-            return "@" + user.getName ();
+            final String name = "@" + user.getName ();
+            final String link = "https://discord.com/users/" + userID;
+            final String hyperlink = hyperlink (name, link);
+            return hyperlink;
         }
 
         return user.getAsMention ();
+    }
+
+    public static String hyperlink (String display, String link) {
+        return "[" + display + "](" + link + ")";
     }
 }
