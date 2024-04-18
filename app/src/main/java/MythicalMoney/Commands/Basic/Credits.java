@@ -3,27 +3,26 @@ package MythicalMoney.Commands.Basic;
 import MythicalMoney.Main;
 import MythicalMoney.Classes.Display;
 import MythicalMoney.Utility.DiscordUtility;
-import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData;
 
 public class Credits {
-
-    public static SlashCommandData slashCommandData;
-
-    public Credits (JDA jda) {
-        slashCommandData = Commands.slash ("credits", "Mythical Money");
-    }
+    public static SlashCommandData slashCommandData = Commands.slash ("credits", "Mythical Money");
 
     public static void execute (SlashCommandInteractionEvent slashCommandInteractionEvent) {
-        JDA jda = slashCommandInteractionEvent.getJDA ();
 
         Main.debug (slashCommandInteractionEvent.getCommandString());
 
+        final String anirvdh = DiscordUtility.display (475315771086602241L, slashCommandInteractionEvent);
+        final String electrochess = DiscordUtility.display (697535361315766322L, slashCommandInteractionEvent);
+        final String diamonddust9 = DiscordUtility.display (694226805439070269L, slashCommandInteractionEvent);
+        final String il798li = DiscordUtility.display (655263219459293210L, slashCommandInteractionEvent);
+
         final Display [] displays = {
-            new Display ("Inspiration", "My creation was inspired by " + DiscordUtility.display (475315771086602241L, slashCommandInteractionEvent) + " and " + DiscordUtility.display (697535361315766322L, slashCommandInteractionEvent) + "."),
-            new Display ("Branding", "My name was inspired by " + DiscordUtility.display (694226805439070269L, slashCommandInteractionEvent) + ".")
+            new Display ("Inspiration", "My creation was inspired by " + electrochess + " and " + anirvdh + "."),
+            new Display ("Branding", "My name was inspired by " + diamonddust9 + ".\nMy logo was designed by " + il798li + "."),
+            new Display ("Development", "I was programmed using [Java Discord API](https://docs.jda.wiki/) by " + il798li + ".")
         };
 
         DiscordUtility.deletable(slashCommandInteractionEvent, displays, false);
