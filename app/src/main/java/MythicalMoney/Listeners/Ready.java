@@ -3,6 +3,7 @@ package MythicalMoney.Listeners;
 import MythicalMoney.Main;
 import MythicalMoney.Commands.Basic.Credits;
 import MythicalMoney.Commands.Basic.Ping;
+import MythicalMoney.Commands.Basic.Settings;
 import MythicalMoney.Commands.Basic.Statistics;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.User;
@@ -31,6 +32,7 @@ public class Ready extends ListenerAdapter {
             commandListUpdateAction.addCommands (Credits.slashCommandData);
             commandListUpdateAction.addCommands (Ping.slashCommandData);
             commandListUpdateAction.addCommands (Statistics.slashCommandData);
+            commandListUpdateAction.addCommands (Settings.slashCommandData ());
         }
         commandListUpdateAction.queue ();
     }
