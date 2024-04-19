@@ -145,16 +145,21 @@ public class DiscordUtility {
         return "";
     }
 
-    public static String timestamp (TimestampFormat timestampFormat) {
-        String timestamp = "<t:";
-        timestamp += timestamp ();
+    public static String timestamp (TimestampFormat timestampFormat, long timestamp) {
+        String timestampString = "<t:";
         String timestampSuffix = ":" + timestampSuffix (timestampFormat);
         if (timestampSuffix.length () == 1) {
             timestampSuffix = "";
         }
-        timestamp += timestampSuffix;
-        timestamp += ">";
-        return timestamp;
+        timestampString += timestampSuffix;
+        timestampString += ">";
+        return timestampString;
+    }
+
+    public static String timestamp (TimestampFormat timestampFormat) {
+        long timestamp = timestamp ();
+        String timestampDisplay = timestamp(timestampFormat, timestamp);
+        return timestampDisplay;
     }
 
     public static void deletable (SlashCommandInteractionEvent slashCommandInteractionEvent, Display [] displays, boolean deletable) {
