@@ -2,6 +2,7 @@ package MythicalMoney.Listeners;
 
 import MythicalMoney.Commands.Basic.Credits;
 import MythicalMoney.Commands.Basic.Ping;
+import MythicalMoney.Commands.Basic.Statistics;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.requests.restaction.interactions.ReplyCallbackAction;
@@ -13,10 +14,9 @@ public class SlashCommand extends ListenerAdapter {
         replyCallbackAction.queue ();
         final String name = slashCommandInteractionEvent.getName();
         switch (name) {
-            case "credits":
-                Credits.execute (slashCommandInteractionEvent);
-            case "ping":
-                Ping.execute (slashCommandInteractionEvent);
+            case "credits": Credits.execute (slashCommandInteractionEvent);
+            case "ping": Ping.execute (slashCommandInteractionEvent);
+            case "statistics": Statistics.execute(slashCommandInteractionEvent);
         }
     }
 }

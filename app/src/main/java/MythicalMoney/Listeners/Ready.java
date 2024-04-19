@@ -3,6 +3,7 @@ package MythicalMoney.Listeners;
 import MythicalMoney.Main;
 import MythicalMoney.Commands.Basic.Credits;
 import MythicalMoney.Commands.Basic.Ping;
+import MythicalMoney.Commands.Basic.Statistics;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.entities.Guild;
@@ -26,8 +27,11 @@ public class Ready extends ListenerAdapter {
         mmGuild = jda.getGuildById (834113328459677747L);
 
         CommandListUpdateAction commandListUpdateAction = mmGuild.updateCommands();
-        commandListUpdateAction.addCommands (Credits.slashCommandData);
-        commandListUpdateAction.addCommands (Ping.slashCommandData);
+        {
+            commandListUpdateAction.addCommands (Credits.slashCommandData);
+            commandListUpdateAction.addCommands (Ping.slashCommandData);
+            commandListUpdateAction.addCommands (Statistics.slashCommandData);
+        }
         commandListUpdateAction.queue ();
     }
 }
