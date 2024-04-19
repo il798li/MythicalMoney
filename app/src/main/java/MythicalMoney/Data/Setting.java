@@ -9,6 +9,7 @@ import MythicalMoney.Main;
 import MythicalMoney.Utility.JSONUtility;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
 public class Setting {
     public String guildID;
@@ -66,6 +67,10 @@ public class Setting {
 
     public static Setting find (Message message) {
         return find (message.getGuild ());
+    }
+
+    public static Setting find (SlashCommandInteractionEvent slashCommandInteractionEvent) {
+        return find (slashCommandInteractionEvent.getGuild ());
     }
 
     public String toString () {
