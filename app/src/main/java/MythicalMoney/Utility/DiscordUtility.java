@@ -27,13 +27,19 @@ public class DiscordUtility {
 
     public static MessageEmbed embed (SlashCommandInteractionEvent slashCommandInteractionEvent, String [] names, String [] values) {
         EmbedBuilder embedBuilder = new EmbedBuilder ();
-        final Setting setting = Setting.find (slashCommandInteractionEvent.getGuild ());
-		if (setting.compact == false) {
-			embedBuilder.setTitle ("Mythical Money");
-		}
 		String description = embedDescription (slashCommandInteractionEvent);
+
+        Setting guildSetting = Setting.find (slashCommandInteractionEvent);
+
+        if (guildSetting.compact == false) {
+            embedBuilder.setTitle ("Mythical Money");
+        }
 		for (int index = 0; index < names.length && index < values.length; index += 1) {
-			description += "\n\n**";
+			if (index == 0 && guildSetting.compact == true) {
+                description += "**";
+            } else {
+                description += "\n\n**";
+            }
 			description += names [index];
 			description += "**\n";
 			description += values [index];
