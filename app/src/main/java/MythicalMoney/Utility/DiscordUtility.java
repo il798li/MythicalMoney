@@ -151,6 +151,7 @@ public class DiscordUtility {
         if (timestampSuffix.length () == 1) {
             timestampSuffix = "";
         }
+        timestampString += timestamp;
         timestampString += timestampSuffix;
         timestampString += ">";
         return timestampString;
