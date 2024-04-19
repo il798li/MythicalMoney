@@ -45,4 +45,12 @@ public class BasicUtility {
         }
         return number2;
     }
+
+    public static String toString (boolean bool) {
+        if (bool == true) {
+            return "true";
+        } else {
+            return "false";
+        }
+    }
 }
