@@ -28,7 +28,6 @@ public class Main {
         String token = "UNKNOWN_TOKEN";
 
         try {
-            debug ("Trying to login...");
             token = token ();
             final EnumSet <GatewayIntent> intents = GatewayIntent.getIntents (GatewayIntent.ALL_INTENTS);
 
