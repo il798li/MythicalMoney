@@ -6,7 +6,7 @@ import MythicalMoney.Main;
 
 public class JSONUtility {
 
-    private static JSONObject load (String fileNameTemplate) {
+    public static JSONObject load (String fileNameTemplate) {
         final String fileName = "JSON\\" + fileNameTemplate.toString () + ".json";
         final String jsonData = FileUtility.readFile (fileName);
         final JSONObject jsonObject = new JSONObject (jsonData);
@@ -26,5 +26,15 @@ public class JSONUtility {
 
     public static JSONObject loadSettings () {
         return load ("Settings");
+    }
+
+    public static enum JSONFile {
+        Blacklisted,
+        Deletables,
+        Profiles,
+        Settings
+    }
+
+    public static void save (JSONObject jsonObject, JSONFile jsonFile) {
     }
 }
