@@ -15,25 +15,28 @@ import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 
 public class Ready extends ListenerAdapter {
 
-    public static Guild mmGuild;
-    public static SlashCommandData mmBaseCommand;
-
     public void onReady (ReadyEvent readyEvent) {
         JDA jda = readyEvent.getJDA ();
 
         User mm = jda.getSelfUser ();
-        String name = mm.getName ();
+        final String name = mm.getName ();
         Main.debug ("Successfully signed in as " + name + "!");
 
-        mmGuild = jda.getGuildById (834113328459677747L);
+        Guild mmGuild = jda.getGuildById (834113328459677747L);
 
-        CommandListUpdateAction commandListUpdateAction = mmGuild.updateCommands();
         {
-            commandListUpdateAction.addCommands (Credits.slashCommandData);
+            CommandListUpdateAction commandListUpdateAction = mmGuild.updateCommands();
             commandListUpdateAction.addCommands (Ping.slashCommandData);
             commandListUpdateAction.addCommands (Statistics.slashCommandData);
-            commandListUpdateAction.addCommands (Settings.slashCommandData ());
+            commandListUpdateAction.addCommands (Settings.slashCommandData);
+            commandListUpdateAction.queue ();
         }
-        commandListUpdateAction.queue ();
+        {
+            CommandListUpdateAction commandListUpdateAction = jda.updateCommands ();
+            commandListUpdateAction.addCommands (Credits.slashCommandData);
+            commandListUpdateAction.queue ();
+        }
+        final long ping = Ping.ping (jda);
+        Main.debug (name + " is responding to commands with " + ping + " milliseconds of latency...");
     }
 }
