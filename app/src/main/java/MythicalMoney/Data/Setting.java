@@ -34,10 +34,6 @@ public class Setting {
         settings.add (this);
     }
 
-    public Guild guild () {
-        return Main.jda.getGuildById (this.guildID);
-    }
-
     public static void load () {
         JSONObject settingsJSON = JSONUtility.loadSettings ();
         Iterator <String> keys = settingsJSON.keys ();
@@ -48,6 +44,20 @@ public class Setting {
             boolean compact = guildSettingsJSON.getBoolean ("compact");
             String prefix = guildSettingsJSON.getString ("prefix");
             new Setting (guildID, compact, prefix);
+        }
+    }
+
+    public static void save () {
+        JSONObject jsonObject = new JSONObject ();
+        final int size = settings.size ();
+        for (int index = 0; index < size; index++) {
+            Setting setting = settings.get (index);
+            JSONObject guildSettings = new JSONObject ();
+            {
+                guildSettings.put ("prefix", setting.prefix);
+                guildSettings.put ("compact", setting.compact);
+            }
+            jsonObject.put (setting.guildID, guildSettings);
         }
     }
 
@@ -98,10 +108,6 @@ public class Setting {
             string += "\"";
         }
         return string;
-    }
-
-    public static void save () {
-        
     }
 }
 
