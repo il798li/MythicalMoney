@@ -9,12 +9,11 @@ import net.dv8tion.jda.api.entities.User;
 
 import java.util.List;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
-import net.dv8tion.jda.api.interactions.commands.CommandInteractionPayload;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData;
 
 public class Statistics {
-    public static SlashCommandData slashCommandData = Commands.slash ("statistics", "Mythical Money");
+    public static SlashCommandData slashCommandData = Commands.slash ("statistics", "[Basic] See some basic statistics about me.");
 
     public static void execute (SlashCommandInteractionEvent slashCommandInteractionEvent) {
         JDA jda = slashCommandInteractionEvent.getJDA ();

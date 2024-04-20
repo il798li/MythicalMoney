@@ -5,8 +5,10 @@ import java.util.ArrayList;
 import MythicalMoney.Classes.Display;
 import MythicalMoney.Data.Setting;
 import MythicalMoney.Utility.DiscordUtility;
+import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
+import net.dv8tion.jda.api.interactions.commands.DefaultMemberPermissions;
 import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData;
@@ -15,8 +17,13 @@ public class Settings {
     public static SlashCommandData slashCommandData = slashCommandData ();
 
     public static SlashCommandData slashCommandData () {
-        SlashCommandData slashCommandData = Commands.slash ("settings", "Mythical Money");
-        slashCommandData.addOption (OptionType.BOOLEAN, "compact", "compact", false);
+        SlashCommandData slashCommandData = Commands.slash ("settings", "[Basic] Change my settings for this Discord server.");
+        slashCommandData.addOption (OptionType.BOOLEAN, "compact", "Remove additional information from embeds with Compact moe.", false);
+
+        { // Without this code section, the command was working as intended.
+            DefaultMemberPermissions defaultMemberPermissions = DefaultMemberPermissions.DISABLED;
+            slashCommandData.setDefaultPermissions (defaultMemberPermissions);
+        }
         return slashCommandData;
     }
 

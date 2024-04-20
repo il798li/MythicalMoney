@@ -8,7 +8,7 @@ import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData;
 
 public class Ping {
-    public static SlashCommandData slashCommandData = Commands.slash ("ping", "Mythical Money");
+    public static SlashCommandData slashCommandData = Commands.slash ("ping", "[Basic] Check my response time in milliseconds.");
 
     public static void execute (SlashCommandInteractionEvent slashCommandInteractionEvent) {
         JDA jda = slashCommandInteractionEvent.getJDA ();
