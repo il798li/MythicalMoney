@@ -1,4 +1,4 @@
-package MythicalMoney.Commands.Basic;
+package MythicalMoney.Commands.Administrator;
 
 import java.util.ArrayList;
 
@@ -17,8 +17,8 @@ public class Settings {
     public static SlashCommandData slashCommandData = slashCommandData ();
 
     public static SlashCommandData slashCommandData () {
-        SlashCommandData slashCommandData = Commands.slash ("settings", "[Basic] Change my settings for this Discord server.");
-        slashCommandData.addOption (OptionType.BOOLEAN, "compact", "Remove additional information from embeds with Compact moe.", false);
+        SlashCommandData slashCommandData = Commands.slash ("settings", "[Administrator] Change my settings for this Discord server.");
+        slashCommandData.addOption (OptionType.BOOLEAN, "compact", "Remove additional information from embeds with Compact mode.", false);
 
         { // Without this code section, the command was working as intended.
             DefaultMemberPermissions defaultMemberPermissions = DefaultMemberPermissions.DISABLED;
