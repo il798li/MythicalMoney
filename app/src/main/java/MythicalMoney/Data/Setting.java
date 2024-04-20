@@ -38,7 +38,7 @@ public class Setting {
         return Main.jda.getGuildById (this.guildID);
     }
 
-    public static void setup () {
+    public static void load () {
         JSONObject settingsJSON = JSONUtility.loadSettings ();
         Iterator <String> keys = settingsJSON.keys ();
 
@@ -98,6 +98,10 @@ public class Setting {
             string += "\"";
         }
         return string;
+    }
+
+    public static void save () {
+        
     }
 }
 

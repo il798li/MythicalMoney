@@ -45,7 +45,7 @@ public class Main {
         debug ("Finished logging in!");
 
         {
-            Setting.setup ();
+            Setting.load ();
         }
         {
             {
