@@ -18,7 +18,7 @@ public class JSONUtility {
 
     public static JSONObject loadDeletables () {
         return load ("Deletables");
-    }
+    } 
 
     public static JSONObject loadProfiles () {
         return load ("Profiles");
@@ -35,6 +35,10 @@ public class JSONUtility {
         Settings
     }
 
-    public static void save (JSONObject jsonObject, JSONFile jsonFile) {
+    public static boolean save (JSONObject jsonObject, JSONFile jsonFile) {
+        final String jsonString = jsonObject.toString (4);
+        final String jsonFileString = "JSON\\" + jsonFile.toString () + ".json";
+        final boolean success = FileUtility.writeFile (jsonString, jsonFileString);
+        return success;
     }
 }

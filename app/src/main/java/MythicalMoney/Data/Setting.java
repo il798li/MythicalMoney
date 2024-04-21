@@ -7,6 +7,7 @@ import org.json.JSONObject;
 
 import MythicalMoney.Main;
 import MythicalMoney.Utility.JSONUtility;
+import MythicalMoney.Utility.JSONUtility.JSONFile;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -57,8 +58,10 @@ public class Setting {
                 guildSettings.put ("prefix", setting.prefix);
                 guildSettings.put ("compact", setting.compact);
             }
+            Main.debug (guildSettings.toString (4));
             jsonObject.put (setting.guildID, guildSettings);
         }
+        JSONUtility.save(jsonObject, JSONFile.Settings);
     }
 
     public static Setting find (String guildID) {

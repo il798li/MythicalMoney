@@ -2,8 +2,10 @@ package MythicalMoney.Commands.Administrator;
 
 import java.util.ArrayList;
 
+import MythicalMoney.Main;
 import MythicalMoney.Classes.Display;
 import MythicalMoney.Data.Setting;
+import MythicalMoney.Utility.BasicUtility;
 import MythicalMoney.Utility.DiscordUtility;
 import net.dv8tion.jda.api.Permission;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -35,10 +37,11 @@ public class Settings {
                 boolean compact = optionMapping.getAsBoolean();
                 Setting guildSetting = Setting.find (slashCommandInteractionEvent);
                 guildSetting.compact = compact;
+                Main.debug (BasicUtility.toString (Setting.find (slashCommandInteractionEvent).compact));
 
-                String compactAction = "Compact mode was successfully disabled! From now on, you will no longer see contexts or timestamps on embeds sent by me.";
+                String compactAction = "Compact mode was successfully disabled! From now on, you will see contexts and timestamps on embeds sent by me.";
                 if (compact == true) {
-                    compactAction = "Compact mode was successfully enabled! From now on, you will see contexts and timestamps on embeds sent by me.";
+                    compactAction = "Compact mode was successfully enabled! From now on, you will no longer see contexts or timestamps on embeds sent by me.";
                 }
 
                 Display compactDisplay = new Display ("Compact", compactAction);
