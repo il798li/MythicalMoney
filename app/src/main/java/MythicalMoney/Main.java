@@ -23,6 +23,9 @@ public class Main {
     public static JDA jda;
 
     public static void main(String[] args) {
+        for (int loop = 0; loop < 100; loop++) {
+            debug ();
+        }
         debug ("Mythical Money is loading...");
         
         String token = "UNKNOWN_TOKEN";
@@ -89,5 +92,9 @@ public class Main {
 
     public static void debug (final long debug) {
         debug ("" + debug);
+    }
+
+    public static void debug () {
+        System.out.println ("\n");
     }
 }
