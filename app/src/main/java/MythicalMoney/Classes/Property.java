@@ -2,16 +2,16 @@ package MythicalMoney.Classes;
 
 import java.util.ArrayList;
 
-import MythicalMoney.Classes.Obtainable.Tool;
+import MythicalMoney.Classes.Obtainable.ToolType;
 
 public class Property {
     public int [] chances;
     public DisplayPlus display;
-    public Tool tool;
+    public ToolType tool;
 
     public static ArrayList <Property> properties = new ArrayList <Property> ();
 
-    public Property (DisplayPlus display, Tool tool, int [] chances) {
+    public Property (DisplayPlus display, ToolType tool, int [] chances) {
         this.display = display;
         this.chances = chances;
         this.tool = tool;
@@ -28,7 +28,7 @@ public class Property {
         return propertyList;
     }
 
-    public static Property [] get (final Tool tool) {
+    public static Property [] get (final ToolType tool) {
         ArrayList <Property> toolProperties = new ArrayList <Property> ();
         for (Property property : properties) {
             if (property.tool == tool) {
