@@ -22,6 +22,18 @@ public class Inventory {
 		return inventory;
 	}
 
+	public static JSONObject toJSON (Inventory inventory) {
+		JSONObject jsonObject = new JSONObject ();
+		for (int index = 0; index < inventory.items.length; index++) {
+			Item item = Item.items.get (index);
+			final int amount = inventory.items [index];
+
+			jsonObject.put (item.display.name, amount);
+		}
+		
+		return jsonObject;
+	}
+
 	public void setup (JSONObject jsonObject) {
 		final Item [] items = Item.toList ();
 		for (int index = 0; index < items.length; index++) {
