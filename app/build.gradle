@@ -31,7 +31,7 @@ application {
     mainClass = 'MythicalMoney.Main'
 }
 
-tasks.named('test') {
+tasks.named ('test') {
     // Use JUnit Platform for unit tests.
     useJUnitPlatform()
 }
