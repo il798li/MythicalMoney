@@ -15,7 +15,7 @@ public class Armor {
 		Leggings,
 		Boots
 	}
-	public Armor (int health, int defense, DisplayPlus display, Armor armor) {
+	public Armor (int health, int defense, DisplayPlus display, ArmorType armorType) {
 		this.health = health;
 		this.defense = defense;
 		this.display = display;
