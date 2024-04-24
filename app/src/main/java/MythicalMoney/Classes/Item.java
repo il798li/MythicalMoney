@@ -44,7 +44,7 @@ public class Item {
         return itemList;
     }
 
-    public static Item find (final String name) {
+    public static Item get (final String name) {
         for (Item item : toList ()) {
             if (item.display.name.equals (name)) {
                 return item;

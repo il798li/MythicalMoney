@@ -58,7 +58,7 @@ public class Obtainable {
 	}
 	
 
-    public static Obtainable find (String name) {
+    public static Obtainable get (String name) {
         name = name.toLowerCase ();
         final Obtainable [] obtainableList = toList ();
         for (Obtainable obtainable : obtainableList) {
