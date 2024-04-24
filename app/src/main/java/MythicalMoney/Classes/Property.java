@@ -43,4 +43,15 @@ public class Property {
         final Property [] toolPropertiesList = toList (toolProperties);
         return toolPropertiesList;
     }
+
+    public static Property get (final String name) {
+        Property [] propertiesList = toList ();
+        for (Property property : propertiesList) {
+            final boolean nameMatch = property.display.name.equals (name);
+            if (nameMatch) {
+                return property;
+            }
+        }
+        return null;
+    }
 }
