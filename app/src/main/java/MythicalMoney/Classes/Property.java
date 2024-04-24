@@ -28,6 +28,11 @@ public class Property {
         return propertyList;
     }
 
+    public static Property [] toList () {
+        Property [] propertiesList = toList (properties);
+        return propertiesList;
+    }
+
     public static Property [] get (final ToolType tool) {
         ArrayList <Property> toolProperties = new ArrayList <Property> ();
         for (Property property : properties) {
