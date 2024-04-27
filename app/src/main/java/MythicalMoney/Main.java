@@ -4,6 +4,7 @@ import java.util.EnumSet;
 
 import javax.security.auth.login.LoginException;
 
+import MythicalMoney.Data.Player;
 import MythicalMoney.Data.Setting;
 import MythicalMoney.Listeners.Ready;
 import MythicalMoney.Listeners.SlashCommand;
@@ -23,6 +24,9 @@ public class Main {
         for (int loop = 0; loop < 100; loop++) {
             debug ();
         }
+        Player.load ();
+        Main.debug ("Finished loading all players!");
+        Player.save ();
         debug ("Mythical Money is loading...");
         
         String token = "UNKNOWN_TOKEN";
@@ -70,7 +74,7 @@ public class Main {
     public static void debug (final String debug) {
         final String startingString = "\t[Debug] ";
 
-        String formattedDebug = startingString;
+        StringBuilder formattedDebug = new StringBuilder(startingString);
         final int length = debug.length ();
         for (int index = 0; index < length; index++) {
             String character = debug.charAt (index) + "";
@@ -78,7 +82,7 @@ public class Main {
             if (newLine) {
                 character += startingString;
             }
-            formattedDebug += character;
+            formattedDebug.append(character);
         }
         System.out.println (formattedDebug);
     }

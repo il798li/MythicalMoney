@@ -1,5 +1,6 @@
 package MythicalMoney.Utility;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
 import MythicalMoney.Main;
@@ -32,10 +33,11 @@ public class JSONUtility {
         Blacklisted,
         Deletables,
         Profiles,
-        Settings
+        Settings,
+        Archive
     }
 
-    public static boolean save (JSONObject jsonObject, JSONFile jsonFile) {
+    public static boolean save (@NotNull JSONObject jsonObject, JSONFile jsonFile) {
         final String jsonString = jsonObject.toString (4);
         final String jsonFileString = "JSON\\" + jsonFile.toString () + ".json";
         final boolean success = FileUtility.writeFile (jsonString, jsonFileString);
