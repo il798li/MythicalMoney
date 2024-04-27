@@ -1,8 +1,6 @@
 package MythicalMoney.Data;
 
 import org.json.JSONArray;
-import org.json.JSONObject;
-
 import MythicalMoney.Classes.Property;
 
 public class Land {
