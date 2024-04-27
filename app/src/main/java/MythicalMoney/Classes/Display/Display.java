@@ -1,4 +1,4 @@
-package MythicalMoney.Classes;
+package MythicalMoney.Classes.Display;
 
 import MythicalMoney.Utility.BasicUtility;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
