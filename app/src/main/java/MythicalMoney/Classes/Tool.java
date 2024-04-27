@@ -15,24 +15,28 @@ public class Tool {
         this.chances = chances;
         this.toolType = toolType;
     }
-
-    public static Tool weapon (Display display, int cooldown, int [] chances) {
-        Tool weapon = new Tool(display, cooldown, chances, ToolType.Weapon);
-        return weapon;
+    
+    public static class Weapon extends Tool {
+        public Weapon (Display display, int cooldown, int [] chances) {
+            super (display, cooldown, chances, ToolType.Weapon);
+        }
     }
 
-    public static Tool axe (Display display, int cooldown, int [] chances) {
-        Tool axe = new Tool(display, cooldown, chances, ToolType.Axe);
-        return axe;
+    public static class Axe extends Tool {
+        public Axe (Display display, int cooldown, int [] chances) {
+            super (display, cooldown, chances, ToolType.Axe);
+        }
     }
 
-    public static Tool hoe (Display display, int cooldown, int [] chances) {
-        Tool hoe = new Tool(display, cooldown, chances, ToolType.Hoe);
-        return hoe;
+    public static class Hoe extends Tool {
+        public Hoe (Display display, int cooldown, int [] chances) {
+            super (display, cooldown, chances, ToolType.Hoe);
+        }
     }
 
-    public static Tool pickaxe (Display display, int cooldown, int [] chances) {
-        Tool pickaxe = new Tool(display, cooldown, chances, ToolType.Pickaxe);
-        return pickaxe;
+    public static class Pickaxe extends Tool {
+        public Pickaxe (Display display, int cooldown, int [] chances) {
+            super (display, cooldown, chances, ToolType.Pickaxe);
+        }
     }
 }
