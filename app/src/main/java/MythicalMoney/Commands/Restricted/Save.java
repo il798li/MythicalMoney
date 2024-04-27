@@ -1,6 +1,6 @@
 package MythicalMoney.Commands.Restricted;
 
-import MythicalMoney.Classes.Display;
+import MythicalMoney.Classes.Display.Display;
 import MythicalMoney.Data.Setting;
 import MythicalMoney.Listeners.Ready;
 import MythicalMoney.Utility.DiscordUtility;

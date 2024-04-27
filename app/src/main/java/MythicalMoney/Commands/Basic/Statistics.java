@@ -1,6 +1,6 @@
 package MythicalMoney.Commands.Basic;
 
-import MythicalMoney.Classes.Display;
+import MythicalMoney.Classes.Display.Display;
 import MythicalMoney.Utility.DiscordUtility;
 import MythicalMoney.Utility.DiscordUtility.TimestampFormat;
 import net.dv8tion.jda.api.JDA;

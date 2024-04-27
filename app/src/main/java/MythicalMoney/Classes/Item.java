@@ -2,6 +2,7 @@ package MythicalMoney.Classes;
 
 import java.util.ArrayList;
 
+import MythicalMoney.Classes.Display.DisplayPlus;
 import MythicalMoney.Utility.BasicUtility;
 
 public class Item {

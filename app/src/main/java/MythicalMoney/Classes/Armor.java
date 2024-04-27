@@ -2,6 +2,8 @@ package MythicalMoney.Classes;
 
 import java.util.ArrayList;
 
+import MythicalMoney.Classes.Display.DisplayPlus;
+
 public class Armor {
 	public int health;
 	public int defense;

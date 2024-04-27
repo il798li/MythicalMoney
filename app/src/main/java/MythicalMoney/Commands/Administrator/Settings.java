@@ -3,7 +3,7 @@ package MythicalMoney.Commands.Administrator;
 import java.util.ArrayList;
 
 import MythicalMoney.Main;
-import MythicalMoney.Classes.Display;
+import MythicalMoney.Classes.Display.Display;
 import MythicalMoney.Data.Setting;
 import MythicalMoney.Utility.BasicUtility;
 import MythicalMoney.Utility.DiscordUtility;

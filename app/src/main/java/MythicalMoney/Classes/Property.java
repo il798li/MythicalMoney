@@ -7,12 +7,13 @@ import MythicalMoney.Classes.Obtainable.ToolType;
 
 public class Property {
     public int [] chances;
-    public DisplayPlus display;
+    public Display display;
     public ToolType tool;
 
+    public static final Property starterRange = new Property (new Display ("Starter Range"), ToolType.Weapon, new int [] {1, 2, 3, 4});
     public static ArrayList <Property> properties = new ArrayList <Property> ();
 
-    public Property (DisplayPlus display, ToolType tool, int [] chances) {
+    public Property (Display display, ToolType tool, int [] chances) {
         this.display = display;
         this.chances = chances;
         this.tool = tool;

@@ -2,6 +2,7 @@ package MythicalMoney.Classes;
 
 import java.util.ArrayList;
 
+import MythicalMoney.Classes.Display.Display;
 import MythicalMoney.Utility.BasicUtility;
 
 public class Obtainable {
