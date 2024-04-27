@@ -14,9 +14,6 @@ import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 
 public class Main {
-    public String getGreeting() {
-        return "\nHello World!\n\t- Main.getGreeting";
-    }
 
     public static JDA jda;
 
