@@ -28,4 +28,8 @@ public class Land {
         }
         return jsonArray;
     }
+
+    private Land () {
+        return;
+    }
 }
