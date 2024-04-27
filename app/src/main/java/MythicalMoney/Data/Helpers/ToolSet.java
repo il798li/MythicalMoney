@@ -3,11 +3,6 @@ package MythicalMoney.Data.Helpers;
 import org.json.JSONObject;
 
 import MythicalMoney.Classes.Tool;
-import MythicalMoney.Classes.Obtainable.ToolType;
-import MythicalMoney.Classes.Tool.Axe;
-import MythicalMoney.Classes.Tool.Hoe;
-import MythicalMoney.Classes.Tool.Pickaxe;
-import MythicalMoney.Classes.Tool.Weapon;
 
 public class ToolSet {
     public Tool axe;
@@ -15,7 +10,7 @@ public class ToolSet {
     public Tool pickaxe;
     public Tool weapon;
     
-    public ToolSet (Axe axe, Hoe hoe, Pickaxe pickaxe, Weapon weapon) {
+    public ToolSet (Tool axe, Tool hoe, Tool pickaxe, Tool weapon) {
         this.axe = axe;
         this.hoe = hoe;
         this.pickaxe = pickaxe;
@@ -30,22 +25,22 @@ public class ToolSet {
         final ToolSet toolSet = new ToolSet ();
         {
             final String axeName = jsonObject.getString("axe");
-            final Tool axe = Axe.get (axeName);
+            final Tool axe = Tool.get (axeName);
             toolSet.axe = axe;
         }
         {
             final String hoeName = jsonObject.getString ("hoe");
-            final Tool hoe = Hoe.get (hoeName);
+            final Tool hoe = Tool.get (hoeName);
             toolSet.hoe = hoe;
         }
         {
             final String pickaxeName = jsonObject.getString ("pickaxe");
-            final Tool pickaxe = Pickaxe.get (pickaxeName);
+            final Tool pickaxe = Tool.get (pickaxeName);
             toolSet.pickaxe = pickaxe;
         }
         {
             final String weaponName = jsonObject.getString ("weapon");
-            final Tool weapon = Weapon.get (weaponName);
+            final Tool weapon = Tool.get (weaponName);
             toolSet.weapon = weapon;
         }
         return toolSet;
