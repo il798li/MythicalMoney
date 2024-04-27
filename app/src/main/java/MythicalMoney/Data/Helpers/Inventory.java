@@ -1,4 +1,4 @@
-package MythicalMoney.Data;
+package MythicalMoney.Data.Helpers;
 
 import org.json.JSONException;
 import org.json.JSONObject;
