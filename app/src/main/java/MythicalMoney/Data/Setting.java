@@ -28,11 +28,11 @@ public class Setting {
     }
 
     public Setting (Guild guild) {
-        this.guildID = guild.getId ();
-        this.compact = true;
-        this.prefix = "mm";
-
-        settings.add (this);
+        this (guild.getIdLong ());
+    }
+    
+    public Setting (long guildID) {
+        this ("" + guildID, true, "mm");
     }
 
     public static void load () {
