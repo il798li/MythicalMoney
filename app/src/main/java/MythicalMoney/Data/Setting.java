@@ -78,10 +78,6 @@ public class Setting {
         return find (guild.getId ());
     }
 
-    public static Setting find (Message message) {
-        return find (message.getGuild ());
-    }
-
     public static Setting find (SlashCommandInteractionEvent slashCommandInteractionEvent) {
         return find (slashCommandInteractionEvent.getGuild ());
     }
