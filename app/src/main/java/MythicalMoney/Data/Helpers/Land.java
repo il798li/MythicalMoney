@@ -1,18 +1,20 @@
 package MythicalMoney.Data.Helpers;
 
+import java.util.ArrayList;
+
 import org.json.JSONArray;
 import MythicalMoney.Classes.Property;
 
 public class Land {
-    public Property [] properties;
+    public ArrayList <Property> properties;
     
     public static Land fromJSON (JSONArray jsonArray) {
         final int length = jsonArray.length ();
-        Property [] properties = new Property [length];
+        ArrayList <Property> properties = new ArrayList <Property> ();
         for (int index = 0; index < length; index++) {
             final String name = jsonArray.getString (index);
             final Property property = Property.get (name);
-            properties [index] = property;
+            properties.add (property);
         }
 
         final Land land = new Land ();
@@ -21,9 +23,10 @@ public class Land {
     }
 
     public static JSONArray toJSON (final Land land) {
-        JSONArray jsonArray = new JSONArray(land.properties.length);
-        for (int index = 0; index < land.properties.length; index++) {
-            final Property property = land.properties [index];
+        final int size = land.properties.size ();
+        JSONArray jsonArray = new JSONArray(size);
+        for (int index = 0; index < size; index++) {
+            final Property property = land.properties.get (index);
             jsonArray.put (index, property.display.plural);
         }
         return jsonArray;
