@@ -22,7 +22,7 @@ public class Land {
         return land;
     }
 
-    public static JSONArray toJSON (Land land) {
+    public static JSONArray toJSON (final Land land) {
         JSONArray jsonArray = new JSONArray(land.properties.length);
         for (int index = 0; index < land.properties.length; index++) {
             final Property property = land.properties [index];
