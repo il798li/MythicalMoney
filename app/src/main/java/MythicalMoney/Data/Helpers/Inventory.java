@@ -34,6 +34,11 @@ public class Inventory {
 		return jsonObject;
 	}
 
+	public JSONObject toJSON () {
+		JSONObject jsonObject = toJSON (this);
+		return jsonObject;
+	}
+
 	public void setup (JSONObject jsonObject) {
 		final Item [] items = Item.toList ();
 		for (int index = 0; index < items.length; index++) {
