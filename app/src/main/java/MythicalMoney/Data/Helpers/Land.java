@@ -37,7 +37,7 @@ public class Land {
         return jsonArray;
     }
 
-    private Land () {
+    public Land () {
         return;
     }
 }
