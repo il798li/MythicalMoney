@@ -49,7 +49,7 @@ public class Property {
     public static Property get (final String name) {
         Property [] propertiesList = toList ();
         for (Property property : propertiesList) {
-            final boolean nameMatch = property.display.name.equals (name);
+            final boolean nameMatch = property.display.plural.equals (name);
             if (nameMatch) {
                 return property;
             }
