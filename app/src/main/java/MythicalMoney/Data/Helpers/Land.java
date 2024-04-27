@@ -32,6 +32,11 @@ public class Land {
         return jsonArray;
     }
 
+    public JSONArray toJSON () {
+        JSONArray jsonArray = toJSON (this);
+        return jsonArray;
+    }
+
     private Land () {
         return;
     }
