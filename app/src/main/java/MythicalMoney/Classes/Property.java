@@ -2,6 +2,7 @@ package MythicalMoney.Classes;
 
 import java.util.ArrayList;
 
+import MythicalMoney.Classes.Display.Display;
 import MythicalMoney.Classes.Obtainable.ToolType;
 
 public class Property {
