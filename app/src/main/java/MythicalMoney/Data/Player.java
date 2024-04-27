@@ -23,7 +23,7 @@ public class Player {
     public static Player fromJSON (JSONObject jsonObject, final long userID) {
         final Player player = new Player (userID);
         {
-            player.mm = jsonObject.getInt("mm");
+            player.mm = jsonObject.getInt("coins");
         }
         {
             JSONObject inventoryJSON = jsonObject.getJSONObject ("inventory");
@@ -45,7 +45,7 @@ public class Player {
         jsonObject.put ("coins", mm);
         jsonObject.put ("inventory", inventory.toJSON());
         jsonObject.put ("land", land.toJSON());
-        jsonObject.put ("tools",
+        jsonObject.put ("tools", ToolSet.toJSON(toolSet));
         return jsonObject;
     }
 
