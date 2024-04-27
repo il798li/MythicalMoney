@@ -9,7 +9,6 @@ import MythicalMoney.Main;
 import MythicalMoney.Utility.JSONUtility;
 import MythicalMoney.Utility.JSONUtility.JSONFile;
 import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
 public class Setting {
