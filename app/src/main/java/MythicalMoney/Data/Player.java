@@ -67,7 +67,7 @@ public class Player {
         JSONObject profiles = JSONUtility.loadProfiles ();
         Iterator <String> keys = profiles.keys();
 
-        keys.forEachRemaining ( (String key) -> {
+        keys.forEachRemaining ((String key) -> {
             final long userID = Long.parseLong (key);
             final JSONObject jsonObject = profiles.getJSONObject(key);
             fromJSON(jsonObject, userID);
@@ -75,6 +75,13 @@ public class Player {
     }
 
     public static void save () {
-        
+        final JSONObject jsonObject = new JSONObject();
+        final int size = players.size();
+        for (int index = 0; index < size; index++) {
+            final Player player = players.get (index);
+            JSONObject playerJSON = player.toJSON();
+            jsonObject.put ("" + player.userID, playerJSON);
+        }
+        JSONUtility.save (jsonObject, JSONUtility.JSONFile.Profiles);
     }
 }
