@@ -13,13 +13,11 @@ public class Display {
     }
 
     public Display (final String single) {
-        this.single = BasicUtility.title (single);
-        this.plural = single + "s";
+        this (single, single + "s");
     }
 
     public Display (final Display display) {
-        this.single = display.single;
-        this.plural = display.plural;
+        this (display.single, display.plural);
     }
 
     public String toString () {
@@ -32,11 +30,13 @@ public class Display {
     }
 
     public Button button () {
-        return button (this);
+        Button button = button (this);
+        return button;
     }
 
     public static Button button (Display display) {
-        return Button.primary (display.plural, display.single);
+        Button button = Button.primary (display.plural, display.single);
+        return button;
     }
 }
 
