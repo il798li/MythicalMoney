@@ -24,7 +24,7 @@ public class Land {
         JSONArray jsonArray = new JSONArray(land.properties.length);
         for (int index = 0; index < land.properties.length; index++) {
             final Property property = land.properties [index];
-            jsonArray.put (index, property.display.name);
+            jsonArray.put (index, property.display.plural);
         }
         return jsonArray;
     }
