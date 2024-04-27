@@ -22,6 +22,18 @@ public class Tool {
         all.add (this);
     }
 
+    public static Tool get (final String name) {
+        final int size = all.size ();
+        for (int index = 0; index < size; index++) {
+            final Tool tool = all.get (index);
+            final boolean nameMatch = tool.display.plural.equals (name);
+            if (nameMatch) {
+                return tool;
+            }
+        }
+        return null;
+    }
+
     public static class Weapon extends Tool {
         public Weapon (Display display, int cooldown, int [] chances) {
             super (display, cooldown, chances, ToolType.Weapon);
