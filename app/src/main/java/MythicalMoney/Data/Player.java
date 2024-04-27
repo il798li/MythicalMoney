@@ -3,6 +3,7 @@ package MythicalMoney.Data;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import MythicalMoney.Main;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -61,6 +62,7 @@ public class Player {
 
     public Player (long userID) {
         this (0, userID, new Inventory(), new Land (), new ToolSet());
+        Main.debug (userID + " was successfully registered.");
     }
 
     public static void load () {
@@ -83,5 +85,16 @@ public class Player {
             jsonObject.put ("" + player.userID, playerJSON);
         }
         JSONUtility.save (jsonObject, JSONUtility.JSONFile.Profiles);
+    }
+
+    public static Player find (long userID) {
+        final int size = players.size ();
+        for (int index = 0; index < size; index++) {
+            Player player = players.get (index);
+            if (player.userID == userID) {
+                return player;
+            }
+        }
+        return new Player (userID);
     }
 }
