@@ -6,13 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="cccc4f05-823e-49ba-8442-6f425071e2fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Tool.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Tool.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Helpers/ToolSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Helpers/ToolSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/JSON/Profiles.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/JSON/Profiles.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Token.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Token.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Utility/JSONUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Utility/JSONUtility.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
