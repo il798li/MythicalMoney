@@ -30,13 +30,16 @@ public class Save {
             DiscordUtility.deletable(slashCommandInteractionEvent, displays, false);
             return;
         }
-
-        Setting.save ();
-        Player.save ();
+        save ();
         final Display successDisplay = new Display ("Data Save Success", "All data regarding Discord server settings was successfully saved!");
         final Display [] displays = {
             successDisplay
         };
-        DiscordUtility.deletable(slashCommandInteractionEvent, displays, owner);
+        DiscordUtility.deletable(slashCommandInteractionEvent, displays, false);
+    }
+
+    public static void save () {
+        Setting.save ();
+        Player.save ();
     }
 }
