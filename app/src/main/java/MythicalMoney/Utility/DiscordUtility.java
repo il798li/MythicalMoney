@@ -209,17 +209,13 @@ public class DiscordUtility {
 
         if (guild == null) {
             final String name = "@" + user.getName ();
-            final String link = "discord.com/users/" + userID;
-            final String hyperlink = hyperlink (name, link);
-            return hyperlink;
+            return name;
         }
 
         Member member = guild.getMemberById (userID);
         if (member == null) {
             final String name = "@" + user.getName ();
-            final String link = "https://discord.com/users/" + userID;
-            final String hyperlink = hyperlink (name, link);
-            return hyperlink;
+            return name;
         }
 
         return user.getAsMention ();
