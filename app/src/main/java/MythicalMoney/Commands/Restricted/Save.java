@@ -16,7 +16,7 @@ public class Save {
 
     public static SlashCommandData slashCommandData () {
         SlashCommandData slashCommandData = Commands.slash ("save", "[Restricted] Save all current data to JSON.");
-        return slashCommandData;      
+        return slashCommandData;
     }
 
     public static void execute (SlashCommandInteractionEvent slashCommandInteractionEvent) {

@@ -29,6 +29,12 @@ public class Setting {
     public Setting (Guild guild) {
         this (guild.getIdLong ());
     }
+
+    public Setting () {
+        this.guildID = "";
+        this.compact = true;
+        this.prefix = "mm";
+    }
     
     public Setting (long guildID) {
         this ("" + guildID, true, "mm");
@@ -63,22 +69,27 @@ public class Setting {
         JSONUtility.save(jsonObject, JSONFile.Settings);
     }
 
-    public static Setting find (String guildID) {
+    public static Setting get(String guildID) {
         for (Setting setting : settings) {
             if (setting.guildID.equals (guildID)) {
                 return setting;
             }
         }
         Setting setting = new Setting (Main.jda.getGuildById (guildID));
-        return find (setting.guildID);
+        return get(setting.guildID);
     }
 
-    public static Setting find (Guild guild) {
-        return find (guild.getId ());
+    public static Setting get (Guild guild) {
+        if (guild == null) {
+            return new Setting ();
+        }
+        final String guildID = guild.getId ();
+        return get (guildID);
     }
 
-    public static Setting find (SlashCommandInteractionEvent slashCommandInteractionEvent) {
-        return find (slashCommandInteractionEvent.getGuild ());
+    public static Setting get(SlashCommandInteractionEvent slashCommandInteractionEvent) {
+        final Guild guild = slashCommandInteractionEvent.getGuild ();
+        return get(guild);
     }
 
     public String toString () {

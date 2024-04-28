@@ -29,7 +29,7 @@ public class DiscordUtility {
         EmbedBuilder embedBuilder = new EmbedBuilder ();
 		String description = embedDescription (slashCommandInteractionEvent);
 
-        Setting guildSetting = Setting.find (slashCommandInteractionEvent);
+        Setting guildSetting = Setting.get(slashCommandInteractionEvent);
 
         if (guildSetting.compact == false) {
             embedBuilder.setTitle ("Mythical Money");
@@ -56,7 +56,7 @@ public class DiscordUtility {
         if (guild == null) {
             return "_ _";
         }
-        final Setting guildSettings = Setting.find (guild);
+        final Setting guildSettings = Setting.get(guild);
         if (guildSettings.compact) {
             return "_ _";
         }
@@ -85,7 +85,7 @@ public class DiscordUtility {
 
     public static String embedEnding (SlashCommandInteractionEvent slashCommandInteractionEvent) {
         final Guild guild = slashCommandInteractionEvent.getGuild ();
-        final Setting setting = Setting.find (guild);
+        final Setting setting = Setting.get(guild);
         if (setting.compact) {
             return "";
         }
