@@ -1,5 +1,6 @@
 package MythicalMoney.Listeners;
 
+import MythicalMoney.Commands.Economy.Inventory;
 import MythicalMoney.Main;
 import MythicalMoney.Commands.Administrator.Settings;
 import MythicalMoney.Commands.Basic.Credits;
@@ -28,6 +29,7 @@ public class Ready extends ListenerAdapter {
         commandListUpdateAction.addCommands (Ping.slashCommandData);
         commandListUpdateAction.addCommands (Settings.slashCommandData);
         commandListUpdateAction.addCommands (Save.slashCommandData);
+        commandListUpdateAction.addCommands (Inventory.slashCommandData);
         commandListUpdateAction.queue ();
 
         CommandListUpdateAction publishedCommandListUpdateAction = jda.updateCommands ();

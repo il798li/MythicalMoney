@@ -87,7 +87,7 @@ public class Player {
         JSONUtility.save (jsonObject, JSONUtility.JSONFile.Profiles);
     }
 
-    public static Player find (long userID) {
+    public static Player get(long userID) {
         final int size = players.size ();
         for (int index = 0; index < size; index++) {
             Player player = players.get (index);
