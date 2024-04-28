@@ -38,6 +38,6 @@ public class Land {
     }
 
     public Land () {
-        return;
+        this.properties = new ArrayList <Property> (0);
     }
 }

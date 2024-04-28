@@ -18,7 +18,10 @@ public class ToolSet {
     }
 
     public ToolSet () {
-        return;
+        this.axe = Tool.starterAxe;
+        this.hoe = Tool.starterHoe;
+        this.pickaxe = Tool.starterPickaxe;
+        this.weapon = Tool.starterWeapon;
     }
 
     public static ToolSet fromJSON (JSONObject jsonObject) {

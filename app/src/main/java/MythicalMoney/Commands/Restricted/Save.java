@@ -1,6 +1,8 @@
 package MythicalMoney.Commands.Restricted;
 
 import MythicalMoney.Classes.Display.Display;
+import MythicalMoney.Data.Helpers.Inventory;
+import MythicalMoney.Data.Player;
 import MythicalMoney.Data.Setting;
 import MythicalMoney.Listeners.Ready;
 import MythicalMoney.Utility.DiscordUtility;
@@ -30,6 +32,7 @@ public class Save {
         }
 
         Setting.save ();
+        Player.save ();
         final Display successDisplay = new Display ("Data Save Success", "All data regarding Discord server settings was successfully saved!");
         final Display [] displays = {
             successDisplay
