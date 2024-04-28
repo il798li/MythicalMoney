@@ -29,12 +29,12 @@ public class Ready extends ListenerAdapter {
         commandListUpdateAction.addCommands (Ping.slashCommandData);
         commandListUpdateAction.addCommands (Settings.slashCommandData);
         commandListUpdateAction.addCommands (Save.slashCommandData);
-        commandListUpdateAction.addCommands (Inventory.slashCommandData);
         commandListUpdateAction.queue ();
 
         CommandListUpdateAction publishedCommandListUpdateAction = jda.updateCommands ();
         publishedCommandListUpdateAction.addCommands (Credits.slashCommandData);
         publishedCommandListUpdateAction.addCommands (Statistics.slashCommandData);
+        publishedCommandListUpdateAction.addCommands(Inventory.slashCommandData);
         publishedCommandListUpdateAction.queue ();
 
         final long ping = Ping.ping (jda);
