@@ -53,4 +53,25 @@ public class BasicUtility {
             return "false";
         }
     }
+
+    public static String formatNumber (int number) {
+        final StringBuilder stringBuilder = new StringBuilder("" + number);
+        stringBuilder.reverse ();
+        final String rawNumber = stringBuilder.toString ();
+        StringBuilder formattedNumber = new StringBuilder();
+        final int length = rawNumber.length ();
+        int increment = 0;
+        for (int index = 0; index < length; index++) {
+            final String character = rawNumber.charAt (index) + "";
+            if (increment == 3) {
+                increment = 0;
+                formattedNumber.append (",");
+            } else {
+                increment += 1;
+            }
+            formattedNumber.append (character);
+        }
+        formattedNumber.reverse ();
+        return formattedNumber.toString ();
+    }
 }

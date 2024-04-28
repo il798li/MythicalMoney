@@ -4,6 +4,7 @@ import MythicalMoney.Commands.Administrator.Settings;
 import MythicalMoney.Commands.Basic.Credits;
 import MythicalMoney.Commands.Basic.Ping;
 import MythicalMoney.Commands.Basic.Statistics;
+import MythicalMoney.Commands.Economy.Balance;
 import MythicalMoney.Commands.Economy.Inventory;
 import MythicalMoney.Commands.Restricted.Save;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -39,6 +40,11 @@ public class SlashCommand extends ListenerAdapter {
             }
             case "inventory": {
                 Inventory.execute (slashCommandInteractionEvent);
+                break;
+            }
+            case "balance": {
+                Balance.execute (slashCommandInteractionEvent);
+                break;
             }
         }
     }

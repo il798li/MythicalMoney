@@ -1,5 +1,6 @@
 package MythicalMoney.Listeners;
 
+import MythicalMoney.Commands.Economy.Balance;
 import MythicalMoney.Commands.Economy.Inventory;
 import MythicalMoney.Main;
 import MythicalMoney.Commands.Administrator.Settings;
@@ -35,6 +36,7 @@ public class Ready extends ListenerAdapter {
         publishedCommandListUpdateAction.addCommands (Credits.slashCommandData);
         publishedCommandListUpdateAction.addCommands (Statistics.slashCommandData);
         publishedCommandListUpdateAction.addCommands(Inventory.slashCommandData);
+        commandListUpdateAction.addCommands(Balance.slashCommandData);
         publishedCommandListUpdateAction.queue ();
 
         final long ping = Ping.ping (jda);
