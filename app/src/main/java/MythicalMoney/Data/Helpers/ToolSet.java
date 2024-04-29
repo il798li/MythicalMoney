@@ -28,23 +28,19 @@ public class ToolSet {
         final ToolSet toolSet = new ToolSet ();
         {
             final String axeName = jsonObject.getString("axe");
-            final Tool axe = Tool.get (axeName);
-            toolSet.axe = axe;
+            toolSet.axe = Tool.get (axeName);
         }
         {
             final String hoeName = jsonObject.getString ("hoe");
-            final Tool hoe = Tool.get (hoeName);
-            toolSet.hoe = hoe;
+            toolSet.hoe = Tool.get (hoeName);
         }
         {
             final String pickaxeName = jsonObject.getString ("pickaxe");
-            final Tool pickaxe = Tool.get (pickaxeName);
-            toolSet.pickaxe = pickaxe;
+            toolSet.pickaxe = Tool.get (pickaxeName);
         }
         {
             final String weaponName = jsonObject.getString ("weapon");
-            final Tool weapon = Tool.get (weaponName);
-            toolSet.weapon = weapon;
+            toolSet.weapon = Tool.get (weaponName);
         }
         return toolSet;
     }

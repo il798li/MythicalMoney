@@ -24,8 +24,6 @@ public class FileUtility {
             content += scanner.nextLine ();
         }
         scanner.close ();
-
-        content = content.substring (0, content.length ());
         return content;
     }
 
