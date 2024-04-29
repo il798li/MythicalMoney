@@ -1,6 +1,7 @@
 package MythicalMoney.Commands.Basic;
 
 import MythicalMoney.Classes.Display.Display;
+import MythicalMoney.Utility.BasicUtility;
 import MythicalMoney.Utility.DiscordUtility;
 import MythicalMoney.Utility.DiscordUtility.TimestampFormat;
 import net.dv8tion.jda.api.JDA;
@@ -24,7 +25,8 @@ public class Statistics {
 
         final List <User> userList = jda.getUsers ();
         final int userCount = userList.size ();
-        final Display userDisplay = new Display ("Users", "I am currently being used by " + userCount + " Discord accounts.");
+        final String formattedUserCount = BasicUtility.formatNumber (userCount);
+        final Display userDisplay = new Display ("Users", "I am currently being used by " + formattedUserCount + " Discord accounts.");
 
         final long pingMilli = jda.getGatewayPing ();
         final Display pingDisplay = new Display ("Latency", "I am currently responding to commands within approximately " + pingMilli + " milliseconds.");
