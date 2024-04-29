@@ -31,10 +31,10 @@ public class Settings {
     public static void execute (SlashCommandInteractionEvent slashCommandInteractionEvent) {
         ArrayList <Display> displayArrayList = new ArrayList <Display> ();
         {
-            OptionMapping optionMapping = slashCommandInteractionEvent.getOption ("compact");
+            final OptionMapping optionMapping = slashCommandInteractionEvent.getOption ("compact");
             if (optionMapping != null) {
-                boolean compact = optionMapping.getAsBoolean();
-                Setting guildSetting = Setting.get(slashCommandInteractionEvent);
+                final boolean compact = optionMapping.getAsBoolean();
+                final Setting guildSetting = Setting.get(slashCommandInteractionEvent);
                 guildSetting.compact = compact;
                 Main.debug (BasicUtility.toString (Setting.get(slashCommandInteractionEvent).compact));
 
