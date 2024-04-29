@@ -43,15 +43,21 @@ public class Settings {
                     compactAction = "Compact mode was successfully enabled! From now on, you will no longer see contexts or timestamps on embeds sent by me.";
                 }
 
-                Display compactDisplay = new Display ("Compact", compactAction);
+                final Display compactDisplay = new Display ("Compact Mode", compactAction);
                 displayArrayList.add (compactDisplay);
             }
         }
         final int size = displayArrayList.size ();
         Display [] displayList = new Display [size];
-        for (int index = 0; index < displayList.length; index++) {
-            Display display = displayArrayList.get (index);
-            displayList [index] = display;
+        if (size == 0) {
+            final Display display = new Display ("Server Settings", "No settings were modified by this command.");
+            displayList = new Display [1];
+            displayList [0] = display;
+        } else {
+            for (int index = 0; index < displayList.length; index++) {
+                Display display = displayArrayList.get(index);
+                displayList[index] = display;
+            }
         }
 
         DiscordUtility.deletable(slashCommandInteractionEvent, displayList, false);
