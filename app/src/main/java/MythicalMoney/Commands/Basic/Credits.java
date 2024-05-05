@@ -1,6 +1,5 @@
 package MythicalMoney.Commands.Basic;
 
-import MythicalMoney.Main;
 import MythicalMoney.Classes.Display.Display;
 import MythicalMoney.Utility.DiscordUtility;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;

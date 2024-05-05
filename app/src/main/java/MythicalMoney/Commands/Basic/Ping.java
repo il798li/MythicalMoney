@@ -22,7 +22,6 @@ public class Ping {
     }
 
     public static long ping (JDA jda) {
-        final long ping = jda.getGatewayPing ();
-        return ping;
+        return jda.getGatewayPing ();
     }
 }

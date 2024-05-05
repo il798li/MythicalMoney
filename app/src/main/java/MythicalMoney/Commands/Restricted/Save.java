@@ -1,7 +1,6 @@
 package MythicalMoney.Commands.Restricted;
 
 import MythicalMoney.Classes.Display.Display;
-import MythicalMoney.Data.Helpers.Inventory;
 import MythicalMoney.Data.Player;
 import MythicalMoney.Data.Setting;
 import MythicalMoney.Listeners.Ready;
@@ -15,8 +14,7 @@ public class Save {
     public static SlashCommandData slashCommandData = slashCommandData ();
 
     public static SlashCommandData slashCommandData () {
-        SlashCommandData slashCommandData = Commands.slash ("save", "[Restricted] Save all current data to JSON.");
-        return slashCommandData;
+        return Commands.slash ("save", "[Restricted] Save all current data to JSON.");
     }
 
     public static void execute (SlashCommandInteractionEvent slashCommandInteractionEvent) {

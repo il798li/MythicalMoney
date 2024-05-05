@@ -1,6 +1,5 @@
 package MythicalMoney.Classes.Display;
 
-import MythicalMoney.Utility.BasicUtility;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 
 public class Display {
@@ -30,13 +29,11 @@ public class Display {
     }
 
     public Button button () {
-        Button button = button (this);
-        return button;
+        return button (this);
     }
 
     public static Button button (Display display) {
-        Button button = Button.primary (display.plural, display.single);
-        return button;
+        return Button.primary (display.plural, display.single);
     }
 }
 

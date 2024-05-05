@@ -39,7 +39,7 @@ public class Settings {
                 Main.debug (BasicUtility.toString (Setting.get(slashCommandInteractionEvent).compact));
 
                 String compactAction = "Compact mode was successfully disabled! From now on, you will see contexts and timestamps on embeds sent by me.";
-                if (compact == true) {
+                if (compact) {
                     compactAction = "Compact mode was successfully enabled! From now on, you will no longer see contexts or timestamps on embeds sent by me.";
                 }
 

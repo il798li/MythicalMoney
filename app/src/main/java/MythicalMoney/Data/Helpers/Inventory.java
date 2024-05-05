@@ -35,8 +35,7 @@ public class Inventory {
 	}
 
 	public JSONObject toJSON () {
-		JSONObject jsonObject = toJSON (this);
-		return jsonObject;
+        return toJSON (this);
 	}
 
 	public void setup (JSONObject jsonObject) {
@@ -73,6 +72,6 @@ public class Inventory {
 	}
 
 	public int subtract (Item item, int amount) {
-		return add (item, 0 - amount);
+		return add (item, -amount);
 	}
 }
