@@ -69,13 +69,6 @@ public class Item {
         return indexOf (item.display.name);
     }
 
-    public static void setup () {
-        if (setup) {
-            return;
-        }
-        setup = true;
-    }
-
     public String toString () {
         String string = "Display:\n";
         string += BasicUtility.indent (this.display.toString ());

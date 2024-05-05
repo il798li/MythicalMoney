@@ -35,7 +35,7 @@ public class Statistics {
         final String relativeBirthday = DiscordUtility.timestamp (TimestampFormat.relative, timestamp);
         final String exactBirthday = DiscordUtility.timestamp(TimestampFormat.specificDateBasicTime, timestamp);
         final Display birthdayDisplay = new Display ("Birthday", "I was created " + relativeBirthday + " on " + exactBirthday + ".");
-    
+
         Display [] displays = {
             guildDisplay,
             userDisplay,

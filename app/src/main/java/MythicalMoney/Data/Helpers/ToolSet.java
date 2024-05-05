@@ -9,13 +9,6 @@ public class ToolSet {
     public Tool hoe;
     public Tool pickaxe;
     public Tool weapon;
-    
-    public ToolSet (Tool axe, Tool hoe, Tool pickaxe, Tool weapon) {
-        this.axe = axe;
-        this.hoe = hoe;
-        this.pickaxe = pickaxe;
-        this.weapon = weapon;
-    }
 
     public ToolSet () {
         this.axe = Tool.starterAxe;

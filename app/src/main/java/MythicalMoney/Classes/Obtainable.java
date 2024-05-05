@@ -40,12 +40,6 @@ public class Obtainable {
         obtainables.add (this);
     }
 
-    public Obtainable (final String single, final String plural, final ToolType tool) {
-        this.display = new Display (single, plural);
-        this.tool = tool;
-        obtainables.add (this);
-    }
-
     public static Obtainable [] toList () {
         return toList (obtainables);
     }
@@ -87,6 +81,6 @@ public class Obtainable {
                 toolObtainables.add (obtainable);
             }
         }
-        return toList (obtainables);
+        return toList (toolObtainables);
     }
 }
