@@ -1,8 +1,9 @@
-package MythicalMoney.Classes.Display;
+package MythicalMoney.Classes.Helpers;
 
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 
 public class Display {
+
     public String plural;
     public String single;
 
@@ -19,21 +20,21 @@ public class Display {
         this (display.single, display.plural);
     }
 
+    public static Button button (Display display) {
+        return Button.primary (display.plural, display.single);
+    }
+
     public String toString () {
         String string = "Single: ";
         string += single;
         string += "\nPlural: ";
         string += plural;
-        
+
         return string;
     }
 
     public Button button () {
         return button (this);
-    }
-
-    public static Button button (Display display) {
-        return Button.primary (display.plural, display.single);
     }
 }
 

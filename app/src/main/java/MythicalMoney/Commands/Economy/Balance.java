@@ -1,6 +1,6 @@
 package MythicalMoney.Commands.Economy;
 
-import MythicalMoney.Classes.Display.Display;
+import MythicalMoney.Classes.Helpers.Display;
 import MythicalMoney.Data.Player;
 import MythicalMoney.Utility.BasicUtility;
 import MythicalMoney.Utility.DiscordUtility;
@@ -16,23 +16,23 @@ public class Balance {
 
     public static SlashCommandData slashCommandData () {
         SlashCommandData slashCommandData = Commands.slash ("balance", "[Economy] Checks how much Mythical Money a user has.");
-        slashCommandData.addOption(OptionType.USER, "user", "See another user's Balance. Leave this blank to see your own Balance.");
+        slashCommandData.addOption (OptionType.USER, "user", "See another user's Balance. Leave this blank to see your own Balance.");
         return slashCommandData;
     }
 
     public static void execute (SlashCommandInteractionEvent slashCommandInteractionEvent) {
-        final OptionMapping optionMapping = slashCommandInteractionEvent.getOption("user");
-        User author = slashCommandInteractionEvent.getUser();
-        final long authorID = author.getIdLong();
+        final OptionMapping optionMapping = slashCommandInteractionEvent.getOption ("user");
+        User author = slashCommandInteractionEvent.getUser ();
+        final long authorID = author.getIdLong ();
         User user = author;
         if (optionMapping != null) {
-            user = optionMapping.getAsUser();
+            user = optionMapping.getAsUser ();
         }
-        final long userID = user.getIdLong();
+        final long userID = user.getIdLong ();
 
         String startingString = "You have ";
         if (userID != authorID) {
-            startingString = user.getAsMention();
+            startingString = user.getAsMention ();
             startingString += " has ";
         }
 
@@ -40,8 +40,8 @@ public class Balance {
         final String formattedBalance = BasicUtility.formatNumber (player.mm);
 
         final Display display = new Display ("Mythical Money Balance", startingString + "M$" + formattedBalance + ".");
-        final Display [] displays = {
-                display
+        final Display[] displays = {
+            display
         };
         DiscordUtility.deletable (slashCommandInteractionEvent, displays, false);
     }

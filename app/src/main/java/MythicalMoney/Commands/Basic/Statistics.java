@@ -1,17 +1,17 @@
 package MythicalMoney.Commands.Basic;
 
-import MythicalMoney.Classes.Display.Display;
+import MythicalMoney.Classes.Helpers.Display;
 import MythicalMoney.Utility.BasicUtility;
 import MythicalMoney.Utility.DiscordUtility;
 import MythicalMoney.Utility.DiscordUtility.TimestampFormat;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.User;
-
-import java.util.List;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData;
+
+import java.util.List;
 
 public class Statistics {
     public static SlashCommandData slashCommandData = Commands.slash ("statistics", "[Basic] See some basic statistics about me.");
@@ -33,15 +33,15 @@ public class Statistics {
 
         final int timestamp = 1600805599;
         final String relativeBirthday = DiscordUtility.timestamp (TimestampFormat.relative, timestamp);
-        final String exactBirthday = DiscordUtility.timestamp(TimestampFormat.specificDateBasicTime, timestamp);
+        final String exactBirthday = DiscordUtility.timestamp (TimestampFormat.specificDateBasicTime, timestamp);
         final Display birthdayDisplay = new Display ("Birthday", "I was created " + relativeBirthday + " on " + exactBirthday + ".");
 
-        Display [] displays = {
+        Display[] displays = {
             guildDisplay,
             userDisplay,
             pingDisplay,
             birthdayDisplay
         };
-        DiscordUtility.deletable(slashCommandInteractionEvent, displays, false);
+        DiscordUtility.deletable (slashCommandInteractionEvent, displays, false);
     }
 }

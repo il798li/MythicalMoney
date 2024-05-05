@@ -1,38 +1,27 @@
 package MythicalMoney.Classes;
 
-import java.util.ArrayList;
-
-import MythicalMoney.Classes.Display.Display;
+import MythicalMoney.Classes.Helpers.Display;
 import MythicalMoney.Utility.BasicUtility;
 
-public class Obtainable {
-    public Display display;
-    public ToolType tool;
+import java.util.ArrayList;
 
-    public static ArrayList <Obtainable> obtainables = new ArrayList <Obtainable> ();
+public class Obtainable {
 
     public static final Obtainable copper = new Obtainable (new Display ("Copper Ore"), ToolType.Pickaxe);     // 1,000
     public static final Obtainable titanium = new Obtainable (new Display ("Titanium Ore"), ToolType.Pickaxe); // 5,000
     public static final Obtainable gold = new Obtainable (new Display ("Gold Ore"), ToolType.Pickaxe);         //10,000
     public static final Obtainable diamond = new Obtainable (new Display ("Diamond Ore"), ToolType.Pickaxe);   //25,000
-
     public static final Obtainable zombie = new Obtainable (new Display ("Zombie"), ToolType.Weapon);
     public static final Obtainable ghost = new Obtainable (new Display ("Ghost"), ToolType.Weapon);
     public static final Obtainable vampire = new Obtainable (new Display ("Vampire"), ToolType.Weapon);
-    public static final Obtainable dragon = new Obtainable(new Display ("Dragon"), ToolType.Weapon);
-
-    public static final Obtainable cherry = new Obtainable(new Display ("Cherry Tree"), ToolType.Axe);
-    public static final Obtainable maple = new Obtainable(new Display ("Maple Tree"), ToolType.Axe);
+    public static final Obtainable dragon = new Obtainable (new Display ("Dragon"), ToolType.Weapon);
+    public static final Obtainable cherry = new Obtainable (new Display ("Cherry Tree"), ToolType.Axe);
+    public static final Obtainable maple = new Obtainable (new Display ("Maple Tree"), ToolType.Axe);
     public static final Obtainable oak = new Obtainable (new Display ("Oak Tree"), ToolType.Axe);
-    public static final Obtainable sandal = new Obtainable(new Display ("Sandalwood Tree"), ToolType.Axe);
-
-
-    public static enum ToolType {
-        Weapon,
-        Axe,
-        Pickaxe,
-        Hoe
-    }
+    public static final Obtainable sandal = new Obtainable (new Display ("Sandalwood Tree"), ToolType.Axe);
+    public static ArrayList <Obtainable> obtainables = new ArrayList <Obtainable> ();
+    public Display display;
+    public ToolType tool;
 
     public Obtainable (final Display display, final ToolType tool) {
         this.display = display;
@@ -40,28 +29,37 @@ public class Obtainable {
         obtainables.add (this);
     }
 
-    public static Obtainable [] toList () {
+    public static Obtainable[] toList () {
         return toList (obtainables);
     }
 
-	public static Obtainable [] toList (final ArrayList <Obtainable> obtainableArrayList) {
-		Obtainable [] obtainableList = new Obtainable [obtainableArrayList.size ()];
-		for (int index = 0; index < obtainableList.length; index++) {
-			obtainableList [index] = obtainableArrayList.get (index);
-		}
-		return obtainableList;
-	}
-	
+    public static Obtainable[] toList (final ArrayList <Obtainable> obtainableArrayList) {
+        Obtainable[] obtainableList = new Obtainable[obtainableArrayList.size ()];
+        for (int index = 0; index < obtainableList.length; index++) {
+            obtainableList[index] = obtainableArrayList.get (index);
+        }
+        return obtainableList;
+    }
 
     public static Obtainable get (String name) {
         name = name.toLowerCase ();
-        final Obtainable [] obtainableList = toList ();
+        final Obtainable[] obtainableList = toList ();
         for (Obtainable obtainable : obtainableList) {
             if (obtainable.display.single.toLowerCase ().contains (name)) {
                 return obtainable;
             }
         }
         return null;
+    }
+
+    public static Obtainable[] get (ToolType tool) {
+        ArrayList <Obtainable> toolObtainables = new ArrayList <Obtainable> ();
+        for (Obtainable obtainable : obtainables) {
+            if (obtainable.tool == tool) {
+                toolObtainables.add (obtainable);
+            }
+        }
+        return toList (toolObtainables);
     }
 
     public String toString () {
@@ -74,13 +72,10 @@ public class Obtainable {
         return string;
     }
 
-	public static Obtainable [] get (ToolType tool) {
-        ArrayList <Obtainable> toolObtainables = new ArrayList <Obtainable> ();
-		for (Obtainable obtainable : obtainables) {
-            if (obtainable.tool == tool) {
-                toolObtainables.add (obtainable);
-            }
-        }
-        return toList (toolObtainables);
+    public static enum ToolType {
+        Weapon,
+        Axe,
+        Pickaxe,
+        Hoe
     }
 }

@@ -1,17 +1,16 @@
 package MythicalMoney.Utility;
 
-import java.util.ArrayList;
-
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
+import java.util.ArrayList;
+
 public class CooldownUtility {
+    public static ArrayList <CooldownUtility> cooldowns = new ArrayList <CooldownUtility> ();
     public long userID;
     public String command;
     public long nextTimestamp;
 
-    public static ArrayList <CooldownUtility> cooldowns = new ArrayList <CooldownUtility> ();
-    
     public CooldownUtility (long userID, String command, long nextTimestamp) {
         this.userID = userID;
         this.command = command;
@@ -24,7 +23,7 @@ public class CooldownUtility {
         final int size = cooldowns.size ();
         for (final CooldownUtility cooldownUtility : cooldowns) {
             final boolean userIDMatch = cooldownUtility.userID == userID;
-            final boolean commandMatch = cooldownUtility.command.equals(command);
+            final boolean commandMatch = cooldownUtility.command.equals (command);
 
             if (userIDMatch && commandMatch) {
                 return cooldownUtility;
@@ -32,7 +31,7 @@ public class CooldownUtility {
         }
 
         final long timestamp = DiscordUtility.timestamp ();
-        return new CooldownUtility(userID, command, timestamp);
+        return new CooldownUtility (userID, command, timestamp);
     }
 
     public static boolean cooldown (final SlashCommandInteractionEvent slashCommandInteractionEvent, final int cooldown) {

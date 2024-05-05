@@ -13,29 +13,29 @@ import net.dv8tion.jda.api.requests.restaction.interactions.ReplyCallbackAction;
 
 public class SlashCommand extends ListenerAdapter {
 
-    public void onSlashCommandInteraction(SlashCommandInteractionEvent slashCommandInteractionEvent) {
-        ReplyCallbackAction replyCallbackAction = slashCommandInteractionEvent.deferReply();
+    public void onSlashCommandInteraction (SlashCommandInteractionEvent slashCommandInteractionEvent) {
+        ReplyCallbackAction replyCallbackAction = slashCommandInteractionEvent.deferReply ();
         replyCallbackAction.queue ();
-        final String name = slashCommandInteractionEvent.getName();
+        final String name = slashCommandInteractionEvent.getName ();
         switch (name) {
             case "credits": {
-                Credits.execute(slashCommandInteractionEvent);
+                Credits.execute (slashCommandInteractionEvent);
                 break;
             }
             case "ping": {
-                Ping.execute(slashCommandInteractionEvent);
+                Ping.execute (slashCommandInteractionEvent);
                 break;
             }
             case "statistics": {
-                Statistics.execute(slashCommandInteractionEvent);
+                Statistics.execute (slashCommandInteractionEvent);
                 break;
             }
             case "settings": {
-                Settings.execute(slashCommandInteractionEvent);
+                Settings.execute (slashCommandInteractionEvent);
                 break;
             }
             case "save": {
-                Save.execute(slashCommandInteractionEvent);
+                Save.execute (slashCommandInteractionEvent);
                 break;
             }
             case "inventory": {

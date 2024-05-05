@@ -1,6 +1,6 @@
 package MythicalMoney.Commands.Restricted;
 
-import MythicalMoney.Classes.Display.Display;
+import MythicalMoney.Classes.Helpers.Display;
 import MythicalMoney.Data.Player;
 import MythicalMoney.Data.Setting;
 import MythicalMoney.Listeners.Ready;
@@ -22,18 +22,18 @@ public class Save {
         final boolean owner = Ready.owner (user);
         if (owner == false) {
             final Display errorDisplay = new Display ("Data Saving Error", "This command is only accessible by authorized users.");
-            final Display [] displays = {
+            final Display[] displays = {
                 errorDisplay
             };
-            DiscordUtility.deletable(slashCommandInteractionEvent, displays, false);
+            DiscordUtility.deletable (slashCommandInteractionEvent, displays, false);
             return;
         }
         save ();
         final Display successDisplay = new Display ("Data Save Success", "All data regarding Discord server settings was successfully saved!");
-        final Display [] displays = {
+        final Display[] displays = {
             successDisplay
         };
-        DiscordUtility.deletable(slashCommandInteractionEvent, displays, false);
+        DiscordUtility.deletable (slashCommandInteractionEvent, displays, false);
     }
 
     public static void save () {

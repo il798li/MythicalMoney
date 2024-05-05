@@ -1,10 +1,10 @@
 package MythicalMoney.Data.Helpers;
 
+import MythicalMoney.Classes.Tool;
 import org.json.JSONObject;
 
-import MythicalMoney.Classes.Tool;
-
 public class ToolSet {
+
     public Tool axe;
     public Tool hoe;
     public Tool pickaxe;
@@ -20,7 +20,7 @@ public class ToolSet {
     public static ToolSet fromJSON (JSONObject jsonObject) {
         final ToolSet toolSet = new ToolSet ();
         {
-            final String axeName = jsonObject.getString("axe");
+            final String axeName = jsonObject.getString ("axe");
             toolSet.axe = Tool.get (axeName);
         }
         {
@@ -37,8 +37,6 @@ public class ToolSet {
         }
         return toolSet;
     }
-
-    
 
     public static JSONObject toJSON (final ToolSet toolSet) {
         JSONObject jsonObject = new JSONObject ();

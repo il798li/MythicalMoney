@@ -1,23 +1,23 @@
 package MythicalMoney.Classes;
 
-import java.util.ArrayList;
-
-import MythicalMoney.Classes.Display.Display;
+import MythicalMoney.Classes.Helpers.Chances;
+import MythicalMoney.Classes.Helpers.Display;
 import MythicalMoney.Classes.Obtainable.ToolType;
 
+import java.util.ArrayList;
+
 public class Land {
-    public int [] chances;
+
+    public static final Land starterHuntingGround = new Land (new Display ("Starter Hunting Ground", "starter hunting ground"), ToolType.Weapon, new Chances.ChancesPlus (100, 0, 0, 0));
+    public static final Land starterMine = new Land (new Display ("Starter Mine", "starter mine"), ToolType.Weapon, new Chances.ChancesPlus (100, 0, 0, 0));
+    public static final Land starterForest = new Land (new Display ("Starter Forest", "starter forest"), ToolType.Axe, new Chances.ChancesPlus (100, 0, 0, 0));
+    public static final Land starterFarm = new Land (new Display ("Starter Farm", "starter farm"), ToolType.Weapon, new Chances.ChancesPlus (100, 0, 0, 0));
+    public static ArrayList <Land> properties = new ArrayList <Land> ();
+    public Chances chances;
     public Display display;
     public ToolType tool;
 
-    public static ArrayList <Land> properties = new ArrayList <Land> ();
-
-    public static final Land starterHuntingGround = new Land(new Display ("Starter Hunting Ground", "starter hunting ground"), ToolType.Weapon, new int [] {100, 0, 0, 0});
-    public static final Land starterMine = new Land(new Display ("Starter Mine", "starter mine"), ToolType.Weapon, new int [] {100, 0, 0, 0});
-    public static final Land starterForest = new Land(new Display ("Starter Forest", "starter forest"), ToolType.Axe, new int [] {100, 0, 0, 0});
-    public static final Land starterFarm = new Land(new Display ("Starter Farm", "starter farm"), ToolType.Weapon, new int [] {100, 0, 0, 0});
-
-    public Land(Display display, ToolType tool, int [] chances) {
+    public Land (Display display, ToolType tool, Chances.ChancesPlus chances) {
         this.display = display;
         this.chances = chances;
         this.tool = tool;
@@ -34,7 +34,7 @@ public class Land {
         return landList;
     }
 
-    public static Land[] toList() {
+    public static Land[] toList () {
         return toList (properties);
     }
 

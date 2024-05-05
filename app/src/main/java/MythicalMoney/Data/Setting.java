@@ -1,22 +1,21 @@
 package MythicalMoney.Data;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-
-import org.json.JSONObject;
-
 import MythicalMoney.Main;
 import MythicalMoney.Utility.JSONUtility;
 import MythicalMoney.Utility.JSONUtility.JSONFile;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Setting {
+
+    public static ArrayList <Setting> settings = new ArrayList <Setting> ();
     public String guildID;
     public boolean compact;
     public String prefix;
-
-    public static ArrayList <Setting> settings = new ArrayList <Setting> ();
 
     public Setting (String guildID, boolean compact, String prefix) {
         this.guildID = guildID;
@@ -35,7 +34,7 @@ public class Setting {
         this.compact = true;
         this.prefix = "mm";
     }
-    
+
     public Setting (long guildID) {
         this ("" + guildID, true, "mm");
     }
@@ -57,7 +56,7 @@ public class Setting {
         JSONObject jsonObject = new JSONObject ();
         final int size = settings.size ();
         for (final Setting setting : settings) {
-            final JSONObject guildSettings = new JSONObject();
+            final JSONObject guildSettings = new JSONObject ();
             {
                 guildSettings.put ("prefix", setting.prefix);
                 guildSettings.put ("compact", setting.compact);
@@ -65,17 +64,17 @@ public class Setting {
             Main.debug (guildSettings.toString (4));
             jsonObject.put (setting.guildID, guildSettings);
         }
-        JSONUtility.save(jsonObject, JSONFile.Settings);
+        JSONUtility.save (jsonObject, JSONFile.Settings);
     }
 
-    public static Setting get(String guildID) {
+    public static Setting get (String guildID) {
         for (Setting setting : settings) {
             if (setting.guildID.equals (guildID)) {
                 return setting;
             }
         }
         Setting setting = new Setting (Main.jda.getGuildById (guildID));
-        return get(setting.guildID);
+        return get (setting.guildID);
     }
 
     public static Setting get (Guild guild) {
@@ -86,9 +85,9 @@ public class Setting {
         return get (guildID);
     }
 
-    public static Setting get(SlashCommandInteractionEvent slashCommandInteractionEvent) {
+    public static Setting get (SlashCommandInteractionEvent slashCommandInteractionEvent) {
         final Guild guild = slashCommandInteractionEvent.getGuild ();
-        return get(guild);
+        return get (guild);
     }
 
     public String toString () {

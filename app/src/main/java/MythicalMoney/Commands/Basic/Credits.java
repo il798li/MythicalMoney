@@ -1,6 +1,6 @@
 package MythicalMoney.Commands.Basic;
 
-import MythicalMoney.Classes.Display.Display;
+import MythicalMoney.Classes.Helpers.Display;
 import MythicalMoney.Utility.DiscordUtility;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
@@ -16,12 +16,12 @@ public class Credits {
         final String diamonddust9 = DiscordUtility.display (694226805439070269L, slashCommandInteractionEvent);
         final String il798li = DiscordUtility.display (655263219459293210L, slashCommandInteractionEvent);
 
-        final Display [] displays = {
+        final Display[] displays = {
             new Display ("Inspiration", "My creation was inspired by " + electrochess + " and " + anirvdh + "."),
             new Display ("Branding", "My name was inspired by " + diamonddust9 + ".\nMy logo was designed by " + il798li + "."),
             new Display ("Development", "I was programmed using [Java Discord API](https://docs.jda.wiki/) by " + il798li + ".")
         };
 
-        DiscordUtility.deletable(slashCommandInteractionEvent, displays, false);
+        DiscordUtility.deletable (slashCommandInteractionEvent, displays, false);
     }
 }

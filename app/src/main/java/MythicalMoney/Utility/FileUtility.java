@@ -1,15 +1,12 @@
 package MythicalMoney.Utility;
 
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Scanner;
-
 import MythicalMoney.Main;
 
+import java.io.*;
+import java.util.Scanner;
+
 public class FileUtility {
+
     public static String readFile (String path) {
         File file = file (path);
         Scanner scanner;

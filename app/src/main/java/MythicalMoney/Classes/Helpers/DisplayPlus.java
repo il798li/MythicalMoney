@@ -1,4 +1,4 @@
-package MythicalMoney.Classes.Display;
+package MythicalMoney.Classes.Helpers;
 
 public class DisplayPlus extends Display {
 

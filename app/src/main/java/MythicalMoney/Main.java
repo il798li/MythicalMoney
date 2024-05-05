@@ -1,9 +1,5 @@
 package MythicalMoney;
 
-import java.util.EnumSet;
-
-import javax.security.auth.login.LoginException;
-
 import MythicalMoney.Data.Player;
 import MythicalMoney.Data.Setting;
 import MythicalMoney.Listeners.Ready;
@@ -13,16 +9,19 @@ import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 
+import javax.security.auth.login.LoginException;
+import java.util.EnumSet;
+
 public class Main {
 
     public static JDA jda;
 
-    public static void main(String[] args) {
+    public static void main (String[] args) {
         for (int loop = 0; loop < 100; loop++) {
             debug ();
         }
         debug ("Mythical Money is loading...");
-        
+
         String token = "UNKNOWN_TOKEN";
 
         try {
@@ -42,13 +41,13 @@ public class Main {
         debug ("Finished logging in!");
 
         {
-            Player.load();
+            Player.load ();
             Setting.load ();
         }
         {
             {
-                Ready ready = new Ready();
-                jda.addEventListener(ready);
+                Ready ready = new Ready ();
+                jda.addEventListener (ready);
             }
             {
                 SlashCommand slashCommand = new SlashCommand ();
@@ -69,7 +68,7 @@ public class Main {
     public static void debug (final String debug) {
         final String startingString = "\t[Debug] ";
 
-        StringBuilder formattedDebug = new StringBuilder(startingString);
+        StringBuilder formattedDebug = new StringBuilder (startingString);
         final int length = debug.length ();
         for (int index = 0; index < length; index++) {
             String character = debug.charAt (index) + "";
@@ -77,11 +76,11 @@ public class Main {
             if (newLine) {
                 character += startingString;
             }
-            formattedDebug.append(character);
+            formattedDebug.append (character);
         }
         System.out.println (formattedDebug);
     }
-    
+
     public static void debug (final int debug) {
         debug ("" + debug);
     }

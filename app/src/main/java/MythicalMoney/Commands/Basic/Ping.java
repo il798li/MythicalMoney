@@ -1,6 +1,6 @@
 package MythicalMoney.Commands.Basic;
 
-import MythicalMoney.Classes.Display.Display;
+import MythicalMoney.Classes.Helpers.Display;
 import MythicalMoney.Utility.DiscordUtility;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -13,12 +13,12 @@ public class Ping {
     public static void execute (SlashCommandInteractionEvent slashCommandInteractionEvent) {
         JDA jda = slashCommandInteractionEvent.getJDA ();
         long pingMilli = ping (jda);
-        
-        final Display [] displays = {
+
+        final Display[] displays = {
             new Display ("Latency", "I am currently responding to commands within approximately " + pingMilli + " milliseconds.")
         };
 
-        DiscordUtility.deletable(slashCommandInteractionEvent, displays, false);
+        DiscordUtility.deletable (slashCommandInteractionEvent, displays, false);
     }
 
     public static long ping (JDA jda) {
