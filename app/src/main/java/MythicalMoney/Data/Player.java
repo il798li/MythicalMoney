@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import MythicalMoney.Data.Helpers.Inventory;
-import MythicalMoney.Data.Helpers.Land;
+import MythicalMoney.Data.Helpers.LandSet;
 import MythicalMoney.Data.Helpers.ToolSet;
 import MythicalMoney.Utility.JSONUtility;
 
@@ -18,7 +18,7 @@ public class Player {
     public int mm;
     public long userID;
     public Inventory inventory;
-    public Land land;
+    public LandSet landSet;
     public ToolSet toolSet;
 
     public static Player fromJSON (JSONObject jsonObject, final long userID) {
@@ -31,8 +31,8 @@ public class Player {
             player.inventory = Inventory.fromJSON (inventoryJSON);
         }
         {
-            JSONArray landJSON = jsonObject.getJSONArray("land");
-            player.land = Land.fromJSON(landJSON);
+            JSONObject landJSON = jsonObject.getJSONObject("land");
+            player.landSet = LandSet.fromJSON(landJSON);
         }
         {
             JSONObject toolSetJSON = jsonObject.getJSONObject("tools");
@@ -45,24 +45,23 @@ public class Player {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put ("coins", mm);
         jsonObject.put ("inventory", inventory.toJSON());
-        jsonObject.put ("land", land.toJSON());
+        jsonObject.put ("land", landSet.toJSON());
         jsonObject.put ("tools", ToolSet.toJSON(toolSet));
         return jsonObject;
     }
 
-    public Player (final int mm, final long userID, final Inventory inventory, final Land land, final ToolSet toolSet) {
+    public Player (final int mm, final long userID, final Inventory inventory, final LandSet landSet, final ToolSet toolSet) {
         this.mm = mm;
         this.userID = userID;
         this.inventory = inventory;
-        this.land = land;
+        this.landSet = landSet;
         this.toolSet = toolSet;
 
         players.add (this);
     }
 
     public Player (long userID) {
-        this (0, userID, new Inventory(), new Land (), new ToolSet());
-        Main.debug (userID + " was successfully registered.");
+        this (0, userID, new Inventory(), new LandSet(), new ToolSet());
     }
 
     public static void load () {
