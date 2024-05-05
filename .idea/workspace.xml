@@ -6,12 +6,24 @@
   <component name="ChangeListManager">
     <list default="true" id="cccc4f05-823e-49ba-8442-6f425071e2fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Display/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Display/Display.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Display/DisplayPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Display/DisplayPlus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Obtainable.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Obtainable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Property.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Tool.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Tool.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Administrator/Settings.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Administrator/Settings.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Basic/Credits.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Basic/Credits.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Basic/Ping.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Basic/Ping.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Basic/Statistics.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Basic/Statistics.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Restricted/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Restricted/Save.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Helpers/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Helpers/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Helpers/Land.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Helpers/ToolSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Helpers/ToolSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Listeners/Ready.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Listeners/Ready.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Setting.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Setting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/JSON/Profiles.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/JSON/Profiles.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Token.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Token.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Utility/FileUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Utility/FileUtility.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +46,15 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.dv8tion/JDA/5.0.0-alpha.13/416bbf3bf916e0bda6329bfee9b12f1b259b460c/JDA-5.0.0-alpha.13-sources.jar!/net/dv8tion/jda/api/events/interaction/command/GenericCommandInteractionEvent.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/net.dv8tion/JDA/5.0.0-alpha.13/416bbf3bf916e0bda6329bfee9b12f1b259b460c/JDA-5.0.0-alpha.13-sources.jar!/net/dv8tion/jda/api/events/interaction/command/SlashCommandInteractionEvent.java" root0="SKIP_INSPECTION" />
     <setting file="file://$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Player.java" root0="SKIP_INSPECTION" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
+  </component>
+  <component name="MavenRunner">
+    <option name="jreName" value="21" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -57,22 +74,23 @@
     <option name="sortByType" value="true" />
     <option name="sortKey" value="BY_TYPE" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.MythicalMoney:app [:app:Main.main()].executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "full.screen.before.presentation.mode": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.build.tools.auto.reload": "ALL",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.MythicalMoney:app [:app:Main.main()].executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;full.screen.before.presentation.mode&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.build.tools.auto.reload&quot;: &quot;ALL&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors.Java&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="MythicalMoney.Main" />
