@@ -56,9 +56,8 @@ public class Setting {
     public static void save () {
         JSONObject jsonObject = new JSONObject ();
         final int size = settings.size ();
-        for (int index = 0; index < size; index++) {
-            Setting setting = settings.get (index);
-            JSONObject guildSettings = new JSONObject ();
+        for (final Setting setting : settings) {
+            final JSONObject guildSettings = new JSONObject();
             {
                 guildSettings.put ("prefix", setting.prefix);
                 guildSettings.put ("compact", setting.compact);
