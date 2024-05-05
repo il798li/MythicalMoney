@@ -35,7 +35,7 @@ public class Main {
             debug ("Could not login using this token: \"" + token + "\"");
             return;
         } catch (Exception exception) {
-            debug ("An unknown error occured.");
+            debug ("An unknown error occurred.");
             exception.printStackTrace ();
         }
 
