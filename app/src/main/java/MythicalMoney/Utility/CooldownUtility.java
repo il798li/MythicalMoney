@@ -20,13 +20,11 @@ public class CooldownUtility {
         cooldowns.add (this);
     }
 
-    public static CooldownUtility find (long userID, String command) {
+    public static CooldownUtility find (final long userID, final String command) {
         final int size = cooldowns.size ();
-        for (int index = 0; index < size; index++) {
-            CooldownUtility cooldownUtility = cooldowns.get (index);
-
+        for (final CooldownUtility cooldownUtility : cooldowns) {
             final boolean userIDMatch = cooldownUtility.userID == userID;
-            final boolean commandMatch = cooldownUtility.command.equals (command);
+            final boolean commandMatch = cooldownUtility.command.equals(command);
 
             if (userIDMatch && commandMatch) {
                 return cooldownUtility;
@@ -34,8 +32,7 @@ public class CooldownUtility {
         }
 
         final long timestamp = DiscordUtility.timestamp ();
-        CooldownUtility cooldownUtility = new CooldownUtility(userID, command, timestamp);
-        return cooldownUtility;
+        return new CooldownUtility(userID, command, timestamp);
     }
 
     public static boolean cooldown (final SlashCommandInteractionEvent slashCommandInteractionEvent, final int cooldown) {
