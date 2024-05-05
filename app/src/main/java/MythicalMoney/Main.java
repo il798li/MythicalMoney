@@ -21,9 +21,6 @@ public class Main {
         for (int loop = 0; loop < 100; loop++) {
             debug ();
         }
-        Player.load ();
-        Main.debug ("Finished loading all players!");
-        Player.save ();
         debug ("Mythical Money is loading...");
         
         String token = "UNKNOWN_TOKEN";
@@ -45,6 +42,7 @@ public class Main {
         debug ("Finished logging in!");
 
         {
+            Player.load();
             Setting.load ();
         }
         {
