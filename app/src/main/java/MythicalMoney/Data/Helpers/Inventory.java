@@ -4,16 +4,16 @@ import MythicalMoney.Classes.Item;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.Arrays;
+
 public class Inventory {
 
     public static final int totalItems = Item.items.size ();
-    public int[] items;
+    public final int[] items;
 
     public Inventory () {
         this.items = new int[totalItems];
-        for (int index = 0; index < items.length; index++) {
-            this.items[index] = 0;
-        }
+        Arrays.fill (this.items, 0);
     }
 
     public static Inventory fromJSON (JSONObject jsonObject) {
@@ -61,17 +61,17 @@ public class Inventory {
     }
 
     public int get (Item item) {
-        return get (item.display.name);
+        return this.get (item.display.name);
     }
 
     public int add (Item item, int amount) {
-        final int newAmount = get (item) + amount;
+        final int newAmount = this.get (item) + amount;
         final int index = Item.indexOf (item);
         this.items[index] = newAmount;
         return newAmount;
     }
 
     public int subtract (Item item, int amount) {
-        return add (item, -amount);
+        return this.add (item, -amount);
     }
 }

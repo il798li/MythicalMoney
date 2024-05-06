@@ -2,6 +2,7 @@ package MythicalMoney.Classes;
 
 import MythicalMoney.Classes.Helpers.Chances;
 import MythicalMoney.Classes.Helpers.Display;
+import MythicalMoney.Classes.Helpers.Recipe;
 import MythicalMoney.Classes.Obtainable.ToolType;
 
 import java.util.ArrayList;
@@ -12,15 +13,15 @@ public class Land {
     public static final Land starterMine = new Land (new Display ("Starter Mine", "starter mine"), ToolType.Weapon, new Chances.ChancesPlus (100, 0, 0, 0));
     public static final Land starterForest = new Land (new Display ("Starter Forest", "starter forest"), ToolType.Axe, new Chances.ChancesPlus (100, 0, 0, 0));
     public static final Land starterFarm = new Land (new Display ("Starter Farm", "starter farm"), ToolType.Weapon, new Chances.ChancesPlus (100, 0, 0, 0));
-    public static ArrayList <Land> properties = new ArrayList <Land> ();
-    public Chances chances;
-    public Display display;
-    public ToolType tool;
+    public static final ArrayList <Land> properties = new ArrayList <Land> ();
+    public final Chances chances;
+    public final Display display;
+    public final ToolType toolType;
 
-    public Land (Display display, ToolType tool, Chances.ChancesPlus chances) {
+    public Land (Display display, ToolType toolType, Chances.ChancesPlus chances) {
         this.display = display;
         this.chances = chances;
-        this.tool = tool;
+        this.toolType = toolType;
 
         properties.add (this);
     }
@@ -38,10 +39,10 @@ public class Land {
         return toList (properties);
     }
 
-    public static Land[] get (final ToolType tool) {
+    public static Land[] get (final ToolType toolType) {
         ArrayList <Land> toolProperties = new ArrayList <Land> ();
         for (Land land : properties) {
-            if (land.tool == tool) {
+            if (land.toolType == toolType) {
                 toolProperties.add (land);
             }
         }
@@ -57,5 +58,13 @@ public class Land {
             }
         }
         return null;
+    }
+
+    public static class LandPlus extends Land {
+        public final Recipe recipe;
+        public LandPlus (final Display display, final ToolType tool, final Chances.ChancesPlus chances, final Recipe recipe) {
+            super (display, tool, chances);
+            this.recipe = recipe;
+        }
     }
 }

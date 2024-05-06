@@ -16,15 +16,15 @@ public class FileUtility {
             return "Exception: FileNotFoundException";
         }
 
-        String content = "";
+        StringBuilder content = new StringBuilder ();
         while (scanner.hasNextLine ()) {
-            content += scanner.nextLine ();
+            content.append (scanner.nextLine ());
         }
         scanner.close ();
-        return content;
+        return content.toString ();
     }
 
-    public static boolean writeFile (String content, String path) {
+    public static void writeFile (String content, String path) {
         File file = file (path);
         FileWriter fileWriter;
         try {
@@ -32,10 +32,8 @@ public class FileUtility {
             BufferedWriter bufferedWriter = new BufferedWriter (fileWriter);
             bufferedWriter.write (content);
             bufferedWriter.close ();
-            return true;
         } catch (IOException ioException) {
             Main.debug ("Could not write to file \"" + path + "\" due to an IOException.");
-            return false;
         }
     }
 

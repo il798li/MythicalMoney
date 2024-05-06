@@ -22,28 +22,27 @@ public class DiscordUtility {
 
     public static MessageEmbed embed (SlashCommandInteractionEvent slashCommandInteractionEvent, String[] names, String[] values) {
         EmbedBuilder embedBuilder = new EmbedBuilder ();
-        String description = embedDescription (slashCommandInteractionEvent);
+        StringBuilder description = new StringBuilder (embedDescription (slashCommandInteractionEvent));
 
         Setting guildSetting = Setting.get (slashCommandInteractionEvent);
 
-        if (guildSetting.compact == false) {
+        if (!guildSetting.compact) {
             embedBuilder.setTitle ("Mythical Money");
         }
         for (int index = 0; index < names.length && index < values.length; index += 1) {
-            if (index == 0 && guildSetting.compact == true) {
-                description += "**";
+            if (index == 0 && guildSetting.compact) {
+                description.append ("**");
             } else {
-                description += "\n\n**";
+                description.append ("\n\n**");
             }
-            description += names[index];
-            description += "**\n";
-            description += values[index];
+            description.append (names[index]);
+            description.append ("**\n");
+            description.append (values[index]);
         }
-        description += "\n" + embedEnding (slashCommandInteractionEvent);
-        embedBuilder.setDescription (description);
+        description.append ("\n").append (embedEnding (slashCommandInteractionEvent));
+        embedBuilder.setDescription (description.toString ());
         embedBuilder.setColor (blurple);
-        MessageEmbed embed = embedBuilder.build ();
-        return embed;
+        return embedBuilder.build ();
     }
 
     public static String embedDescription (SlashCommandInteractionEvent slashCommandInteractionEvent) {
@@ -96,24 +95,23 @@ public class DiscordUtility {
     }
 
     public static String cancelMarkdown (final String string) {
-        String newString = "";
+        StringBuilder newString = new StringBuilder ();
         final String symbols = "`-=~!@#$%^&*()_+[]\\{}|:;'\",./<>?";
         final char[] originalString = string.toCharArray ();
         for (char character : originalString) {
             boolean isSymbol = symbols.contains ("" + character);
             if (isSymbol) {
-                newString += "\\";
+                newString.append ("\\");
             }
-            newString += character;
+            newString.append (character);
         }
-        return newString;
+        return newString.toString ();
     }
 
     public static long timestamp () {
         Instant now = Instant.now ();
         final long timestampMilli = now.toEpochMilli ();
-        final long timestamp = timestampMilli / 1000;
-        return timestamp;
+        return timestampMilli / 1000;
     }
 
     public static String timestampSuffix (TimestampFormat timestampFormat) {
@@ -150,8 +148,7 @@ public class DiscordUtility {
 
     public static String timestamp (TimestampFormat timestampFormat) {
         long timestamp = timestamp ();
-        String timestampDisplay = timestamp (timestampFormat, timestamp);
-        return timestampDisplay;
+        return timestamp (timestampFormat, timestamp);
     }
 
     public static void deletable (SlashCommandInteractionEvent slashCommandInteractionEvent, Display[] displays, boolean deletable) {
@@ -181,8 +178,7 @@ public class DiscordUtility {
     public static String display (final long userID, SlashCommandInteractionEvent slashCommandInteractionEvent) {
         JDA jda = slashCommandInteractionEvent.getJDA ();
         Guild guild = slashCommandInteractionEvent.getGuild ();
-        final String display = display (userID, jda, guild);
-        return display;
+        return display (userID, jda, guild);
     }
 
     public static String display (final long userID, JDA jda, Guild guild) {
@@ -193,21 +189,15 @@ public class DiscordUtility {
         }
 
         if (guild == null) {
-            final String name = "@" + user.getName ();
-            return name;
+            return "@" + user.getName ();
         }
 
         Member member = guild.getMemberById (userID);
         if (member == null) {
-            final String name = "@" + user.getName ();
-            return name;
+            return "@" + user.getName ();
         }
 
         return user.getAsMention ();
-    }
-
-    public static String hyperlink (String display, String link) {
-        return "[" + display + "](" + link + ")";
     }
 
     public enum TimestampFormat {

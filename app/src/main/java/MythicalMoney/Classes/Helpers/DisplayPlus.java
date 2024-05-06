@@ -2,7 +2,7 @@ package MythicalMoney.Classes.Helpers;
 
 public class DisplayPlus extends Display {
 
-    public String name;
+    public final String name;
 
     public DisplayPlus (final String single, final String plural, final String name) {
         super (single, plural);

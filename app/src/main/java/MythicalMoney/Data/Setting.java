@@ -12,12 +12,12 @@ import java.util.Iterator;
 
 public class Setting {
 
-    public static ArrayList <Setting> settings = new ArrayList <Setting> ();
-    public String guildID;
+    public static final ArrayList <Setting> settings = new ArrayList <Setting> ();
+    public final long guildID;
     public boolean compact;
-    public String prefix;
+    public final String prefix;
 
-    public Setting (String guildID, boolean compact, String prefix) {
+    public Setting (long guildID, boolean compact, String prefix) {
         this.guildID = guildID;
         this.compact = compact;
         this.prefix = prefix;
@@ -30,13 +30,13 @@ public class Setting {
     }
 
     public Setting () {
-        this.guildID = "";
+        this.guildID = 0;
         this.compact = true;
         this.prefix = "mm";
     }
 
     public Setting (long guildID) {
-        this ("" + guildID, true, "mm");
+        this (guildID, true, "mm");
     }
 
     public static void load () {
@@ -44,17 +44,17 @@ public class Setting {
         Iterator <String> keys = settingsJSON.keys ();
 
         while (keys.hasNext ()) {
-            String guildID = keys.next ();
-            JSONObject guildSettingsJSON = settingsJSON.getJSONObject (guildID);
-            boolean compact = guildSettingsJSON.getBoolean ("compact");
-            String prefix = guildSettingsJSON.getString ("prefix");
-            new Setting (guildID, compact, prefix);
+            final String guildID = keys.next ();
+            final long guildIDLong = Long.parseLong (guildID);
+            final JSONObject guildSettingsJSON = settingsJSON.getJSONObject (guildID);
+            final boolean compact = guildSettingsJSON.getBoolean ("compact");
+            final String prefix = guildSettingsJSON.getString ("prefix");
+            new Setting (guildIDLong, compact, prefix);
         }
     }
 
     public static void save () {
         JSONObject jsonObject = new JSONObject ();
-        final int size = settings.size ();
         for (final Setting setting : settings) {
             final JSONObject guildSettings = new JSONObject ();
             {
@@ -62,27 +62,27 @@ public class Setting {
                 guildSettings.put ("compact", setting.compact);
             }
             Main.debug (guildSettings.toString (4));
-            jsonObject.put (setting.guildID, guildSettings);
+            jsonObject.put ("" + setting.guildID, guildSettings);
         }
         JSONUtility.save (jsonObject, JSONFile.Settings);
     }
 
-    public static Setting get (String guildID) {
+    public static Setting get (final long guildID) {
+        final String guildIDString = "" + guildID;
         for (Setting setting : settings) {
-            if (setting.guildID.equals (guildID)) {
+            if (setting.guildID == guildID) {
                 return setting;
             }
         }
-        Setting setting = new Setting (Main.jda.getGuildById (guildID));
-        return get (setting.guildID);
+        return get (guildID);
     }
 
-    public static Setting get (Guild guild) {
+    public static Setting get (final Guild guild) {
         if (guild == null) {
             return new Setting ();
         }
-        final String guildID = guild.getId ();
-        return get (guildID);
+        final long guildIDLong = guild.getIdLong ();
+        return get (guildIDLong);
     }
 
     public static Setting get (SlashCommandInteractionEvent slashCommandInteractionEvent) {
@@ -93,7 +93,7 @@ public class Setting {
     public String toString () {
         String string = "";
         {
-            final String guildID = this.guildID;
+            final String guildID = "" + this.guildID;
             string += "Guild ID: ";
             string += guildID;
         }

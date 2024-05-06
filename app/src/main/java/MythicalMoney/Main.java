@@ -21,9 +21,7 @@ public class Main {
             debug ();
         }
         debug ("Mythical Money is loading...");
-
         String token = "UNKNOWN_TOKEN";
-
         try {
             token = token ();
             final EnumSet <GatewayIntent> intents = GatewayIntent.getIntents (GatewayIntent.ALL_INTENTS);

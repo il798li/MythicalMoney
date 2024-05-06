@@ -11,7 +11,7 @@ import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData;
 
 public class Save {
-    public static SlashCommandData slashCommandData = slashCommandData ();
+    public static final SlashCommandData slashCommandData = slashCommandData ();
 
     public static SlashCommandData slashCommandData () {
         return Commands.slash ("save", "[Restricted] Save all current data to JSON.");
@@ -20,7 +20,7 @@ public class Save {
     public static void execute (SlashCommandInteractionEvent slashCommandInteractionEvent) {
         User user = slashCommandInteractionEvent.getUser ();
         final boolean owner = Ready.owner (user);
-        if (owner == false) {
+        if (!owner) {
             final Display errorDisplay = new Display ("Data Saving Error", "This command is only accessible by authorized users.");
             final Display[] displays = {
                 errorDisplay

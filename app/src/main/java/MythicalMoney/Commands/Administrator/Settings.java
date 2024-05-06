@@ -13,7 +13,7 @@ import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData;
 import java.util.ArrayList;
 
 public class Settings {
-    public static SlashCommandData slashCommandData = slashCommandData ();
+    public static final SlashCommandData slashCommandData = slashCommandData ();
 
     public static SlashCommandData slashCommandData () {
         SlashCommandData slashCommandData = Commands.slash ("settings", "[Administrator] Change my settings for this Discord server.");

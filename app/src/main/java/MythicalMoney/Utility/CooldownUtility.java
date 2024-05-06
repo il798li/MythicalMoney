@@ -6,9 +6,9 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import java.util.ArrayList;
 
 public class CooldownUtility {
-    public static ArrayList <CooldownUtility> cooldowns = new ArrayList <CooldownUtility> ();
-    public long userID;
-    public String command;
+    public static final ArrayList <CooldownUtility> cooldowns = new ArrayList <CooldownUtility> ();
+    public final long userID;
+    public final String command;
     public long nextTimestamp;
 
     public CooldownUtility (long userID, String command, long nextTimestamp) {

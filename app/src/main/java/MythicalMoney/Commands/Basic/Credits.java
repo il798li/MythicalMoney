@@ -7,7 +7,7 @@ import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData;
 
 public class Credits {
-    public static SlashCommandData slashCommandData = Commands.slash ("credits", "[Basic] See all the people who contributed to my creation.");
+    public static final SlashCommandData slashCommandData = Commands.slash ("credits", "[Basic] See all the people who contributed to my creation.");
 
     public static void execute (SlashCommandInteractionEvent slashCommandInteractionEvent) {
 

@@ -6,10 +6,9 @@ import org.json.JSONObject;
 public class JSONUtility {
 
     public static JSONObject load (String fileNameTemplate) {
-        final String fileName = "JSON\\" + fileNameTemplate.toString () + ".json";
+        final String fileName = "JSON\\" + fileNameTemplate + ".json";
         final String jsonData = FileUtility.readFile (fileName);
-        final JSONObject jsonObject = new JSONObject (jsonData);
-        return jsonObject;
+        return new JSONObject (jsonData);
     }
 
     public static JSONObject loadBlacklisted () {
@@ -28,18 +27,16 @@ public class JSONUtility {
         return load ("Settings");
     }
 
-    public static boolean save (@NotNull JSONObject jsonObject, JSONFile jsonFile) {
+    public static void save (@NotNull JSONObject jsonObject, JSONFile jsonFile) {
         final String jsonString = jsonObject.toString (4);
         final String jsonFileString = "JSON\\" + jsonFile.toString () + ".json";
-        final boolean success = FileUtility.writeFile (jsonString, jsonFileString);
-        return success;
+        FileUtility.writeFile (jsonString, jsonFileString);
     }
 
-    public static enum JSONFile {
+    public enum JSONFile {
         Blacklisted,
         Deletables,
         Profiles,
-        Settings,
-        Archive
+        Settings
     }
 }

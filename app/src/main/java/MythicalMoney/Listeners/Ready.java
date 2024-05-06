@@ -40,7 +40,10 @@ public class Ready extends ListenerAdapter {
 
         Guild mmGuild = jda.getGuildById (834113328459677747L);
 
-        CommandListUpdateAction commandListUpdateAction = mmGuild.updateCommands ();
+        CommandListUpdateAction commandListUpdateAction = null;
+        if (mmGuild != null) {
+            commandListUpdateAction = mmGuild.updateCommands ();
+        }
         commandListUpdateAction.addCommands (Save.slashCommandData);
         commandListUpdateAction.queue ();
 

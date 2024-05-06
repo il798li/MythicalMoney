@@ -19,11 +19,11 @@ public class Item {
     public static final Item maple = new Item (new DisplayPlus ("Maple Wood", "Maple Wood", "maple"), 5000, Obtainable.maple);
     public static final Item oak = new Item (new DisplayPlus ("Oak Wood", "Oak Wood", "oak"), 10000, Obtainable.oak);
     public static final Item sandal = new Item (new DisplayPlus ("Sandal Wood", "Sandal Wood", "sandal"), 25000, Obtainable.sandal);
-    public static ArrayList <Item> items = new ArrayList <Item> ();
+    public static final ArrayList <Item> items = new ArrayList <Item> ();
     public static boolean setup = false;
-    public DisplayPlus display;
-    public int price;
-    public Obtainable obtainable;
+    public final DisplayPlus display;
+    public final int price;
+    public final Obtainable obtainable;
 
     public Item (final DisplayPlus display, final int price, final Obtainable obtainable) {
         this.display = display;

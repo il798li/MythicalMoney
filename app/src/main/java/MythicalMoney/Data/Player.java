@@ -11,10 +11,10 @@ import java.util.Iterator;
 
 public class Player {
 
-    public static ArrayList <Player> players = new ArrayList <Player> ();
+    public static final ArrayList <Player> players = new ArrayList <Player> ();
 
     public int mm;
-    public long userID;
+    public final long userID;
     public Inventory inventory;
     public LandSet landSet;
     public ToolSet toolSet;
@@ -33,7 +33,7 @@ public class Player {
         this (0, userID, new Inventory (), new LandSet (), new ToolSet ());
     }
 
-    public static Player fromJSON (JSONObject jsonObject, final long userID) {
+    public static void fromJSON (JSONObject jsonObject, final long userID) {
         final Player player = new Player (userID);
         {
             player.mm = jsonObject.getInt ("coins");
@@ -50,7 +50,6 @@ public class Player {
             JSONObject toolSetJSON = jsonObject.getJSONObject ("tools");
             player.toolSet = ToolSet.fromJSON (toolSetJSON);
         }
-        return player;
     }
 
     public static void load () {
@@ -88,10 +87,10 @@ public class Player {
 
     public JSONObject toJSON () {
         JSONObject jsonObject = new JSONObject ();
-        jsonObject.put ("coins", mm);
-        jsonObject.put ("inventory", inventory.toJSON ());
-        jsonObject.put ("land", landSet.toJSON ());
-        jsonObject.put ("tools", ToolSet.toJSON (toolSet));
+        jsonObject.put ("coins", this.mm);
+        jsonObject.put ("inventory", this.inventory.toJSON ());
+        jsonObject.put ("land", this.landSet.toJSON ());
+        jsonObject.put ("tools", ToolSet.toJSON (this.toolSet));
         return jsonObject;
     }
 }

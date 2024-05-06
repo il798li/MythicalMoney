@@ -12,11 +12,11 @@ public class Tool {
     public static final Tool starterAxe = Tool.axe (new Display ("Starter Axe", "starter axe"), 60, new Chances.ChancesPlus (100, 0, 0, 0));
     public static final Tool starterHoe = Tool.hoe (new Display ("Starter Hoe", "starter hoe"), 60, new Chances.ChancesPlus (100, 0, 0, 0));
     public static final Tool starterPickaxe = Tool.pickaxe (new Display ("Starter Pickaxe", "starter pickaxe"), 60, new Chances.ChancesPlus (100, 0, 0, 0));
-    public static ArrayList <Tool> all = new ArrayList <Tool> ();
-    public Chances chances;
-    public Display display;
-    public int cooldown;
-    public ToolType toolType;
+    public static final ArrayList <Tool> all = new ArrayList <Tool> ();
+    public final Chances chances;
+    public final Display display;
+    public final int cooldown;
+    public final ToolType toolType;
 
     public Tool (Display display, int cooldown, Chances.ChancesPlus chances, ToolType toolType) {
         this.display = display;

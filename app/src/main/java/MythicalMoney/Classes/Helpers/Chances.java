@@ -11,7 +11,7 @@ public class Chances {
     public final int sum;
 
     public Chances (int... chances) {
-        sum = sum (chances);
+        this.sum = sum (chances);
         this.chances = chances;
         final ArrayList <Integer> integerArrayList = new ArrayList <Integer> ();
         for (int index = 0; index < chances.length; index++) {
@@ -20,7 +20,7 @@ public class Chances {
                 integerArrayList.add (index);
             }
         }
-        chancesList = BasicUtility.toList (integerArrayList);
+        this.chancesList = BasicUtility.toList (integerArrayList);
     }
 
     public static int sum (int... chances) {
@@ -33,13 +33,13 @@ public class Chances {
 
     public int random () {
         double random = Math.random ();
-        random *= sum + 1;
+        random *= this.sum + 1;
         return (int) random;
     }
 
     public int chance () {
-        final int random = random ();
-        return chancesList[random];
+        final int random = this.random ();
+        return this.chancesList[random];
     }
 
     public static final class ChancesPlus extends Chances {

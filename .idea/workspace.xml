@@ -5,12 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cccc4f05-823e-49ba-8442-6f425071e2fa" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Helpers/Chances.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Helpers/Recipe.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Armor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Display/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Helpers/Display.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Display/DisplayPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Helpers/DisplayPlus.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Helpers/Chances.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Helpers/Chances.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Helpers/Display.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Helpers/Display.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Helpers/DisplayPlus.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Helpers/DisplayPlus.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Land.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Land.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Obtainable.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Obtainable.java" afterDir="false" />
@@ -23,18 +23,13 @@
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Economy/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Economy/Inventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Restricted/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Restricted/Save.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Helpers/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Helpers/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Helpers/LandSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Helpers/LandSet.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Helpers/ToolSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Helpers/ToolSet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Setting.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Setting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/JSON/Blacklisted.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/JSON/Blacklisted.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/JSON/Deletables.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/JSON/Deletables.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/JSON/Profiles.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/JSON/Profiles.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/JSON/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/JSON/Settings.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Listeners/Ready.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Listeners/Ready.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Listeners/SlashCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Listeners/SlashCommand.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Utility/BasicUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Utility/BasicUtility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Utility/CooldownUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Utility/CooldownUtility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Utility/DiscordUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Utility/DiscordUtility.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Utility/FileUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Utility/FileUtility.java" afterDir="false" />
@@ -103,7 +98,7 @@
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.build.tools.auto.reload": "ALL",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
+    "settings.editor.selected.configurable": "Errors"
   }
 }]]></component>
   <component name="RunManager">

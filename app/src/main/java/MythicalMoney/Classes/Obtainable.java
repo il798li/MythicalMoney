@@ -19,9 +19,9 @@ public class Obtainable {
     public static final Obtainable maple = new Obtainable (new Display ("Maple Tree"), ToolType.Axe);
     public static final Obtainable oak = new Obtainable (new Display ("Oak Tree"), ToolType.Axe);
     public static final Obtainable sandal = new Obtainable (new Display ("Sandalwood Tree"), ToolType.Axe);
-    public static ArrayList <Obtainable> obtainables = new ArrayList <Obtainable> ();
-    public Display display;
-    public ToolType tool;
+    public static final ArrayList <Obtainable> obtainables = new ArrayList <Obtainable> ();
+    public final Display display;
+    public final ToolType tool;
 
     public Obtainable (final Display display, final ToolType tool) {
         this.display = display;
@@ -72,7 +72,7 @@ public class Obtainable {
         return string;
     }
 
-    public static enum ToolType {
+    public enum ToolType {
         Weapon,
         Axe,
         Pickaxe,

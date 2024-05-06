@@ -6,10 +6,10 @@ import java.util.ArrayList;
 
 public class Armor {
 
-    public static ArrayList <Armor> armors = new ArrayList <Armor> ();
-    public int health;
-    public int defense;
-    public DisplayPlus display;
+    public static final ArrayList <Armor> armors = new ArrayList <Armor> ();
+    public final int health;
+    public final int defense;
+    public final DisplayPlus display;
 
     public Armor (int health, int defense, DisplayPlus display, ArmorType armorType) {
         this.health = health;
@@ -44,12 +44,11 @@ public class Armor {
 
     public static Armor get (final String name) {
         final int index = indexOf (name);
-        final Armor armor = armors.get (index);
 
-        return armor;
+        return armors.get (index);
     }
 
-    public static enum ArmorType {
+    public enum ArmorType {
         Helmet,
         Chestplate,
         Leggings,

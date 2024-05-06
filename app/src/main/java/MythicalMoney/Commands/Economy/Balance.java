@@ -12,7 +12,7 @@ import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData;
 
 public class Balance {
-    public static SlashCommandData slashCommandData = slashCommandData ();
+    public static final SlashCommandData slashCommandData = slashCommandData ();
 
     public static SlashCommandData slashCommandData () {
         SlashCommandData slashCommandData = Commands.slash ("balance", "[Economy] Checks how much Mythical Money a user has.");

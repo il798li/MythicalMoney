@@ -14,7 +14,7 @@ import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData;
 import java.util.List;
 
 public class Statistics {
-    public static SlashCommandData slashCommandData = Commands.slash ("statistics", "[Basic] See some basic statistics about me.");
+    public static final SlashCommandData slashCommandData = Commands.slash ("statistics", "[Basic] See some basic statistics about me.");
 
     public static void execute (SlashCommandInteractionEvent slashCommandInteractionEvent) {
         JDA jda = slashCommandInteractionEvent.getJDA ();
