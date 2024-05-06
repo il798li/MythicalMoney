@@ -42,7 +42,7 @@ public class FileUtility {
         File file = null;
         try {
             file = new File (path);
-        } catch (NullPointerException nullPointerException) {
+        } catch (final NullPointerException nullPointerException) {
             Main.debug ("Could not open \"" + path + "\" due to a NullPointerException.");
         }
         return file;

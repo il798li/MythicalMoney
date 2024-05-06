@@ -56,18 +56,17 @@ public class Player {
         JSONObject profiles = JSONUtility.loadProfiles ();
         Iterator <String> keys = profiles.keys ();
 
-        keys.forEachRemaining ((String key) -> {
+        while (keys.hasNext ()) {
+            final String key = keys.next ();
             final long userID = Long.parseLong (key);
             final JSONObject jsonObject = profiles.getJSONObject (key);
             fromJSON (jsonObject, userID);
-        });
+        };
     }
 
     public static void save () {
         final JSONObject jsonObject = new JSONObject ();
-        final int size = players.size ();
-        for (int index = 0; index < size; index++) {
-            final Player player = players.get (index);
+        for (final Player player : players) {
             JSONObject playerJSON = player.toJSON ();
             jsonObject.put ("" + player.userID, playerJSON);
         }
@@ -76,8 +75,7 @@ public class Player {
 
     public static Player get (long userID) {
         final int size = players.size ();
-        for (int index = 0; index < size; index++) {
-            Player player = players.get (index);
+        for (Player player : players) {
             if (player.userID == userID) {
                 return player;
             }
