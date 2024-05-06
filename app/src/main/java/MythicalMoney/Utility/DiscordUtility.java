@@ -115,23 +115,15 @@ public class DiscordUtility {
     }
 
     public static String timestampSuffix (TimestampFormat timestampFormat) {
-        switch (timestampFormat) {
-            case accurateDate:
-                return "D";
-            case accurateDateBasicTime:
-                return "f";
-            case numberDate:
-                return "d";
-            case specificDateBasicTime:
-                return "F";
-            case relative:
-                return "R";
-            case accurateTime:
-                return "T";
-            case basicTime:
-                return "t";
-        }
-        return "";
+        return switch (timestampFormat) {
+            case accurateDate -> "D";
+            case accurateDateBasicTime -> "f";
+            case numberDate -> "d";
+            case specificDateBasicTime -> "F";
+            case relative -> "R";
+            case accurateTime -> "T";
+            case basicTime -> "t";
+        };
     }
 
     public static String timestamp (TimestampFormat timestampFormat, long timestamp) {
