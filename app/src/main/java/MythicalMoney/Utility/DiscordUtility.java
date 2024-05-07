@@ -23,13 +23,7 @@ public class DiscordUtility {
     public static void deletable (SlashCommandInteractionEvent slashCommandInteractionEvent, Display[] displays, boolean deletable) {
         MessageBuilder messageBuilder = new MessageBuilder ();
         {
-            String[] names = new String[displays.length];
-            String[] values = new String[displays.length];
-            for (int index = 0; index < displays.length; index++) {
-                names[index] = displays[index].single;
-                values[index] = displays[index].plural;
-            }
-            MessageEmbed embed = embed (slashCommandInteractionEvent, names, values);
+            MessageEmbed embed = embed (slashCommandInteractionEvent, displays);
             messageBuilder.setEmbeds (embed);
         }
         if (deletable) {
@@ -44,25 +38,31 @@ public class DiscordUtility {
         messageAction.queue ();
     }
 
-    public static MessageEmbed embed (SlashCommandInteractionEvent slashCommandInteractionEvent, String[] names, String[] values) {
-        EmbedBuilder embedBuilder = new EmbedBuilder ();
-        StringBuilder description = new StringBuilder (embedDescription (slashCommandInteractionEvent));
+    public static MessageEmbed embed (final SlashCommandInteractionEvent slashCommandInteractionEvent, final Display[] displays) {
+        final String embedDescription = embedDescription (slashCommandInteractionEvent);
+        final StringBuilder description = new StringBuilder (embedDescription);
         Setting guildSetting = Setting.get (slashCommandInteractionEvent);
-        if (!guildSetting.compact) {
-            embedBuilder.setTitle ("Mythical Money");
-        }
-        for (int index = 0; index < names.length && index < values.length; index += 1) {
+        for (int index = 0; index < displays.length; index += 1) {
             if (index == 0 && guildSetting.compact) {
                 description.append ("**");
             } else {
                 description.append ("\n\n**");
             }
-            description.append (names[index]);
+            final Display display = displays[index];
+            description.append (display.single);
             description.append ("**\n");
-            description.append (values[index]);
+            description.append (display.plural);
         }
-        description.append ("\n").append (embedEnding (slashCommandInteractionEvent));
-        embedBuilder.setDescription (description.toString ());
+        {
+            final String embedEnding = embedEnding (slashCommandInteractionEvent);
+            description.append ("\n");
+            description.append (embedEnding);
+        }
+        final EmbedBuilder embedBuilder = new EmbedBuilder ();
+        if (!guildSetting.compact) {
+            embedBuilder.setTitle ("Mythical Money");
+        }
+        embedBuilder.setDescription (description);
         embedBuilder.setColor (blurple);
         return embedBuilder.build ();
     }
