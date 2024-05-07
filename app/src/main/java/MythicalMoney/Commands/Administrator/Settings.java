@@ -18,7 +18,6 @@ public class Settings {
     public static SlashCommandData slashCommandData () {
         SlashCommandData slashCommandData = Commands.slash ("settings", "[Administrator] Change my settings for this Discord server.");
         slashCommandData.addOption (OptionType.BOOLEAN, "compact", "Remove additional information from embeds with Compact mode.", false);
-
         { // Without this code section, the command was working as intended.
             DefaultMemberPermissions defaultMemberPermissions = DefaultMemberPermissions.DISABLED;
             slashCommandData.setDefaultPermissions (defaultMemberPermissions);
@@ -34,12 +33,10 @@ public class Settings {
                 final boolean compact = optionMapping.getAsBoolean ();
                 final Setting guildSetting = Setting.get (slashCommandInteractionEvent);
                 guildSetting.compact = compact;
-
                 String compactAction = "Compact mode was successfully disabled! From now on, you will see contexts and timestamps on embeds sent by me.";
                 if (compact) {
                     compactAction = "Compact mode was successfully enabled! From now on, you will no longer see contexts or timestamps on embeds sent by me.";
                 }
-
                 final Display compactDisplay = new Display ("Compact Mode", compactAction);
                 displayArrayList.add (compactDisplay);
             }
@@ -56,7 +53,6 @@ public class Settings {
                 displayList[index] = display;
             }
         }
-
         DiscordUtility.deletable (slashCommandInteractionEvent, displayList, false);
     }
 }

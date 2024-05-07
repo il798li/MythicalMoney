@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class Obtainable {
 
+    public static final ArrayList <Obtainable> obtainables = new ArrayList <Obtainable> ();
     public static final Obtainable copper = new Obtainable (new Display ("Copper Ore"), ToolType.Pickaxe);     // 1,000
     public static final Obtainable titanium = new Obtainable (new Display ("Titanium Ore"), ToolType.Pickaxe); // 5,000
     public static final Obtainable gold = new Obtainable (new Display ("Gold Ore"), ToolType.Pickaxe);         //10,000
@@ -19,7 +20,6 @@ public class Obtainable {
     public static final Obtainable maple = new Obtainable (new Display ("Maple Tree"), ToolType.Axe);
     public static final Obtainable oak = new Obtainable (new Display ("Oak Tree"), ToolType.Axe);
     public static final Obtainable sandal = new Obtainable (new Display ("Sandalwood Tree"), ToolType.Axe);
-    public static final ArrayList <Obtainable> obtainables = new ArrayList <Obtainable> ();
     public final Display display;
     public final ToolType tool;
 
@@ -27,6 +27,17 @@ public class Obtainable {
         this.display = display;
         this.tool = tool;
         obtainables.add (this);
+    }
+
+    public static Obtainable get (String name) {
+        name = name.toLowerCase ();
+        final Obtainable[] obtainableList = toList ();
+        for (Obtainable obtainable : obtainableList) {
+            if (obtainable.display.single.toLowerCase ().contains (name)) {
+                return obtainable;
+            }
+        }
+        return null;
     }
 
     public static Obtainable[] toList () {
@@ -39,17 +50,6 @@ public class Obtainable {
             obtainableList[index] = obtainableArrayList.get (index);
         }
         return obtainableList;
-    }
-
-    public static Obtainable get (String name) {
-        name = name.toLowerCase ();
-        final Obtainable[] obtainableList = toList ();
-        for (Obtainable obtainable : obtainableList) {
-            if (obtainable.display.single.toLowerCase ().contains (name)) {
-                return obtainable;
-            }
-        }
-        return null;
     }
 
     public static Obtainable[] get (ToolType tool) {

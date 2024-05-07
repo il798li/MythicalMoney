@@ -7,13 +7,13 @@ public class Display {
     public final String plural;
     public final String single;
 
+    public Display (final String single) {
+        this (single, single + "s");
+    }
+
     public Display (final String single, final String plural) {
         this.single = single;
         this.plural = plural;
-    }
-
-    public Display (final String single) {
-        this (single, single + "s");
     }
 
     public static Button button (Display display) {
@@ -25,7 +25,6 @@ public class Display {
         string += this.single;
         string += "\nPlural: ";
         string += this.plural;
-
         return string;
     }
 

@@ -5,6 +5,7 @@ import MythicalMoney.Data.Player;
 
 public class Recipe {
     public final Ingredient[] ingredients;
+
     public Recipe (final Ingredient... ingredients) {
         this.ingredients = ingredients;
     }
@@ -24,6 +25,7 @@ public class Recipe {
         }
         return true;
     }
+
     public static class Ingredient {
         public final Item item;
         public final int amount;

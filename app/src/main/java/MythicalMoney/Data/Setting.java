@@ -14,19 +14,22 @@ public class Setting {
 
     public static final ArrayList <Setting> settings = new ArrayList <Setting> ();
     public final long guildID;
-    public boolean compact;
     public final String prefix;
+    public boolean compact;
+
+    public Setting (Guild guild) {
+        this (guild.getIdLong ());
+    }
+
+    public Setting (long guildID) {
+        this (guildID, true, "mm");
+    }
 
     public Setting (long guildID, boolean compact, String prefix) {
         this.guildID = guildID;
         this.compact = compact;
         this.prefix = prefix;
-
         settings.add (this);
-    }
-
-    public Setting (Guild guild) {
-        this (guild.getIdLong ());
     }
 
     public Setting () {
@@ -35,14 +38,9 @@ public class Setting {
         this.prefix = "mm";
     }
 
-    public Setting (long guildID) {
-        this (guildID, true, "mm");
-    }
-
     public static void load () {
-        JSONObject settingsJSON = JSONUtility.loadSettings ();
+        JSONObject settingsJSON = JSONUtility.load (JSONFile.Settings);
         Iterator <String> keys = settingsJSON.keys ();
-
         while (keys.hasNext ()) {
             final String guildID = keys.next ();
             final long guildIDLong = Long.parseLong (guildID);
@@ -99,13 +97,8 @@ public class Setting {
         }
         string += "\n";
         {
-            final boolean compact = this.compact;
             string += "Compact: ";
-            if (compact) {
-                string += "true";
-            } else {
-                string += "false";
-            }
+            string += this.compact;
         }
         string += "\n";
         {

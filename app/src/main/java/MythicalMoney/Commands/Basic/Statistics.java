@@ -18,24 +18,19 @@ public class Statistics {
 
     public static void execute (SlashCommandInteractionEvent slashCommandInteractionEvent) {
         JDA jda = slashCommandInteractionEvent.getJDA ();
-
         final List <Guild> guildList = jda.getGuilds ();
         final int guildCount = guildList.size ();
         final Display guildDisplay = new Display ("Servers", "I am currently participating in " + guildCount + " servers.");
-
         final List <User> userList = jda.getUsers ();
         final int userCount = userList.size ();
         final String formattedUserCount = BasicUtility.formatNumber (userCount);
         final Display userDisplay = new Display ("Users", "I am currently being used by " + formattedUserCount + " Discord accounts.");
-
         final long pingMilli = jda.getGatewayPing ();
         final Display pingDisplay = new Display ("Latency", "I am currently responding to commands within approximately " + pingMilli + " milliseconds.");
-
         final int timestamp = 1600805599;
         final String relativeBirthday = DiscordUtility.timestamp (TimestampFormat.relative, timestamp);
         final String exactBirthday = DiscordUtility.timestamp (TimestampFormat.specificDateBasicTime, timestamp);
         final Display birthdayDisplay = new Display ("Birthday", "I was created " + relativeBirthday + " on " + exactBirthday + ".");
-
         Display[] displays = {
             guildDisplay,
             userDisplay,

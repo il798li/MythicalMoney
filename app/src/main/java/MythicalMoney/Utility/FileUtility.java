@@ -15,13 +15,23 @@ public class FileUtility {
         } catch (FileNotFoundException fileNotFoundException) {
             return "Exception: FileNotFoundException";
         }
-
         StringBuilder content = new StringBuilder ();
         while (scanner.hasNextLine ()) {
             content.append (scanner.nextLine ());
         }
         scanner.close ();
         return content.toString ();
+    }
+
+    public static File file (String path) {
+        path = "app\\src\\main\\java\\MythicalMoney\\" + path;
+        File file = null;
+        try {
+            file = new File (path);
+        } catch (final NullPointerException nullPointerException) {
+            Main.debug ("Could not open \"" + path + "\" due to a NullPointerException.");
+        }
+        return file;
     }
 
     public static void writeFile (String content, String path) {
@@ -35,16 +45,5 @@ public class FileUtility {
         } catch (IOException ioException) {
             Main.debug ("Could not write to file \"" + path + "\" due to an IOException.");
         }
-    }
-
-    public static File file (String path) {
-        path = "app\\src\\main\\java\\MythicalMoney\\" + path;
-        File file = null;
-        try {
-            file = new File (path);
-        } catch (final NullPointerException nullPointerException) {
-            Main.debug ("Could not open \"" + path + "\" due to a NullPointerException.");
-        }
-        return file;
     }
 }

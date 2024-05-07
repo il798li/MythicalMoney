@@ -22,8 +22,7 @@ public class Ready extends ListenerAdapter {
             655263219459293210L
         };
         final long userID = user.getIdLong ();
-
-        for (long ownerID : ownerIDs) {
+        for (final long ownerID : ownerIDs) {
             if (userID == ownerID) {
                 return true;
             }
@@ -33,20 +32,16 @@ public class Ready extends ListenerAdapter {
 
     public void onReady (ReadyEvent readyEvent) {
         JDA jda = readyEvent.getJDA ();
-
         User mm = jda.getSelfUser ();
         final String name = mm.getName ();
         Main.debug ("Successfully signed in as " + name + "!");
-
         Guild mmGuild = jda.getGuildById (834113328459677747L);
-
         CommandListUpdateAction commandListUpdateAction = null;
         if (mmGuild != null) {
             commandListUpdateAction = mmGuild.updateCommands ();
         }
         commandListUpdateAction.addCommands (Save.slashCommandData);
         commandListUpdateAction.queue ();
-
         CommandListUpdateAction publishedCommandListUpdateAction = jda.updateCommands ();
         publishedCommandListUpdateAction.addCommands (Ping.slashCommandData);
         publishedCommandListUpdateAction.addCommands (Settings.slashCommandData);
@@ -55,7 +50,6 @@ public class Ready extends ListenerAdapter {
         publishedCommandListUpdateAction.addCommands (Inventory.slashCommandData);
         publishedCommandListUpdateAction.addCommands (Balance.slashCommandData);
         publishedCommandListUpdateAction.queue ();
-
         final long ping = Ping.ping (jda);
         Main.debug (name + " is responding to commands with " + ping + " milliseconds of latency...");
     }

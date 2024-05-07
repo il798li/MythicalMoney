@@ -4,6 +4,10 @@ import java.util.ArrayList;
 
 public class BasicUtility {
 
+    public static String indent (String string) {
+        return indent (string, 1);
+    }
+
     public static String indent (String string, int indent) {
         StringBuilder indentString = new StringBuilder ();
         for (; indent > 0; indent--) {
@@ -12,10 +16,6 @@ public class BasicUtility {
         string = indentString + string;
         string = string.replace ("\n", "\n" + indentString);
         return string;
-    }
-
-    public static String indent (String string) {
-        return indent (string, 1);
     }
 
     public static String formatNumber (int number) {

@@ -29,7 +29,6 @@ public class Inventory {
             user = optionMapping.getAsUser ();
         }
         final long userID = user.getIdLong ();
-
         String startingString = "You have ";
         if (userID != authorID) {
             startingString = user.getAsMention ();
@@ -41,15 +40,12 @@ public class Inventory {
         for (int index = 0; index < items.length; index++) {
             final int amount = player.inventory.items[index];
             final Item item = items[index];
-
             String label = item.display.plural;
             if (amount == 1) {
                 label = item.display.single;
             }
-
             displays[index] = new Display (item.display.plural, startingString + amount + " " + label + ".");
         }
-
         DiscordUtility.deletable (slashCommandInteractionEvent, displays, false);
     }
 }

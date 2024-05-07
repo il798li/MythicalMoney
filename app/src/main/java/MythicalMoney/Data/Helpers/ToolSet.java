@@ -46,4 +46,8 @@ public class ToolSet {
         jsonObject.put ("weapon", toolSet.weapon.display.plural);
         return jsonObject;
     }
+
+    public JSONObject toJSON () {
+        return toJSON (this);
+    }
 }

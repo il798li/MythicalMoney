@@ -15,8 +15,20 @@ public class CooldownUtility {
         this.userID = userID;
         this.command = command;
         this.nextTimestamp = nextTimestamp;
-
         cooldowns.add (this);
+    }
+
+    public static boolean cooldown (final SlashCommandInteractionEvent slashCommandInteractionEvent, final int cooldown) {
+        final User user = slashCommandInteractionEvent.getUser ();
+        final long userID = user.getIdLong ();
+        final String command = slashCommandInteractionEvent.getName ();
+        CooldownUtility cooldownUtility = find (userID, command);
+        long currentTimestamp = DiscordUtility.timestamp ();
+        if (currentTimestamp < cooldownUtility.nextTimestamp) {
+            return false;
+        }
+        cooldownUtility.nextTimestamp += cooldown;
+        return true;
     }
 
     public static CooldownUtility find (final long userID, final String command) {
@@ -24,30 +36,11 @@ public class CooldownUtility {
         for (final CooldownUtility cooldownUtility : cooldowns) {
             final boolean userIDMatch = cooldownUtility.userID == userID;
             final boolean commandMatch = cooldownUtility.command.equals (command);
-
             if (userIDMatch && commandMatch) {
                 return cooldownUtility;
             }
         }
-
         final long timestamp = DiscordUtility.timestamp ();
         return new CooldownUtility (userID, command, timestamp);
-    }
-
-    public static boolean cooldown (final SlashCommandInteractionEvent slashCommandInteractionEvent, final int cooldown) {
-        final User user = slashCommandInteractionEvent.getUser ();
-        final long userID = user.getIdLong ();
-
-        final String command = slashCommandInteractionEvent.getName ();
-
-        CooldownUtility cooldownUtility = find (userID, command);
-        long currentTimestamp = DiscordUtility.timestamp ();
-
-        if (currentTimestamp < cooldownUtility.nextTimestamp) {
-            return false;
-        }
-
-        cooldownUtility.nextTimestamp += cooldown;
-        return true;
     }
 }

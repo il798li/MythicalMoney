@@ -31,15 +31,15 @@ public class Chances {
         return sum;
     }
 
+    public int chance () {
+        final int random = this.random ();
+        return this.chancesList[random];
+    }
+
     public int random () {
         double random = Math.random ();
         random *= this.sum + 1;
         return (int) random;
-    }
-
-    public int chance () {
-        final int random = this.random ();
-        return this.chancesList[random];
     }
 
     public static final class ChancesPlus extends Chances {

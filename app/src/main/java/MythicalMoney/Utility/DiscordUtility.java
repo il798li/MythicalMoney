@@ -20,12 +20,34 @@ public class DiscordUtility {
 
     public static final Color blurple = new Color (114, 137, 218);
 
+    public static void deletable (SlashCommandInteractionEvent slashCommandInteractionEvent, Display[] displays, boolean deletable) {
+        MessageBuilder messageBuilder = new MessageBuilder ();
+        {
+            String[] names = new String[displays.length];
+            String[] values = new String[displays.length];
+            for (int index = 0; index < displays.length; index++) {
+                names[index] = displays[index].single;
+                values[index] = displays[index].plural;
+            }
+            MessageEmbed embed = embed (slashCommandInteractionEvent, names, values);
+            messageBuilder.setEmbeds (embed);
+        }
+        if (deletable) {
+            Display display = new Display ("Delete", "delete");
+            Button delete = display.button ();
+            ActionRow actionRow = ActionRow.of (delete);
+            messageBuilder.setActionRows (actionRow);
+        }
+        InteractionHook interactionHook = slashCommandInteractionEvent.getHook ();
+        Message message = messageBuilder.build ();
+        WebhookMessageAction <Message> messageAction = interactionHook.sendMessage (message);
+        messageAction.queue ();
+    }
+
     public static MessageEmbed embed (SlashCommandInteractionEvent slashCommandInteractionEvent, String[] names, String[] values) {
         EmbedBuilder embedBuilder = new EmbedBuilder ();
         StringBuilder description = new StringBuilder (embedDescription (slashCommandInteractionEvent));
-
         Setting guildSetting = Setting.get (slashCommandInteractionEvent);
-
         if (!guildSetting.compact) {
             embedBuilder.setTitle ("Mythical Money");
         }
@@ -54,7 +76,6 @@ public class DiscordUtility {
         if (guildSettings.compact) {
             return "_ _";
         }
-
         String description = "This embed was requested by ";
         {
             final User user = slashCommandInteractionEvent.getUser ();
@@ -83,7 +104,6 @@ public class DiscordUtility {
         if (setting.compact) {
             return "";
         }
-
         String ending = "\nThis embed was sent ";
         ending += timestamp (TimestampFormat.relative);
         ending += " at ";
@@ -108,22 +128,15 @@ public class DiscordUtility {
         return newString.toString ();
     }
 
+    public static String timestamp (TimestampFormat timestampFormat) {
+        long timestamp = timestamp ();
+        return timestamp (timestampFormat, timestamp);
+    }
+
     public static long timestamp () {
         Instant now = Instant.now ();
         final long timestampMilli = now.toEpochMilli ();
         return timestampMilli / 1000;
-    }
-
-    public static String timestampSuffix (TimestampFormat timestampFormat) {
-        return switch (timestampFormat) {
-            case accurateDate -> "D";
-            case accurateDateBasicTime -> "f";
-            case numberDate -> "d";
-            case specificDateBasicTime -> "F";
-            case relative -> "R";
-            case accurateTime -> "T";
-            case basicTime -> "t";
-        };
     }
 
     public static String timestamp (TimestampFormat timestampFormat, long timestamp) {
@@ -138,33 +151,16 @@ public class DiscordUtility {
         return timestampString;
     }
 
-    public static String timestamp (TimestampFormat timestampFormat) {
-        long timestamp = timestamp ();
-        return timestamp (timestampFormat, timestamp);
-    }
-
-    public static void deletable (SlashCommandInteractionEvent slashCommandInteractionEvent, Display[] displays, boolean deletable) {
-        MessageBuilder messageBuilder = new MessageBuilder ();
-        {
-            String[] names = new String[displays.length];
-            String[] values = new String[displays.length];
-            for (int index = 0; index < displays.length; index++) {
-                names[index] = displays[index].single;
-                values[index] = displays[index].plural;
-            }
-            MessageEmbed embed = embed (slashCommandInteractionEvent, names, values);
-            messageBuilder.setEmbeds (embed);
-        }
-        if (deletable) {
-            Display display = new Display ("Delete", "delete");
-            Button delete = display.button ();
-            ActionRow actionRow = ActionRow.of (delete);
-            messageBuilder.setActionRows (actionRow);
-        }
-        InteractionHook interactionHook = slashCommandInteractionEvent.getHook ();
-        Message message = messageBuilder.build ();
-        WebhookMessageAction <Message> messageAction = interactionHook.sendMessage (message);
-        messageAction.queue ();
+    public static String timestampSuffix (TimestampFormat timestampFormat) {
+        return switch (timestampFormat) {
+            case accurateDate -> "D";
+            case accurateDateBasicTime -> "f";
+            case numberDate -> "d";
+            case specificDateBasicTime -> "F";
+            case relative -> "R";
+            case accurateTime -> "T";
+            case basicTime -> "t";
+        };
     }
 
     public static String display (final long userID, SlashCommandInteractionEvent slashCommandInteractionEvent) {
@@ -179,16 +175,13 @@ public class DiscordUtility {
             Main.debug (userID + " is a null user.");
             return "UNKNOWN_NAME";
         }
-
         if (guild == null) {
             return "@" + user.getName ();
         }
-
         Member member = guild.getMemberById (userID);
         if (member == null) {
             return "@" + user.getName ();
         }
-
         return user.getAsMention ();
     }
 

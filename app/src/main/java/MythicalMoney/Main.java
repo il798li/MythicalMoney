@@ -25,7 +25,6 @@ public class Main {
         try {
             token = token ();
             final EnumSet <GatewayIntent> intents = GatewayIntent.getIntents (GatewayIntent.ALL_INTENTS);
-
             JDABuilder jdaBuilder = JDABuilder.create (token, intents);
             jda = jdaBuilder.build ();
         } catch (LoginException loginException) {
@@ -35,9 +34,7 @@ public class Main {
             debug ("An unknown error occurred.");
             exception.printStackTrace ();
         }
-
         debug ("Finished logging in!");
-
         {
             Player.load ();
             Setting.load ();
@@ -54,18 +51,12 @@ public class Main {
         }
     }
 
-    public static String token () {
-        final String token = FileUtility.readFile ("Token.txt");
-        if (token.contains ("\n")) {
-            final int index = token.indexOf ("\n");
-            return token.substring (0, index);
-        }
-        return token;
+    public static void debug () {
+        System.out.println ("\n");
     }
 
     public static void debug (final String debug) {
         final String startingString = "\t[Debug] ";
-
         StringBuilder formattedDebug = new StringBuilder (startingString);
         final int length = debug.length ();
         for (int index = 0; index < length; index++) {
@@ -79,15 +70,20 @@ public class Main {
         System.out.println (formattedDebug);
     }
 
+    public static String token () {
+        final String token = FileUtility.readFile ("Token.txt");
+        if (token.contains ("\n")) {
+            final int index = token.indexOf ("\n");
+            return token.substring (0, index);
+        }
+        return token;
+    }
+
     public static void debug (final int debug) {
         debug ("" + debug);
     }
 
     public static void debug (final long debug) {
         debug ("" + debug);
-    }
-
-    public static void debug () {
-        System.out.println ("\n");
     }
 }

@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class Item {
 
+    public static final ArrayList <Item> items = new ArrayList <Item> ();
     public static final Item copper = new Item (new DisplayPlus ("Copper", "Copper", "copper"), 1000, Obtainable.copper);
     public static final Item titanium = new Item (new DisplayPlus ("Titanium", "Titanium", "titanium"), 5000, Obtainable.titanium);
     public static final Item gold = new Item (new DisplayPlus ("Gold", "Gold", "gold"), 10000, Obtainable.gold);
@@ -19,8 +20,6 @@ public class Item {
     public static final Item maple = new Item (new DisplayPlus ("Maple Wood", "Maple Wood", "maple"), 5000, Obtainable.maple);
     public static final Item oak = new Item (new DisplayPlus ("Oak Wood", "Oak Wood", "oak"), 10000, Obtainable.oak);
     public static final Item sandal = new Item (new DisplayPlus ("Sandal Wood", "Sandal Wood", "sandal"), 25000, Obtainable.sandal);
-    public static final ArrayList <Item> items = new ArrayList <Item> ();
-    public static boolean setup = false;
     public final DisplayPlus display;
     public final int price;
     public final Obtainable obtainable;
@@ -29,8 +28,17 @@ public class Item {
         this.display = display;
         this.price = price;
         this.obtainable = obtainable;
-
         items.add (this);
+    }
+
+    public static Item get (final String name) {
+        for (Item item : toList ()) {
+            final boolean nameMatches = item.display.name.equals (name);
+            if (nameMatches) {
+                return item;
+            }
+        }
+        return null;
     }
 
     public static Item[] toList () {
@@ -42,13 +50,8 @@ public class Item {
         return itemList;
     }
 
-    public static Item get (final String name) {
-        for (Item item : toList ()) {
-            if (item.display.name.equals (name)) {
-                return item;
-            }
-        }
-        return null;
+    public static int indexOf (final Item item) {
+        return indexOf (item.display.name);
     }
 
     public static int indexOf (final String name) {
@@ -62,13 +65,12 @@ public class Item {
         return -1;
     }
 
-    public static int indexOf (final Item item) {
-        return indexOf (item.display.name);
-    }
-
     public String toString () {
         String string = "Display:\n";
-        string += BasicUtility.indent (this.display.toString ());
+        {
+            final String displayString = this.display.toString ();
+            string += displayString;
+        }
         {
             string += "\nPrice: ";
             string += this.price;

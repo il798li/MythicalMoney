@@ -15,7 +15,6 @@ public class Armor {
         this.health = health;
         this.defense = defense;
         this.display = display;
-
         armors.add (this);
     }
 
@@ -23,8 +22,11 @@ public class Armor {
         this.health = health;
         this.defense = 0;
         this.display = display;
-
         armors.add (this);
+    }
+
+    public static int indexOf (final Armor armor) {
+        return indexOf (armor.display.name);
     }
 
     public static int indexOf (final String name) {
@@ -38,13 +40,8 @@ public class Armor {
         return -1;
     }
 
-    public static int indexOf (final Armor armor) {
-        return indexOf (armor.display.name);
-    }
-
     public static Armor get (final String name) {
         final int index = indexOf (name);
-
         return armors.get (index);
     }
 

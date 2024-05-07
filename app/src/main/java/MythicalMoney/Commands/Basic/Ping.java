@@ -13,11 +13,9 @@ public class Ping {
     public static void execute (SlashCommandInteractionEvent slashCommandInteractionEvent) {
         JDA jda = slashCommandInteractionEvent.getJDA ();
         long pingMilli = ping (jda);
-
         final Display[] displays = {
             new Display ("Latency", "I am currently responding to commands within approximately " + pingMilli + " milliseconds.")
         };
-
         DiscordUtility.deletable (slashCommandInteractionEvent, displays, false);
     }
 

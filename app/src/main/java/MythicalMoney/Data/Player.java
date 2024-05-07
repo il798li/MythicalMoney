@@ -12,12 +12,15 @@ import java.util.Iterator;
 public class Player {
 
     public static final ArrayList <Player> players = new ArrayList <Player> ();
-
-    public int mm;
     public final long userID;
+    public int mm;
     public Inventory inventory;
     public LandSet landSet;
     public ToolSet toolSet;
+
+    public Player (long userID) {
+        this (0, userID, new Inventory (), new LandSet (), new ToolSet ());
+    }
 
     public Player (final int mm, final long userID, final Inventory inventory, final LandSet landSet, final ToolSet toolSet) {
         this.mm = mm;
@@ -25,12 +28,18 @@ public class Player {
         this.inventory = inventory;
         this.landSet = landSet;
         this.toolSet = toolSet;
-
         players.add (this);
     }
 
-    public Player (long userID) {
-        this (0, userID, new Inventory (), new LandSet (), new ToolSet ());
+    public static void load () {
+        JSONObject profiles = JSONUtility.load (JSONUtility.JSONFile.Profiles);
+        Iterator <String> keys = profiles.keys ();
+        while (keys.hasNext ()) {
+            final String key = keys.next ();
+            final long userID = Long.parseLong (key);
+            final JSONObject jsonObject = profiles.getJSONObject (key);
+            fromJSON (jsonObject, userID);
+        }
     }
 
     public static void fromJSON (JSONObject jsonObject, final long userID) {
@@ -50,18 +59,6 @@ public class Player {
             JSONObject toolSetJSON = jsonObject.getJSONObject ("tools");
             player.toolSet = ToolSet.fromJSON (toolSetJSON);
         }
-    }
-
-    public static void load () {
-        JSONObject profiles = JSONUtility.loadProfiles ();
-        Iterator <String> keys = profiles.keys ();
-
-        while (keys.hasNext ()) {
-            final String key = keys.next ();
-            final long userID = Long.parseLong (key);
-            final JSONObject jsonObject = profiles.getJSONObject (key);
-            fromJSON (jsonObject, userID);
-        };
     }
 
     public static void save () {
@@ -84,11 +81,22 @@ public class Player {
     }
 
     public JSONObject toJSON () {
-        JSONObject jsonObject = new JSONObject ();
-        jsonObject.put ("coins", this.mm);
-        jsonObject.put ("inventory", this.inventory.toJSON ());
-        jsonObject.put ("land", this.landSet.toJSON ());
-        jsonObject.put ("tools", ToolSet.toJSON (this.toolSet));
-        return jsonObject;
+        final JSONObject playerJSON = new JSONObject ();
+        {
+            playerJSON.put ("coins", this.mm);
+        }
+        {
+            final JSONObject inventoryJSON = this.inventory.toJSON ();
+            playerJSON.put ("inventory", inventoryJSON);
+        }
+        {
+            final JSONObject landSetJSON = this.landSet.toJSON ();
+            playerJSON.put ("land", landSetJSON);
+        }
+        {
+            final JSONObject toolSetJSON = this.toolSet.toJSON ();
+            playerJSON.put ("tools", toolSetJSON);
+        }
+        return playerJSON;
     }
 }

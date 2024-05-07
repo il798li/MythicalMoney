@@ -29,16 +29,13 @@ public class Balance {
             user = optionMapping.getAsUser ();
         }
         final long userID = user.getIdLong ();
-
         String startingString = "You have ";
         if (userID != authorID) {
             startingString = user.getAsMention ();
             startingString += " has ";
         }
-
         final Player player = Player.get (userID);
         final String formattedBalance = BasicUtility.formatNumber (player.mm);
-
         final Display display = new Display ("Mythical Money Balance", startingString + "M$" + formattedBalance + ".");
         final Display[] displays = {
             display

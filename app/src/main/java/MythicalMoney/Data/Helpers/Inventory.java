@@ -27,15 +27,9 @@ public class Inventory {
         for (int index = 0; index < inventory.items.length; index++) {
             Item item = Item.items.get (index);
             final int amount = inventory.items[index];
-
             jsonObject.put (item.display.name, amount);
         }
-
         return jsonObject;
-    }
-
-    public JSONObject toJSON () {
-        return toJSON (this);
     }
 
     public void setup (JSONObject jsonObject) {
@@ -44,24 +38,21 @@ public class Inventory {
             final Item item = items[index];
             String name = item.display.name;
             int amount;
-
             try {
                 amount = jsonObject.getInt (name);
             } catch (JSONException jsonException) {
                 amount = 0;
             }
-
             this.items[index] = amount;
         }
     }
 
-    public int get (String item) {
-        int index = Item.indexOf (item);
-        return this.items[index];
+    public JSONObject toJSON () {
+        return toJSON (this);
     }
 
-    public int get (Item item) {
-        return this.get (item.display.name);
+    public int subtract (Item item, int amount) {
+        return this.add (item, -amount);
     }
 
     public int add (Item item, int amount) {
@@ -71,7 +62,12 @@ public class Inventory {
         return newAmount;
     }
 
-    public int subtract (Item item, int amount) {
-        return this.add (item, -amount);
+    public int get (Item item) {
+        return this.get (item.display.name);
+    }
+
+    public int get (String item) {
+        int index = Item.indexOf (item);
+        return this.items[index];
     }
 }
