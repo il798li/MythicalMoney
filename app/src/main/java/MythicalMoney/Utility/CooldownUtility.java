@@ -22,7 +22,7 @@ public class CooldownUtility {
         final User user = slashCommandInteractionEvent.getUser ();
         final long userID = user.getIdLong ();
         final String command = slashCommandInteractionEvent.getName ();
-        CooldownUtility cooldownUtility = find (userID, command);
+        CooldownUtility cooldownUtility = find (slashCommandInteractionEvent);
         long currentTimestamp = DiscordUtility.timestamp ();
         if (currentTimestamp < cooldownUtility.nextTimestamp) {
             return false;
@@ -31,7 +31,10 @@ public class CooldownUtility {
         return true;
     }
 
-    public static CooldownUtility find (final long userID, final String command) {
+    public static CooldownUtility find (final SlashCommandInteractionEvent slashCommandInteractionEvent) {
+        final User user = slashCommandInteractionEvent.getUser ();
+        final long userID = user.getIdLong ();
+        final String command = slashCommandInteractionEvent.getName ();
         final int size = cooldowns.size ();
         for (final CooldownUtility cooldownUtility : cooldowns) {
             final boolean userIDMatch = cooldownUtility.userID == userID;

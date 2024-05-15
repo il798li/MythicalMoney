@@ -9,21 +9,34 @@ import java.util.ArrayList;
 
 public class Land {
 
-    public static final Land starterHuntingGround = new Land (new Display ("Starter Hunting Ground", "starter hunting ground"), ToolType.Weapon, new Chances.ChancesPlus (100, 0, 0, 0));
-    public static final Land starterMine = new Land (new Display ("Starter Mine", "starter mine"), ToolType.Weapon, new Chances.ChancesPlus (100, 0, 0, 0));
-    public static final Land starterForest = new Land (new Display ("Starter Forest", "starter forest"), ToolType.Axe, new Chances.ChancesPlus (100, 0, 0, 0));
-    public static final Land starterFarm = new Land (new Display ("Starter Farm", "starter farm"), ToolType.Weapon, new Chances.ChancesPlus (100, 0, 0, 0));
-    public static final ArrayList <Land> properties = new ArrayList <Land> ();
+    public static final ArrayList <Land> lands = new ArrayList <Land> ();
+    public static final Land starterHuntingGround = new Land (new Display ("Starter Hunting Ground", "starter hunting ground"), ToolType.Weapon, new Chances.ChancesPlus (100, 0, 0, 0), 1, null);
+    public static final Land starterMine = new Land (new Display ("Starter Mine", "starter mine"), ToolType.Weapon, new Chances.ChancesPlus (100, 0, 0, 0), 1, null);
+    public static final Land starterForest = new Land (new Display ("Starter Forest", "starter forest"), ToolType.Axe, new Chances.ChancesPlus (100, 0, 0, 0), 1, null);
+    public static final Land starterFarm = new Land (new Display ("Starter Farm", "starter farm"), ToolType.Weapon, new Chances.ChancesPlus (100, 0, 0, 0), 1, null);
     public final Chances chances;
     public final Display display;
     public final ToolType toolType;
+    public final int harvests;
+    public final Recipe recipe;
 
-    public Land (Display display, ToolType toolType, Chances.ChancesPlus chances) {
+    public Land (final Display display, final ToolType toolType, final Chances.ChancesPlus chances, final int harvests, final Recipe recipe) {
         this.display = display;
         this.chances = chances;
         this.toolType = toolType;
+        this.harvests = harvests;
+        this.recipe = recipe;
+        lands.add (this);
+    }
 
-        properties.add (this);
+    public static Land[] get (final ToolType toolType) {
+        ArrayList <Land> toolProperties = new ArrayList <Land> ();
+        for (Land land : lands) {
+            if (land.toolType == toolType) {
+                toolProperties.add (land);
+            }
+        }
+        return toList (toolProperties);
     }
 
     public static Land[] toList (final ArrayList <Land> landArrayList) {
@@ -33,20 +46,6 @@ public class Land {
             landList[index] = landArrayList.get (index);
         }
         return landList;
-    }
-
-    public static Land[] toList () {
-        return toList (properties);
-    }
-
-    public static Land[] get (final ToolType toolType) {
-        ArrayList <Land> toolProperties = new ArrayList <Land> ();
-        for (Land land : properties) {
-            if (land.toolType == toolType) {
-                toolProperties.add (land);
-            }
-        }
-        return toList (toolProperties);
     }
 
     public static Land get (final String name) {
@@ -60,11 +59,47 @@ public class Land {
         return null;
     }
 
-    public static class LandPlus extends Land {
-        public final Recipe recipe;
-        public LandPlus (final Display display, final ToolType tool, final Chances.ChancesPlus chances, final Recipe recipe) {
-            super (display, tool, chances);
-            this.recipe = recipe;
+    public static Land[] toList () {
+        return toList (lands);
+    }
+
+    public String verb () {
+        switch (this.toolType) {
+            case Weapon: {
+                return "hunt";
+            }
+            case Pickaxe: {
+                return "mine";
+            }
+            case Axe: {
+                return "chop";
+            }
+            case Hoe: {
+                return "till";
+            }
+            default: {
+                return null;
+            }
+        }
+    }
+
+    public String verbPastTense () {
+        switch (this.toolType) {
+            case Weapon: {
+                return "hunted";
+            }
+            case Pickaxe: {
+                return "mined";
+            }
+            case Axe: {
+                return "chopped";
+            }
+            case Hoe: {
+                return "tilled";
+            }
+            default: {
+                return null;
+            }
         }
     }
 }

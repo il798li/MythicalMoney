@@ -31,5 +31,33 @@ public class Display {
     public Button button () {
         return button (this);
     }
+
+    public String display (final int amount) {
+        if (amount == 1) {
+            return this.single;
+        }
+        return this.plural;
+    }
+
+    public static class DisplayPlus extends Display {
+
+        public final String name;
+
+        public DisplayPlus (final String single, final String plural, final String name) {
+            super (single, plural);
+            this.name = name.toLowerCase ();
+        }
+
+        public DisplayPlus (final String single) {
+            super (single);
+            this.name = single.toLowerCase ();
+        }
+
+        public String toString () {
+            String string = super.toString ();
+            string += "\nName: " + this.name;
+            return string;
+        }
+    }
 }
 

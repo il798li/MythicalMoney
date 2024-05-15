@@ -6,6 +6,7 @@ import MythicalMoney.Commands.Basic.Ping;
 import MythicalMoney.Commands.Basic.Statistics;
 import MythicalMoney.Commands.Economy.Balance;
 import MythicalMoney.Commands.Economy.Inventory;
+import MythicalMoney.Commands.Economy.Tasks.Hunt;
 import MythicalMoney.Commands.Restricted.Save;
 import MythicalMoney.Main;
 import net.dv8tion.jda.api.JDA;
@@ -49,6 +50,7 @@ public class Ready extends ListenerAdapter {
         publishedCommandListUpdateAction.addCommands (Statistics.slashCommandData);
         publishedCommandListUpdateAction.addCommands (Inventory.slashCommandData);
         publishedCommandListUpdateAction.addCommands (Balance.slashCommandData);
+        publishedCommandListUpdateAction.addCommands (Hunt.slashCommandData);
         publishedCommandListUpdateAction.queue ();
         final long ping = Ping.ping (jda);
         Main.debug (name + " is responding to commands with " + ping + " milliseconds of latency...");

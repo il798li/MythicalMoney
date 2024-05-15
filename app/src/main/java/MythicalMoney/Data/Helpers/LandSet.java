@@ -50,4 +50,24 @@ public class LandSet {
     public JSONObject toJSON () {
         return toJSON (this);
     }
+
+    public Land get (String type) {
+        switch (type) {
+            case "hunting ground": {
+                return this.huntingGround;
+            }
+            case "mine": {
+                return this.mine;
+            }
+            case "forest": {
+                return this.forest;
+            }
+            case "farm": {
+                return this.farm;
+            }
+            default: {
+                return null;
+            }
+        }
+    }
 }

@@ -6,12 +6,14 @@ import MythicalMoney.Commands.Basic.Ping;
 import MythicalMoney.Commands.Basic.Statistics;
 import MythicalMoney.Commands.Economy.Balance;
 import MythicalMoney.Commands.Economy.Inventory;
+import MythicalMoney.Commands.Economy.Land;
+import MythicalMoney.Commands.Economy.Tasks.Hunt;
 import MythicalMoney.Commands.Restricted.Save;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.requests.restaction.interactions.ReplyCallbackAction;
 
-public class SlashCommand extends ListenerAdapter {
+public class SlashCommandInteraction extends ListenerAdapter {
 
     public void onSlashCommandInteraction (SlashCommandInteractionEvent slashCommandInteractionEvent) {
         ReplyCallbackAction replyCallbackAction = slashCommandInteractionEvent.deferReply ();
@@ -44,6 +46,14 @@ public class SlashCommand extends ListenerAdapter {
             }
             case "balance": {
                 Balance.execute (slashCommandInteractionEvent);
+                break;
+            }
+            case "land": {
+                Land.execute (slashCommandInteractionEvent);
+                break;
+            }
+            case "hunt": {
+                Hunt.execute (slashCommandInteractionEvent);
                 break;
             }
         }
