@@ -11,7 +11,7 @@ import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEve
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
 import net.dv8tion.jda.api.interactions.commands.build.SlashCommandData;
 public class Hunt {
-    public static final SlashCommandData slashCommandData = Commands.slash ("hunt", "[Economy] [Tasks] Hunts for Monsters on your Hunting Ground.");
+    public static final SlashCommandData slashCommandData = Commands.slash ("hunt", "[Economy] [Tasks] Hunts Monsters on your Hunting Ground.");
 
     public static void execute (SlashCommandInteractionEvent slashCommandInteractionEvent) {
         final User user = slashCommandInteractionEvent.getUser ();
