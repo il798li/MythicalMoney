@@ -6,14 +6,19 @@ import MythicalMoney.Commands.Basic.Ping;
 import MythicalMoney.Commands.Basic.Statistics;
 import MythicalMoney.Commands.Economy.Balance;
 import MythicalMoney.Commands.Economy.Inventory;
+import MythicalMoney.Commands.Economy.Land;
+import MythicalMoney.Commands.Economy.Tasks.Harvest;
 import MythicalMoney.Commands.Economy.Tasks.Hunt;
 import MythicalMoney.Commands.Restricted.Save;
 import MythicalMoney.Main;
 import net.dv8tion.jda.api.JDA;
+import net.dv8tion.jda.api.OnlineStatus;
+import net.dv8tion.jda.api.entities.Activity;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import net.dv8tion.jda.api.managers.Presence;
 import net.dv8tion.jda.api.requests.restaction.CommandListUpdateAction;
 
 public class Ready extends ListenerAdapter {
@@ -55,6 +60,14 @@ public class Ready extends ListenerAdapter {
             publishedCommandListUpdateAction.queue ();
         }
         final long ping = Ping.ping (jda);
+        presence (jda);
         Main.debug (name + " is responding to commands with " + ping + " milliseconds of latency...");
+    }
+
+    public static void presence (final JDA jda) {
+        final Presence presence = jda.getPresence ();
+        OnlineStatus onlineStatus = OnlineStatus.ONLINE;
+        Activity activity = Activity.of (Activity.ActivityType.STREAMING, "Welcome to Mythical Money, Discord's most advanced economy bot ever!");
+        presence.setPresence (onlineStatus, activity);
     }
 }
