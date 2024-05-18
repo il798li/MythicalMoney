@@ -75,7 +75,7 @@ public class Land {
                 return "chop";
             }
             case Hoe: {
-                return "till";
+                return "harvest";
             }
             default: {
                 return null;
@@ -95,7 +95,7 @@ public class Land {
                 return "chopped";
             }
             case Hoe: {
-                return "tilled";
+                return "harvested";
             }
             default: {
                 return null;

@@ -37,21 +37,23 @@ public class Ready extends ListenerAdapter {
         final String name = mm.getName ();
         Main.debug ("Successfully signed in as " + name + "!");
         Guild mmGuild = jda.getGuildById (834113328459677747L);
-        CommandListUpdateAction commandListUpdateAction = null;
-        if (mmGuild != null) {
-            commandListUpdateAction = mmGuild.updateCommands ();
-        }
+
+        CommandListUpdateAction commandListUpdateAction = mmGuild.updateCommands ();
+        commandListUpdateAction.addCommands (Land.slashCommandData);
         commandListUpdateAction.addCommands (Save.slashCommandData);
         commandListUpdateAction.queue ();
-        CommandListUpdateAction publishedCommandListUpdateAction = jda.updateCommands ();
-        publishedCommandListUpdateAction.addCommands (Ping.slashCommandData);
-        publishedCommandListUpdateAction.addCommands (Settings.slashCommandData);
-        publishedCommandListUpdateAction.addCommands (Credits.slashCommandData);
-        publishedCommandListUpdateAction.addCommands (Statistics.slashCommandData);
-        publishedCommandListUpdateAction.addCommands (Inventory.slashCommandData);
-        publishedCommandListUpdateAction.addCommands (Balance.slashCommandData);
-        publishedCommandListUpdateAction.addCommands (Hunt.slashCommandData);
-        publishedCommandListUpdateAction.queue ();
+        {
+            CommandListUpdateAction publishedCommandListUpdateAction = jda.updateCommands ();
+            publishedCommandListUpdateAction.addCommands (Ping.slashCommandData);
+            publishedCommandListUpdateAction.addCommands (Settings.slashCommandData);
+            publishedCommandListUpdateAction.addCommands (Credits.slashCommandData);
+            publishedCommandListUpdateAction.addCommands (Statistics.slashCommandData);
+            publishedCommandListUpdateAction.addCommands (Inventory.slashCommandData);
+            publishedCommandListUpdateAction.addCommands (Balance.slashCommandData);
+            publishedCommandListUpdateAction.addCommands (Hunt.slashCommandData);
+            publishedCommandListUpdateAction.addCommands (Harvest.slashCommandData);
+            publishedCommandListUpdateAction.queue ();
+        }
         final long ping = Ping.ping (jda);
         Main.debug (name + " is responding to commands with " + ping + " milliseconds of latency...");
     }

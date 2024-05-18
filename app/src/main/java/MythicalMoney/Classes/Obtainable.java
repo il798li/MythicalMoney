@@ -20,6 +20,10 @@ public class Obtainable {
     public static final Obtainable maple = new Obtainable (new Display ("Maple Tree"), ToolType.Axe);
     public static final Obtainable oak = new Obtainable (new Display ("Oak Tree"), ToolType.Axe);
     public static final Obtainable sandal = new Obtainable (new Display ("Sandalwood Tree"), ToolType.Axe);
+    public static final Obtainable wheat = new Obtainable (new Display ("Wheat Crop"), ToolType.Hoe);
+    public static final Obtainable pumpkin = new Obtainable (new Display ("Pumpkin Crop"), ToolType.Hoe);
+    public static final Obtainable watermelon = new Obtainable (new Display ("Watermelon Crop"), ToolType.Hoe);
+    public static final Obtainable bamboo = new Obtainable (new Display ("Bamboo Crop"), ToolType.Hoe);
     public final Display display;
     public final ToolType tool;
 

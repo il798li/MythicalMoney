@@ -20,6 +20,10 @@ public class Item {
     public static final Item maple = new Item (new Display.DisplayPlus ("Maple Wood", "Maple Wood", "maple"), 5000, Obtainable.maple);
     public static final Item oak = new Item (new Display.DisplayPlus ("Oak Wood", "Oak Wood", "oak"), 10000, Obtainable.oak);
     public static final Item sandal = new Item (new Display.DisplayPlus ("Sandal Wood", "Sandal Wood", "sandal"), 25000, Obtainable.sandal);
+    public static final Item wheat = new Item (new Display.DisplayPlus ("Wheat", "Wheat", "wheat"), 1000, Obtainable.wheat);
+    public static final Item pumpkin = new Item (new Display.DisplayPlus ("Pumpkin"), 5000, Obtainable.pumpkin);
+    public static final Item watermelon = new Item (new Display.DisplayPlus ("Watermelon"), 10000, Obtainable.watermelon);
+    public static final Item bamboo = new Item (new Display.DisplayPlus ("Bamboo", "Bamboo", "bamboo"), 25000, Obtainable.bamboo);
     public final Display.DisplayPlus display;
     public final int price;
     public final Obtainable obtainable;
