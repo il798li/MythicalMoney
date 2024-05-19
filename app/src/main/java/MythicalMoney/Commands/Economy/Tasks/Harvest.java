@@ -54,6 +54,7 @@ public class Harvest {
             final String cropDisplay = crop.display.display (harvested);
             final Item item = Item.get (crop);
             final String itemDisplay = item.display.display (obtained);
+            player.inventory.add (item, obtained);
             displays[index] = new Display (cropDisplay, "You harvested " + harvested + " " + cropDisplay + " and obtained " + obtained + " " + itemDisplay + "!");
         }
         DiscordUtility.deletable (slashCommandInteractionEvent, displays, false);

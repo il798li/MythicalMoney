@@ -54,6 +54,7 @@ public class Hunt {
             final String monsterDisplay = monster.display.display (hunted);
             final Item item = Item.get (monster);
             final String itemDisplay = item.display.display (obtained);
+            player.inventory.add (item, obtained);
             displays[index] = new Display (monsterDisplay, "You hunted " + hunted + " " + monsterDisplay + " and obtained " + obtained + " " + itemDisplay + "!");
         }
         DiscordUtility.deletable (slashCommandInteractionEvent, displays, false);
