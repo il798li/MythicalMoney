@@ -7,6 +7,7 @@ import MythicalMoney.Commands.Basic.Statistics;
 import MythicalMoney.Commands.Economy.Balance;
 import MythicalMoney.Commands.Economy.Inventory;
 import MythicalMoney.Commands.Economy.Land;
+import MythicalMoney.Commands.Economy.Tasks.Chop;
 import MythicalMoney.Commands.Economy.Tasks.Harvest;
 import MythicalMoney.Commands.Economy.Tasks.Hunt;
 import MythicalMoney.Commands.Restricted.Save;
@@ -57,6 +58,7 @@ public class Ready extends ListenerAdapter {
             publishedCommandListUpdateAction.addCommands (Balance.slashCommandData);
             publishedCommandListUpdateAction.addCommands (Hunt.slashCommandData);
             publishedCommandListUpdateAction.addCommands (Harvest.slashCommandData);
+            publishedCommandListUpdateAction.addCommands (Chop.slashCommandData);
             publishedCommandListUpdateAction.queue ();
         }
         final long ping = Ping.ping (jda);

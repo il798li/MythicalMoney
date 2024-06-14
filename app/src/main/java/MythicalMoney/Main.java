@@ -3,7 +3,8 @@ package MythicalMoney;
 import MythicalMoney.Data.Player;
 import MythicalMoney.Data.Setting;
 import MythicalMoney.Listeners.Ready;
-import MythicalMoney.Listeners.SlashCommand;
+import MythicalMoney.Listeners.SlashCommandInteraction;
+import MythicalMoney.Listeners.StringSelectInteraction;
 import MythicalMoney.Utility.FileUtility;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
@@ -29,7 +30,7 @@ public class Main {
             jda = jdaBuilder.build ();
         } catch (LoginException loginException) {
             debug ("Could not login using this token: \"" + token + "\"");
-            return;
+            return;h
         } catch (Exception exception) {
             debug ("An unknown error occurred.");
             exception.printStackTrace ();
@@ -45,8 +46,12 @@ public class Main {
                 jda.addEventListener (ready);
             }
             {
-                SlashCommand slashCommand = new SlashCommand ();
-                jda.addEventListener (slashCommand);
+                SlashCommandInteraction slashCommandInteraction = new SlashCommandInteraction ();
+                jda.addEventListener (slashCommandInteraction);
+            }
+            {
+                StringSelectInteraction stringSelectInteraction = new StringSelectInteraction ();
+                jda.addEventListener (stringSelectInteraction);
             }
         }
     }

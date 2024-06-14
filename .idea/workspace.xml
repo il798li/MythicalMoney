@@ -5,9 +5,40 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cccc4f05-823e-49ba-8442-6f425071e2fa" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Land.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Land.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Classes/Armor$ArmorType.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Classes/Armor$ArmorType.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Classes/Armor.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Classes/Armor.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Classes/Display.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Classes/DisplayPlus.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Classes/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Classes/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Classes/Obtainable$Tool.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Classes/Obtainable.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Classes/Obtainable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Classes/Property.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Commands/Basic/Credits.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Commands/Basic/Credits.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Commands/Basic/Settings.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Data/Inventory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Data/Setting.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Data/Setting.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/JSON/Blacklisted.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/main/MythicalMoney/JSON/Blacklisted.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/JSON/Deletables.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/main/MythicalMoney/JSON/Deletables.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/JSON/Profiles.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/main/MythicalMoney/JSON/Profiles.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/JSON/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/main/MythicalMoney/JSON/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Listeners/Ready.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Listeners/Ready.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Listeners/SlashCommand.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Utility/BasicUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Utility/BasicUtility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Utility/DiscordUtility$TimestampFormat.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Utility/DiscordUtility$TimestampFormat.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Utility/DiscordUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Utility/DiscordUtility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Utility/FileUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Utility/FileUtility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Utility/JSONUtility.class" beforeDir="false" afterPath="$PROJECT_DIR$/app/bin/main/MythicalMoney/Utility/JSONUtility.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Armor.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Classes/Armor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Economy/Land.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Economy/Land.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Economy/Tasks/Hunt.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Economy/Tasks/Hunt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/JSON/Profiles.json" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/JSON/Profiles.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Listeners/Ready.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Listeners/Ready.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Listeners/SlashCommandInteraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Listeners/SlashCommandInteraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Token.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Token.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Utility/DiscordUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Utility/DiscordUtility.java" afterDir="false" />
     </list>
@@ -20,6 +51,37 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="MythicalMoney" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="MythicalMoney" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="MythicalMoney" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -42,6 +104,9 @@
   <component name="MavenRunner">
     <option name="jreName" value="21" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
@@ -62,6 +127,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Main.executor": "Run",
     "Gradle.MythicalMoney:app [:app:Main.main()].executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -69,18 +135,21 @@
     "full.screen.before.presentation.mode": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/seatt/OneDrive/Documents",
     "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
     "run.code.analysis.last.selected.profile": "pProject Default",
     "settings.build.tools.auto.reload": "ALL",
-    "settings.editor.selected.configurable": "preferences.sourceCode.Java"
+    "settings.editor.selected.configurable": "preferences.lookFeel"
   }
 }]]></component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="ALTERNATIVE_JRE_PATH" value="21" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
       <option name="MAIN_CLASS_NAME" value="MythicalMoney.Main" />
-      <module name="MythicalMoney.app.main" />
+      <module name="MythicalMoney" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="MythicalMoney.*" />
@@ -96,14 +165,6 @@
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-19.0.2-corretto-19.0.2-4caba194b151-48ba4555" />
-        <option value="jdk-21.0.2-openjdk-21.0.2-4caba194b151-4f524021" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">

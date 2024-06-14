@@ -1,6 +1,6 @@
 package MythicalMoney.Classes;
 
-import MythicalMoney.Classes.Helpers.DisplayPlus;
+import MythicalMoney.Classes.Helpers.Display;
 
 import java.util.ArrayList;
 
@@ -9,16 +9,16 @@ public class Armor {
     public static final ArrayList <Armor> armors = new ArrayList <Armor> ();
     public final int health;
     public final int defense;
-    public final DisplayPlus display;
+    public final Display.DisplayPlus display;
 
-    public Armor (int health, int defense, DisplayPlus display, ArmorType armorType) {
+    public Armor (int health, int defense, Display.DisplayPlus display, ArmorType armorType) {
         this.health = health;
         this.defense = defense;
         this.display = display;
         armors.add (this);
     }
 
-    public Armor (int health, DisplayPlus display) {
+    public Armor (int health, Display.DisplayPlus display) {
         this.health = health;
         this.defense = 0;
         this.display = display;

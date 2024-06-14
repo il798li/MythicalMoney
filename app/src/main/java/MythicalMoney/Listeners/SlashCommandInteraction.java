@@ -7,6 +7,7 @@ import MythicalMoney.Commands.Basic.Statistics;
 import MythicalMoney.Commands.Economy.Balance;
 import MythicalMoney.Commands.Economy.Inventory;
 import MythicalMoney.Commands.Economy.Land;
+import MythicalMoney.Commands.Economy.Tasks.Chop;
 import MythicalMoney.Commands.Economy.Tasks.Harvest;
 import MythicalMoney.Commands.Economy.Tasks.Hunt;
 import MythicalMoney.Commands.Restricted.Save;
@@ -59,6 +60,10 @@ public class SlashCommandInteraction extends ListenerAdapter {
             }
             case "harvest": {
                 Harvest.execute (slashCommandInteractionEvent);
+                break;
+            }
+            case "chop": {
+                Chop.execute (slashCommandInteractionEvent);
                 break;
             }
         }

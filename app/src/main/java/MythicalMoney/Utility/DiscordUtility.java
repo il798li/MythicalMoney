@@ -9,6 +9,7 @@ import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
+import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
 import net.dv8tion.jda.api.requests.restaction.WebhookMessageAction;
@@ -38,6 +39,20 @@ public class DiscordUtility {
         messageAction.queue ();
     }
 
+    public static MessageEmbed smartEmbed (final SlashCommandInteractionEvent slashCommandInteractionEvent, final Display[] displays) {
+        final EmbedBuilder embedBuilder = new EmbedBuilder ();
+        final int columns
+        return embedBuilder.build ();
+    }
+
+    public static int columns (Object[] objects) {
+        for (int columns = 3; columns > 0; columns--) {
+            if (objects.length % columns == 0) {
+                return columns;
+            }
+        }
+        return 1;
+    }
     public static MessageEmbed embed (final SlashCommandInteractionEvent slashCommandInteractionEvent, final Display[] displays) {
         final String embedDescription = embedDescription (slashCommandInteractionEvent);
         final StringBuilder description = new StringBuilder (embedDescription);
@@ -183,6 +198,15 @@ public class DiscordUtility {
             return "@" + user.getName ();
         }
         return user.getAsMention ();
+    }
+
+    public static long userID (SlashCommandInteractionEvent slashCommandInteractionEvent) {
+        User user = slashCommandInteractionEvent.getUser ();
+        final OptionMapping optionMapping = slashCommandInteractionEvent.getOption ("user");
+        if (optionMapping != null) {
+            user = optionMapping.getAsUser ();
+        }
+        return user.getIdLong ();
     }
 
     public enum TimestampFormat {
