@@ -4,9 +4,9 @@ import MythicalMoney.Commands.Administrator.Settings;
 import MythicalMoney.Commands.Basic.Credits;
 import MythicalMoney.Commands.Basic.Ping;
 import MythicalMoney.Commands.Basic.Statistics;
-import MythicalMoney.Commands.Economy.Balance;
-import MythicalMoney.Commands.Economy.Inventory;
-import MythicalMoney.Commands.Economy.Land;
+import MythicalMoney.Commands.Economy.Information.Balance;
+import MythicalMoney.Commands.Economy.Information.Inventory;
+import MythicalMoney.Commands.Economy.Information.Land;
 import MythicalMoney.Commands.Economy.Tasks.Chop;
 import MythicalMoney.Commands.Economy.Tasks.Harvest;
 import MythicalMoney.Commands.Economy.Tasks.Hunt;
@@ -38,16 +38,17 @@ public class Ready extends ListenerAdapter {
     }
 
     public void onReady (ReadyEvent readyEvent) {
-        JDA jda = readyEvent.getJDA ();
-        User mm = jda.getSelfUser ();
+        final JDA jda = readyEvent.getJDA ();
+        final User mm = jda.getSelfUser ();
         final String name = mm.getName ();
         Main.debug ("Successfully signed in as " + name + "!");
-        Guild mmGuild = jda.getGuildById (834113328459677747L);
-
-        CommandListUpdateAction commandListUpdateAction = mmGuild.updateCommands ();
-        commandListUpdateAction.addCommands (Land.slashCommandData);
-        commandListUpdateAction.addCommands (Save.slashCommandData);
-        commandListUpdateAction.queue ();
+        final Guild mmGuild = jda.getGuildById (834113328459677747L);
+        {
+            final CommandListUpdateAction commandListUpdateAction = mmGuild.updateCommands ();
+            commandListUpdateAction.addCommands (Land.slashCommandData);
+            commandListUpdateAction.addCommands (Save.slashCommandData);
+            commandListUpdateAction.queue ();
+        }
         {
             CommandListUpdateAction publishedCommandListUpdateAction = jda.updateCommands ();
             publishedCommandListUpdateAction.addCommands (Ping.slashCommandData);
@@ -67,9 +68,8 @@ public class Ready extends ListenerAdapter {
     }
 
     public static void presence (final JDA jda) {
-        final Presence presence = jda.getPresence ();
-        OnlineStatus onlineStatus = OnlineStatus.ONLINE;
-        Activity activity = Activity.of (Activity.ActivityType.STREAMING, "Welcome to Mythical Money, Discord's most advanced economy bot ever!");
-        presence.setPresence (onlineStatus, activity);
+        final Presence jdaPresence = jda.getPresence ();
+        final Activity activity = Activity.of (Activity.ActivityType.STREAMING, "Welcome to Mythical Money, Discord's most advanced economy bot ever!");
+        jdaPresence.setPresence (OnlineStatus.ONLINE, activity);
     }
 }

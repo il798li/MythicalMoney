@@ -18,6 +18,8 @@ public class Main {
     public static JDA jda;
 
     public static void main (String[] args) {
+        final Runtime runtime = Runtime.getRuntime ();
+        //runtime.gc ();
         for (int loop = 0; loop < 100; loop++) {
             debug ();
         }
@@ -30,7 +32,7 @@ public class Main {
             jda = jdaBuilder.build ();
         } catch (LoginException loginException) {
             debug ("Could not login using this token: \"" + token + "\"");
-            return;h
+            return;
         } catch (Exception exception) {
             debug ("An unknown error occurred.");
             exception.printStackTrace ();
@@ -42,18 +44,19 @@ public class Main {
         }
         {
             {
-                Ready ready = new Ready ();
+                final Ready ready = new Ready ();
                 jda.addEventListener (ready);
             }
             {
-                SlashCommandInteraction slashCommandInteraction = new SlashCommandInteraction ();
+                final SlashCommandInteraction slashCommandInteraction = new SlashCommandInteraction ();
                 jda.addEventListener (slashCommandInteraction);
             }
             {
-                StringSelectInteraction stringSelectInteraction = new StringSelectInteraction ();
+                final StringSelectInteraction stringSelectInteraction = new StringSelectInteraction ();
                 jda.addEventListener (stringSelectInteraction);
             }
         }
+
     }
 
     public static void debug () {
@@ -62,7 +65,7 @@ public class Main {
 
     public static void debug (final String debug) {
         final String startingString = "\t[Debug] ";
-        StringBuilder formattedDebug = new StringBuilder (startingString);
+        final StringBuilder formattedDebug = new StringBuilder (startingString);
         final int length = debug.length ();
         for (int index = 0; index < length; index++) {
             String character = debug.charAt (index) + "";

@@ -24,7 +24,8 @@ public class DiscordUtility {
     public static void deletable (SlashCommandInteractionEvent slashCommandInteractionEvent, Display[] displays, boolean deletable) {
         MessageBuilder messageBuilder = new MessageBuilder ();
         {
-            MessageEmbed embed = embed (slashCommandInteractionEvent, displays);
+            //MessageEmbed embed = embed (slashCommandInteractionEvent, displays);
+            MessageEmbed embed = smartEmbed (slashCommandInteractionEvent, displays);
             messageBuilder.setEmbeds (embed);
         }
         if (deletable) {
@@ -40,9 +41,32 @@ public class DiscordUtility {
     }
 
     public static MessageEmbed smartEmbed (final SlashCommandInteractionEvent slashCommandInteractionEvent, final Display[] displays) {
+        Main.debug ("Displays length: " + displays.length);
         final EmbedBuilder embedBuilder = new EmbedBuilder ();
-        final int columns
-        return embedBuilder.build ();
+        Column column = Column.left;
+        if (displays.length % 3 == 0) {
+            for (int index = 0; index < displays.length; index++) {
+                final Display display = displays[index];
+                embedBuilder.addField (display.single, display.plural, true);
+                column = nextColumn (column);
+            }
+        } else if (displays.length % 2 == 0) {
+            for (final Display display : displays) {
+                embedBuilder.addField (display.single, display.plural, true);
+                if (column == Column.left) {
+                    embedBuilder.addField ("", "", true);
+                    column = nextColumn (column);
+                }
+                column = nextColumn (column);
+            }
+        } else {
+            for (final Display display : displays) {
+                embedBuilder.addField (display.single, display.plural, false);
+            }
+        }
+        embedBuilder.setColor(blurple);
+        final MessageEmbed messageEmbed = embedBuilder.build ();
+        return messageEmbed;
     }
 
     public static int columns (Object[] objects) {
@@ -53,6 +77,28 @@ public class DiscordUtility {
         }
         return 1;
     }
+
+    public enum Column {
+        left,
+        middle,
+        right
+    }
+
+    public static Column nextColumn (final Column column) {
+        switch (column) {
+            case left: {
+                return Column.middle;
+            }
+            case middle: {
+                return Column.right;
+            }
+            case right: {
+                return Column.left;
+            }
+        }
+        return null;
+    }
+
     public static MessageEmbed embed (final SlashCommandInteractionEvent slashCommandInteractionEvent, final Display[] displays) {
         final String embedDescription = embedDescription (slashCommandInteractionEvent);
         final StringBuilder description = new StringBuilder (embedDescription);

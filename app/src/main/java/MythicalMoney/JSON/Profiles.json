@@ -4883,6 +4883,39 @@
             "hoe": "starter hoe"
         }
     },
+    "751269943160471602": {
+        "coins": 0,
+        "land": {
+            "mine": "starter mine",
+            "forest": "starter forest",
+            "farm": "starter farm",
+            "hunting ground": "starter hunting ground"
+        },
+        "inventory": {
+            "cherry": 0,
+            "titanium": 0,
+            "sandal": 0,
+            "bone": 0,
+            "mist": 0,
+            "gold": 0,
+            "bamboo": 0,
+            "diamond": 0,
+            "flamer": 0,
+            "maple": 0,
+            "oak": 0,
+            "copper": 0,
+            "wheat": 2,
+            "fang": 0,
+            "watermelon": 0,
+            "pumpkin": 0
+        },
+        "tools": {
+            "weapon": "starter weapon",
+            "pickaxe": "starter pickaxe",
+            "axe": "starter axe",
+            "hoe": "starter hoe"
+        }
+    },
     "486474948341268482": {
         "coins": 0,
         "land": {
@@ -7799,7 +7832,7 @@
             "cherry": 2,
             "titanium": 0,
             "sandal": 0,
-            "bone": 10,
+            "bone": 12,
             "mist": 19,
             "gold": 0,
             "bamboo": 0,

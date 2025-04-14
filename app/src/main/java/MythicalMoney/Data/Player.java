@@ -32,8 +32,8 @@ public class Player {
     }
 
     public static void load () {
-        JSONObject profiles = JSONUtility.load (JSONUtility.JSONFile.Profiles);
-        Iterator <String> keys = profiles.keys ();
+        final JSONObject profiles = JSONUtility.load (JSONUtility.JSONFile.Profiles);
+        final Iterator <String> keys = profiles.keys ();
         while (keys.hasNext ()) {
             final String key = keys.next ();
             final long userID = Long.parseLong (key);
@@ -71,7 +71,6 @@ public class Player {
     }
 
     public static Player get (long userID) {
-        final int size = players.size ();
         for (Player player : players) {
             if (player.userID == userID) {
                 return player;

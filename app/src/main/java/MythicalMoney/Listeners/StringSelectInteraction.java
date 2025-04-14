@@ -1,7 +1,6 @@
 package MythicalMoney.Listeners;
 
-import MythicalMoney.Commands.Economy.Land;
-import MythicalMoney.Main;
+import MythicalMoney.Commands.Economy.Information.Land;
 import net.dv8tion.jda.api.events.interaction.component.SelectMenuInteractionEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.json.JSONObject;

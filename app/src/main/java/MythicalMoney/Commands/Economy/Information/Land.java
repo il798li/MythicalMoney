@@ -1,11 +1,9 @@
-package MythicalMoney.Commands.Economy;
+package MythicalMoney.Commands.Economy.Information;
 
 import MythicalMoney.Classes.Helpers.Display;
 import MythicalMoney.Classes.Obtainable;
-import MythicalMoney.Commands.Economy.Tasks.Hunt;
 import MythicalMoney.Data.Player;
 import MythicalMoney.Utility.DiscordUtility;
-import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageEmbed;

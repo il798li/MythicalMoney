@@ -25,7 +25,7 @@ public class Setting {
         this (guildID, true, "mm");
     }
 
-    public Setting (long guildID, boolean compact, String prefix) {
+    public Setting (final long guildID, final boolean compact, String prefix) {
         this.guildID = guildID;
         this.compact = compact;
         this.prefix = prefix;
@@ -39,8 +39,8 @@ public class Setting {
     }
 
     public static void load () {
-        JSONObject settingsJSON = JSONUtility.load (JSONFile.Settings);
-        Iterator <String> keys = settingsJSON.keys ();
+        final JSONObject settingsJSON = JSONUtility.load (JSONFile.Settings);
+        final Iterator <String> keys = settingsJSON.keys ();
         while (keys.hasNext ()) {
             final String guildID = keys.next ();
             final long guildIDLong = Long.parseLong (guildID);
@@ -59,7 +59,6 @@ public class Setting {
                 guildSettings.put ("prefix", setting.prefix);
                 guildSettings.put ("compact", setting.compact);
             }
-            Main.debug (guildSettings.toString (4));
             jsonObject.put ("" + setting.guildID, guildSettings);
         }
         JSONUtility.save (jsonObject, JSONFile.Settings);
