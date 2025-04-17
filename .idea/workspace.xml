@@ -7,12 +7,11 @@
     <list default="true" id="8685c782-d6b6-4e9f-b416-bb127413dc4f" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Economy/Information/Land.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Economy/Information/Land.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Economy/Information/Balance.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Economy/Information/Balance.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Economy/Information/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Commands/Economy/Information/Inventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Setting.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Data/Setting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Listeners/Ready.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Listeners/Ready.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Listeners/StringSelectInteraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Listeners/StringSelectInteraction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Listeners/SlashCommandInteraction.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Listeners/SlashCommandInteraction.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Token.txt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Token.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Utility/DiscordUtility.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/MythicalMoney/Utility/DiscordUtility.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
