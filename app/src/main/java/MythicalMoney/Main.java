@@ -8,9 +8,9 @@ import MythicalMoney.Listeners.StringSelectInteraction;
 import MythicalMoney.Utility.FileUtility;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.JDABuilder;
+import net.dv8tion.jda.api.exceptions.InvalidTokenException;
 import net.dv8tion.jda.api.requests.GatewayIntent;
 
-import javax.security.auth.login.LoginException;
 import java.util.EnumSet;
 
 public class Main {
@@ -30,7 +30,7 @@ public class Main {
             final EnumSet <GatewayIntent> intents = GatewayIntent.getIntents (GatewayIntent.ALL_INTENTS);
             JDABuilder jdaBuilder = JDABuilder.create (token, intents);
             jda = jdaBuilder.build ();
-        } catch (LoginException loginException) {
+        } catch (final InvalidTokenException invalidTokenException) {
             debug ("Could not login using this token: \"" + token + "\"");
             return;
         } catch (Exception exception) {

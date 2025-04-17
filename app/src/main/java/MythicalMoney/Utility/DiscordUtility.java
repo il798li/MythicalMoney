@@ -3,6 +3,7 @@ package MythicalMoney.Utility;
 import MythicalMoney.Classes.Helpers.Display;
 import MythicalMoney.Data.Setting;
 import MythicalMoney.Main;
+import net.dv8tion.jda.api.utils.messages.MessageCreateBuilder;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
 import net.dv8tion.jda.api.MessageBuilder;
@@ -22,7 +23,7 @@ public class DiscordUtility {
     public static final Color blurple = new Color (114, 137, 218);
 
     public static void deletable (SlashCommandInteractionEvent slashCommandInteractionEvent, Display[] displays, boolean deletable) {
-        MessageBuilder messageBuilder = new MessageBuilder ();
+        MessageCreateBuilder messageBuilder = new MessageCreateBuilder ();
         {
             //MessageEmbed embed = embed (slashCommandInteractionEvent, displays);
             MessageEmbed embed = smartEmbed (slashCommandInteractionEvent, displays);

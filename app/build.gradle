@@ -24,7 +24,7 @@ dependencies {
 
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:31.1-jre'
-    implementation 'net.dv8tion:JDA:5.0.0-alpha.13'
+    implementation 'net.dv8tion:JDA:5.3.2'
     implementation 'org.json:json:20211205'
     implementation 'org.springframework.boot:spring-boot-starter-web'
 }
