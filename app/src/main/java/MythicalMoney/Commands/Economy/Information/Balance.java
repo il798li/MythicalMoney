@@ -22,7 +22,7 @@ public class Balance {
 
     public static void execute (SlashCommandInteractionEvent slashCommandInteractionEvent) {
         final OptionMapping optionMapping = slashCommandInteractionEvent.getOption ("user");
-        User author = slashCommandInteractionEvent.getUser ();
+        final User author = slashCommandInteractionEvent.getUser ();
         final long authorID = author.getIdLong ();
         User user = author;
         if (optionMapping != null) {

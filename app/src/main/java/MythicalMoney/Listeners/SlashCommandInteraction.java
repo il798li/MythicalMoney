@@ -17,8 +17,8 @@ import net.dv8tion.jda.api.requests.restaction.interactions.ReplyCallbackAction;
 
 public class SlashCommandInteraction extends ListenerAdapter {
 
-    public void onSlashCommandInteraction (SlashCommandInteractionEvent slashCommandInteractionEvent) {
-        ReplyCallbackAction replyCallbackAction = slashCommandInteractionEvent.deferReply ();
+    public void onSlashCommandInteraction (final SlashCommandInteractionEvent slashCommandInteractionEvent) {
+        final ReplyCallbackAction replyCallbackAction = slashCommandInteractionEvent.deferReply ();
         replyCallbackAction.queue ();
         final String name = slashCommandInteractionEvent.getName ();
         switch (name) {

@@ -15,14 +15,14 @@ public class Inventory {
     public static final SlashCommandData slashCommandData = slashCommandData ();
 
     public static SlashCommandData slashCommandData () {
-        SlashCommandData slashCommandData = Commands.slash ("inventory", "[Economy] Shows all items and their amount in your Inventory.");
+        final SlashCommandData slashCommandData = Commands.slash ("inventory", "[Economy] Shows all items and their amount in your Inventory.");
         slashCommandData.addOption (OptionType.USER, "user", "See another user's Inventory. Leave this blank to see your own Inventory.");
         return slashCommandData;
     }
 
-    public static void execute (SlashCommandInteractionEvent slashCommandInteractionEvent) {
+    public static void execute (final SlashCommandInteractionEvent slashCommandInteractionEvent) {
         final OptionMapping optionMapping = slashCommandInteractionEvent.getOption ("user");
-        User author = slashCommandInteractionEvent.getUser ();
+        final User author = slashCommandInteractionEvent.getUser ();
         final long authorID = author.getIdLong ();
         User user = author;
         if (optionMapping != null) {
