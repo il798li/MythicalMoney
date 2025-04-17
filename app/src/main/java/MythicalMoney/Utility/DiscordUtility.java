@@ -3,17 +3,18 @@ package MythicalMoney.Utility;
 import MythicalMoney.Classes.Helpers.Display;
 import MythicalMoney.Data.Setting;
 import MythicalMoney.Main;
+import net.dv8tion.jda.api.entities.channel.middleman.MessageChannel;
+import net.dv8tion.jda.api.requests.restaction.WebhookMessageCreateAction;
 import net.dv8tion.jda.api.utils.messages.MessageCreateBuilder;
 import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.JDA;
-import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.entities.*;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.commands.OptionMapping;
 import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.buttons.Button;
-import net.dv8tion.jda.api.requests.restaction.WebhookMessageAction;
+import net.dv8tion.jda.api.utils.messages.MessageCreateData;
 
 import java.awt.*;
 import java.time.Instant;
@@ -33,12 +34,12 @@ public class DiscordUtility {
             Display display = new Display ("Delete", "delete");
             Button delete = display.button ();
             ActionRow actionRow = ActionRow.of (delete);
-            messageBuilder.setActionRows (actionRow);
+            messageBuilder.addComponents (actionRow);
         }
         InteractionHook interactionHook = slashCommandInteractionEvent.getHook ();
-        Message message = messageBuilder.build ();
-        WebhookMessageAction <Message> messageAction = interactionHook.sendMessage (message);
-        messageAction.queue ();
+        MessageCreateData messageCreateData = messageBuilder.build ();
+        WebhookMessageCreateAction <Message> webhookMessageCreateAction = interactionHook.sendMessage (messageCreateData);
+        webhookMessageCreateAction.queue ();
     }
 
     public static MessageEmbed smartEmbed (final SlashCommandInteractionEvent slashCommandInteractionEvent, final Display[] displays) {
@@ -46,8 +47,7 @@ public class DiscordUtility {
         final EmbedBuilder embedBuilder = new EmbedBuilder ();
         Column column = Column.left;
         if (displays.length % 3 == 0) {
-            for (int index = 0; index < displays.length; index++) {
-                final Display display = displays[index];
+            for (final Display display : displays) {
                 embedBuilder.addField (display.single, display.plural, true);
                 column = nextColumn (column);
             }

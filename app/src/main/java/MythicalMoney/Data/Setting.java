@@ -1,6 +1,5 @@
 package MythicalMoney.Data;
 
-import MythicalMoney.Main;
 import MythicalMoney.Utility.JSONUtility;
 import MythicalMoney.Utility.JSONUtility.JSONFile;
 import net.dv8tion.jda.api.entities.Guild;

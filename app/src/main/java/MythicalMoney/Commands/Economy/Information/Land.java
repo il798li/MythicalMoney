@@ -4,12 +4,11 @@ import MythicalMoney.Classes.Helpers.Display;
 import MythicalMoney.Classes.Obtainable;
 import MythicalMoney.Data.Player;
 import MythicalMoney.Utility.DiscordUtility;
-import net.dv8tion.jda.api.MessageBuilder;
 import net.dv8tion.jda.api.entities.Message;
 import net.dv8tion.jda.api.entities.MessageEmbed;
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
-import net.dv8tion.jda.api.events.interaction.component.SelectMenuInteractionEvent;
+import net.dv8tion.jda.api.events.interaction.component.StringSelectInteractionEvent;
 import net.dv8tion.jda.api.interactions.InteractionHook;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.Commands;
@@ -18,12 +17,15 @@ import net.dv8tion.jda.api.interactions.components.ActionRow;
 import net.dv8tion.jda.api.interactions.components.selections.SelectMenu;
 import net.dv8tion.jda.api.interactions.components.selections.SelectMenuInteraction;
 import net.dv8tion.jda.api.interactions.components.selections.SelectOption;
-import net.dv8tion.jda.api.requests.restaction.WebhookMessageAction;
+import net.dv8tion.jda.api.interactions.components.selections.StringSelectMenu;
+import net.dv8tion.jda.api.requests.restaction.WebhookMessageCreateAction;
+import net.dv8tion.jda.api.utils.messages.MessageCreateBuilder;
+import net.dv8tion.jda.api.utils.messages.MessageCreateData;
 import org.json.JSONObject;
 
 import java.util.List;
 public class Land {
-    public static SlashCommandData slashCommandData = slashCommandData ();
+    public static final SlashCommandData slashCommandData = slashCommandData ();
 
     public static SlashCommandData slashCommandData () {
         final SlashCommandData slashCommandData = Commands.slash ("land", "Shows what Land is owned by a user.");
@@ -75,7 +77,7 @@ public class Land {
             selectMenuJSON.put ("starter", starterString);
         }
         final String selectMenuJSONString = selectMenuJSON.toString ();
-        final SelectMenu.Builder selectMenuBuilder = SelectMenu.create (selectMenuJSONString);
+        final StringSelectMenu.Builder selectMenuBuilder = StringSelectMenu.create (selectMenuJSONString);
         selectMenuBuilder.setPlaceholder ("Info");
         {
             selectMenuBuilder.addOption ("Hunting Ground", "hunting ground");
@@ -85,18 +87,19 @@ public class Land {
         }
         final SelectMenu selectMenu = selectMenuBuilder.build ();
         final ActionRow actionRow = ActionRow.of (selectMenu);
-        MessageBuilder messageBuilder = new MessageBuilder (messageEmbed);
-        messageBuilder.setActionRows (actionRow);
+        MessageCreateBuilder messageCreateBuilder = new MessageCreateBuilder ();
+        messageCreateBuilder.addEmbeds (messageEmbed);
+        messageCreateBuilder.addComponents (actionRow);
         InteractionHook interactionHook = slashCommandInteractionEvent.getHook ();
-        Message message = messageBuilder.build ();
-        WebhookMessageAction <Message> messageWebhookMessageAction = interactionHook.sendMessage (message);
+        MessageCreateData messageCreateData = messageCreateBuilder.build ();
+        WebhookMessageCreateAction <Message> messageWebhookMessageAction = interactionHook.sendMessage (messageCreateData);
         messageWebhookMessageAction.queue ();
     }
 
-    public static void respond (SelectMenuInteractionEvent selectMenuInteractionEvent) {
-        final String customID = selectMenuInteractionEvent.getComponentId ();
-        final SelectMenuInteraction selectMenuInteraction = selectMenuInteractionEvent.getInteraction ();
-        final List <SelectOption> selectedOptionsList = selectMenuInteraction.getSelectedOptions ();
+    public static void respond (StringSelectInteractionEvent stringSelectInteractionEvent) {
+        final String customID = stringSelectInteractionEvent.getComponentId ();
+        final SelectMenuInteraction selectMenuInteraction = stringSelectInteractionEvent.getInteraction ();
+        final List <SelectOption> selectedOptionsList = stringSelectInteractionEvent.getSelectedOptions ();
         final SelectOption selectOption = selectedOptionsList.get (0);
         final String selectOptionValue = selectOption.getValue ();
         final JSONObject jsonObject = new JSONObject (customID);
