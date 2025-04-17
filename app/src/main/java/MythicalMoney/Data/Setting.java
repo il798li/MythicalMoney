@@ -16,10 +16,6 @@ public class Setting {
     public final String prefix;
     public boolean compact;
 
-    public Setting (Guild guild) {
-        this (guild.getIdLong ());
-    }
-
     public Setting (long guildID) {
         this (guildID, true, "mm");
     }
