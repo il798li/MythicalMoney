@@ -4,7 +4,6 @@
 # Ignore Gradle build output directory
 build
 *.py
-*.txt
 app/src/main/java/MythicalMoney/Token.txt
 *.json
 *.txt
